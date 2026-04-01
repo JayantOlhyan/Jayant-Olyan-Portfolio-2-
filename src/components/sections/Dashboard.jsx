@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { siteMetadata, terminalBootLines, terminalBootLinesCompact, bootSequence, developerPortrait } from '../../data/portfolioData';
+import { siteMetadata, terminalBootLines, terminalBootLinesCompact, developerPortrait, themeData } from '../../data/portfolioData';
 
-export const Dashboard = () => {
+export const Dashboard = ({ currentTheme }) => {
+  const activeTheme = themeData.find(t => t.id === currentTheme) || themeData[0];
+  const portraitColor = activeTheme.portraitColor || '#00ff41';
   return (
     <div className="flex flex-col w-full max-w-6xl mx-auto py-4 space-y-8 md:space-y-10 px-0 sm:px-4 md:px-8">
       
@@ -30,7 +32,10 @@ export const Dashboard = () => {
             
             {/* ASCII Portrait - Fluid Scaling */}
             <div className="select-none overflow-hidden w-full flex justify-center">
-              <pre className="font-mono text-[0.6vw] sm:text-[3px] md:text-[3.5px] lg:text-[4px] leading-[1.12] tracking-[0.4px] text-[#00ff41] [text-shadow:0_0_8px_#00ff41,0_0_2px_#00ff41] overflow-hidden">
+              <pre 
+                style={{ color: portraitColor, textShadow: `0 0 8px ${portraitColor}, 0 0 2px ${portraitColor}` }}
+                className="font-mono text-[0.6vw] sm:text-[3px] md:text-[3.5px] lg:text-[4px] leading-[1.12] tracking-[0.4px] overflow-hidden"
+              >
                 {developerPortrait.join('\n')}
               </pre>
             </div>

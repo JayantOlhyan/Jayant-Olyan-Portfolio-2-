@@ -17,7 +17,7 @@ export const Home = ({ history, onBootComplete, onUnlock, currentTheme, onThemeC
   const renderComponent = (block) => {
     switch(block) {
       case 'unlock': return <Unlock onUnlock={onUnlock} />;
-      case 'dashboard': return <Dashboard />;
+      case 'dashboard': return <Dashboard currentTheme={currentTheme} />;
       case 'themes': return <ThemeSelector currentTheme={currentTheme} onThemeChange={onThemeChange} />;
       case 'hero': return <Hero onComplete={onBootComplete} />;
       case 'about': return <About />;

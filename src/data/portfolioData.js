@@ -296,29 +296,33 @@ export const themeData = [
   {
     id: 'dark',
     command: '/dark',
-    name: 'Default',
+    name: 'Default Dark Mode',
     description: 'deep tones, easy on the eyes',
-    colors: ['#0A0A0A', '#1A1A1B', '#D69E2E', '#CBD5E0']
+    colors: ['#0A0A0A', '#1A1A1B', '#D69E2E', '#CBD5E0'],
+    portraitColor: '#00ff41'
   },
   {
     id: 'light',
     command: '/light',
     name: 'Clean, bright, and professional',
     description: '',
-    colors: ['#FFFFFF', '#F7FAFC', '#D69E2E', '#4A5568']
+    colors: ['#FFFFFF', '#F7FAFC', '#D69E2E', '#4A5568'],
+    portraitColor: '#4A5568'
   },
   {
     id: 'retro',
     command: '/retro',
     name: '1983 CRT phosphor glow',
     description: 'scanlines included',
-    colors: ['#000000', '#000000', '#00FF00', '#00FF00']
+    colors: ['#0A0D08', '#0A0D08', '#FFE600', '#FFE600'],
+    portraitColor: '#FFE600'
   },
   {
     id: 'glass',
     command: '/glass',
     name: 'Frosted glass with depth and blur',
     description: '',
-    colors: ['#1A202C', '#2D3748', '#D69E2E', '#A3BFFA']
+    colors: ['#1A202C', '#2D3748', '#D69E2E', '#A3BFFA'],
+    portraitColor: '#4A89DF'
   }
 ];

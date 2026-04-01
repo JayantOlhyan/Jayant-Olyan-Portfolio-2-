@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { CommandPrompt } from '../components/ui/CommandPrompt';
+import { DigitalBackground } from '../components/ui/DigitalBackground';
 
 export const MainLayout = ({ children, onCommand, hideInput, onHistoryUp, onHistoryDown }) => {
   const scrollRef = useRef(null);
@@ -56,13 +57,13 @@ export const MainLayout = ({ children, onCommand, hideInput, onHistoryUp, onHist
 
   return (
     <div 
-      className="relative h-[100dvh] w-screen bg-bg-secondary font-mono text-text-primary flex items-center justify-center p-0 sm:p-8 transition-colors duration-300"
+      className="relative h-[100dvh] w-screen bg-bg-secondary font-mono text-text-primary flex items-center justify-center p-0 sm:p-8 transition-colors duration-300 overflow-hidden bg-vignette"
       onWheel={handleInteraction}
       onTouchStart={handleInteraction}
     >
       
-      {/* Dynamic Background */}
-      <div className="fixed inset-0 pointer-events-none os-background-layer" />
+      {/* Neural Grid Background Engine */}
+      <DigitalBackground />
       
       {/* Terminal Container */}
       <div className="relative w-full max-w-6xl h-full sm:h-[90vh] md:h-[90dvh] flex flex-col bg-bg-primary sm:rounded-lg overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-border-dark/30 terminal-window-glass transition-all duration-300 z-20">

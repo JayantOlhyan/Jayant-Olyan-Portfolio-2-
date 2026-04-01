@@ -44,15 +44,15 @@
   }
 
   .retro {
-    --app-bg-primary: #241400;
-    --app-bg-secondary: #160B00;
-    --app-bg-terminal: #2F1A00;
-    --app-text-primary: #FFB000;
-    --app-text-secondary: #CC8000;
-    --app-accent-green: #FF8C00;
-    --app-accent-bright: #FFD700;
-    --app-border-dark: #6C3900;
-    --app-highlight-dark: #452100;
+    --app-bg-primary: #0a0d08;
+    --app-bg-secondary: #050804;
+    --app-bg-terminal: #0d110b;
+    --app-text-primary: #FFE600;
+    --app-text-secondary: #CCB300;
+    --app-accent-green: #FFE600;
+    --app-accent-bright: #FFF500;
+    --app-border-dark: #3a4138;
+    --app-highlight-dark: #1d211b;
     --os-wallpaper: none;
   }
 
@@ -108,6 +108,9 @@
   }
   .content-glow {
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+  .bg-vignette {
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
   }
   .scanlines {
     background: linear-gradient(

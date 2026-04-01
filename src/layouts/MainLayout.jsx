@@ -4,8 +4,23 @@ import { CommandPrompt } from '../components/ui/CommandPrompt';
 export const MainLayout = ({ children, onCommand, hideInput, onHistoryUp, onHistoryDown }) => {
   const scrollRef = useRef(null);
 
+  const prevChildrenLength = useRef(0);
+  const isInitialDashboardRef = useRef(true);
+
   useEffect(() => {
     if (scrollRef.current) {
+      // Check if we just transitioned to the dashboard
+      const isDashboardRender = Array.isArray(children) && children.some(child => 
+        child.props?.history?.some(h => h.content === 'dashboard')
+      );
+
+      if (isDashboardRender && isInitialDashboardRef.current) {
+        isInitialDashboardRef.current = false;
+        scrollRef.current.scrollTop = 0; // Ensure we are at the top
+        return;
+      }
+
+      // Standard terminal scroll to bottom for command output
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [children]);

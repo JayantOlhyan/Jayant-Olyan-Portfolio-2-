@@ -29,8 +29,8 @@ export const Dashboard = () => {
             </h3>
             
             {/* ASCII Portrait - Fluid Scaling */}
-            <div className="select-none overflow-x-auto w-full flex justify-center custom-scrollbar">
-              <pre className="font-mono text-[0.6vw] sm:text-[3px] md:text-[3.5px] lg:text-[4px] leading-[1.12] tracking-[0.4px] text-[#00ff41] [text-shadow:0_0_8px_#00ff41,0_0_2px_#00ff41]">
+            <div className="select-none overflow-hidden w-full flex justify-center">
+              <pre className="font-mono text-[0.6vw] sm:text-[3px] md:text-[3.5px] lg:text-[4px] leading-[1.12] tracking-[0.4px] text-[#00ff41] [text-shadow:0_0_8px_#00ff41,0_0_2px_#00ff41] overflow-hidden">
                 {developerPortrait.join('\n')}
               </pre>
             </div>
@@ -60,11 +60,11 @@ export const Dashboard = () => {
             <h3 className="text-text-primary font-bold border-b border-border-dark pb-2 tracking-widest uppercase text-xs opacity-70">
               Capabilities
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-2 font-mono">
               {siteMetadata.capabilities.map((cap, i) => (
-                <div key={i} className="flex flex-col">
-                  <span className="text-xs font-bold text-text-primary mb-1">{cap.area}</span>
-                  <span className="text-[11px] text-text-secondary leading-relaxed">
+                <div key={i} className="flex items-baseline text-sm md:text-base">
+                  <span className="w-20 md:w-24 font-bold text-accent-green/90 flex-shrink-0">{cap.area}</span>
+                  <span className="text-text-primary/90 leading-relaxed">
                     {cap.skills}
                   </span>
                 </div>
@@ -77,21 +77,29 @@ export const Dashboard = () => {
             <h3 className="text-text-primary font-bold border-b border-border-dark pb-2 tracking-widest uppercase text-xs opacity-70">
               Navigation
             </h3>
-            <div className="space-y-2 font-mono text-[11px]">
-              <div className="flex items-center gap-3">
-                <span className="text-accent-green">/about</span>
-                <span className="text-text-secondary">Learn more about my journey</span>
+            <div className="space-y-1 font-mono text-sm md:text-base">
+              <div className="flex items-center gap-4">
+                <span className="text-accent-green w-20 md:w-24 flex-shrink-0">/about</span>
+                <span className="text-text-secondary/80">Bio & Timeline</span>
               </div>
-              <div className="flex items-center gap-3">
-                <span className="text-accent-green">/work</span>
-                <span className="text-text-secondary">View past and current projects</span>
+              <div className="flex items-center gap-4">
+                <span className="text-accent-green w-20 md:w-24 flex-shrink-0">/work</span>
+                <span className="text-text-secondary/80">Project Gallery</span>
               </div>
-              <div className="flex items-center gap-3">
-                <span className="text-accent-green">/skills</span>
-                <span className="text-text-secondary">Check my technical stack</span>
+              <div className="flex items-center gap-4">
+                <span className="text-accent-green w-20 md:w-24 flex-shrink-0">/clients</span>
+                <span className="text-text-secondary/80">Collaborations</span>
               </div>
-              <div className="flex items-center mt-4">
-                <span className="text-text-secondary italic">... /help for all commands</span>
+              <div className="flex items-center gap-4">
+                <span className="text-accent-green w-20 md:w-24 flex-shrink-0">/skills</span>
+                <span className="text-text-secondary/80">Tech Stack</span>
+              </div>
+              
+              <div className="pt-3 text-text-secondary/70 italic text-xs md:text-sm">
+                ... /help for all commands
+              </div>
+              <div className="text-text-secondary/70 italic text-xs md:text-sm">
+                Try /themes to change the vibe
               </div>
             </div>
           </div>
@@ -99,10 +107,12 @@ export const Dashboard = () => {
       </div>
 
       {/* Footer System Message */}
-      <div className="pt-8 border-t border-border-dark">
-        <p className="text-[11px] text-text-secondary leading-relaxed font-mono italic opacity-60">
-          [system] This site uses analytics cookies (GA4) to understand traffic. <br/>
-          Accept • Decline • /privacy for details
+      <div className="pt-8 border-t border-border-dark space-y-1">
+        <p className="text-[11px] text-text-secondary leading-relaxed font-mono italic opacity-80">
+          [system] Bored of the dark? Try /themes – there are 4 looks to choose from.
+        </p>
+        <p className="text-[11px] text-text-secondary leading-relaxed font-mono italic opacity-80">
+          Type /secrets if you like finding hidden things.
         </p>
       </div>
     </div>

@@ -14,7 +14,9 @@ function App() {
     unlock,
     commandHistory,
     historyIndex,
-    setHistoryIndex 
+    setHistoryIndex,
+    currentTheme,
+    setTheme
   } = useTerminal();
 
   const handleHistoryUp = () => {
@@ -43,7 +45,15 @@ function App() {
         onHistoryDown={handleHistoryDown}
       >
          <Routes>
-           <Route path="/" element={<Home history={history} onBootComplete={completeBoot} onUnlock={unlock} />} />
+           <Route path="/" element={
+             <Home 
+               history={history} 
+               onBootComplete={completeBoot} 
+               onUnlock={unlock} 
+               currentTheme={currentTheme}
+               onThemeChange={setTheme}
+             />
+           } />
          </Routes>
       </MainLayout>
     </BrowserRouter>

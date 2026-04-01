@@ -10,10 +10,10 @@ export const siteMetadata = {
   linkedin: 'https://linkedin.com/in/jayant-olhyan-5057292a1',
   openTo: ['Internships', 'Freelance Working', 'Hackathon Collabs'],
   capabilities: [
-    { area: "Design", skills: "Systems, UX/UI, Prototyping" },
-    { area: "Build", skills: "React, Next.js, Node.js, Python" },
-    { area: "AI", skills: "LLMs, LangChain, Computer Vision" },
-    { area: "Ship", skills: "SaaS, Cloud, Scalable Systems" }
+    { area: "Design", skills: "Systems, UX/UI, Strategy" },
+    { area: "Lead",   skills: "Teams, Workshops, Mentoring" },
+    { area: "Build",  skills: "Web, Mobile, Branding" },
+    { area: "Ship",   skills: "SaaS, Enterprise, Consumer" }
   ]
 };
 
@@ -34,12 +34,12 @@ export const terminalBootLinesCompact = [
   "╚████║██║  ██║   ██║   ██║  ██║██║ ╚███║   ██║   ",
   " ╚═══╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚══╝   ╚═╝   ",
   "                                                 ",
-  "    ██████╗ ██╗     ██╗  ██╗██╗   ██╗ █████╗ ███╗  ██╗",
-  "   ██╔═══██╗██║     ██║  ██║╚██╗ ██╔╝██╔══██╗████╗ ██║",
-  "   ██║   ██║██║     ███████║ ╚████╔╝ ███████║██╔██╗██║",
-  "   ██║   ██║██║     ██╔══██║  ╚██╔╝  ██╔══██║██║╚████║",
-  "   ╚██████╔╝███████╗██║  ██║   ██║   ██║  ██║██║ ╚███║",
-  "    ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚══╝"
+  " ██████╗ ██╗     ██╗  ██╗██╗   ██╗ █████╗ ███╗  ██╗",
+  "██╔═══██╗██║     ██║  ██║╚██╗ ██╔╝██╔══██╗████╗ ██║",
+  "██║   ██║██║     ███████║ ╚████╔╝ ███████║██╔██╗██║",
+  "██║   ██║██║     ██╔══██║  ╚██╔╝  ██╔══██║██║╚████║",
+  "╚██████╔╝███████╗██║  ██║   ██║   ██║  ██║██║ ╚███║",
+  " ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚══╝"
 ];
 
 export const developerPortrait = [
@@ -289,5 +289,36 @@ export const articles = [
     date: "February 2026",
     excerpt: "How we crunched NASA's debris dataset and rendered it visually in Three.js without melting the browser (or our wallets).",
     link: "https://linkedin.com/in/jayant-olhyan-5057292a1"
+  }
+];
+
+export const themeData = [
+  {
+    id: 'dark',
+    command: '/dark',
+    name: 'Default',
+    description: 'deep tones, easy on the eyes',
+    colors: ['#0A0A0A', '#1A1A1B', '#D69E2E', '#CBD5E0']
+  },
+  {
+    id: 'light',
+    command: '/light',
+    name: 'Clean, bright, and professional',
+    description: '',
+    colors: ['#FFFFFF', '#F7FAFC', '#D69E2E', '#4A5568']
+  },
+  {
+    id: 'retro',
+    command: '/retro',
+    name: '1983 CRT phosphor glow',
+    description: 'scanlines included',
+    colors: ['#000000', '#000000', '#00FF00', '#00FF00']
+  },
+  {
+    id: 'glass',
+    command: '/glass',
+    name: 'Frosted glass with depth and blur',
+    description: '',
+    colors: ['#1A202C', '#2D3748', '#D69E2E', '#A3BFFA']
   }
 ];

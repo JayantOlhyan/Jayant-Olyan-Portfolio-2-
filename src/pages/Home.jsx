@@ -11,12 +11,14 @@ import { Contact } from '../components/sections/Contact';
 
 import { Dashboard } from '../components/sections/Dashboard';
 import { Unlock } from '../components/sections/Unlock';
+import { ThemeSelector } from '../components/sections/ThemeSelector';
 
-export const Home = ({ history, onBootComplete, onUnlock }) => {
+export const Home = ({ history, onBootComplete, onUnlock, currentTheme, onThemeChange }) => {
   const renderComponent = (block) => {
     switch(block) {
       case 'unlock': return <Unlock onUnlock={onUnlock} />;
       case 'dashboard': return <Dashboard />;
+      case 'themes': return <ThemeSelector currentTheme={currentTheme} onThemeChange={onThemeChange} />;
       case 'hero': return <Hero onComplete={onBootComplete} />;
       case 'about': return <About />;
       case 'work': return <Projects />;

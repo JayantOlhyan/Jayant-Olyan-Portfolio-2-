@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 export const useTerminal = () => {
   const [isLocked, setIsLocked] = useState(true);
@@ -8,6 +8,19 @@ export const useTerminal = () => {
   const [commandHistory, setCommandHistory] = useState([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
   const [isBooting, setIsBooting] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState('dark');
+
+  const setTheme = useCallback((themeId) => {
+    setCurrentTheme(themeId);
+    document.documentElement.className = themeId;
+    localStorage.setItem('portfolio-theme', themeId);
+  }, []);
+
+  // Initialize theme from localStorage or default
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+    setTheme(savedTheme);
+  }, [setTheme]);
 
   const unlock = useCallback(() => {
     setIsLocked(false);
@@ -17,8 +30,6 @@ export const useTerminal = () => {
 
   const completeBoot = useCallback(() => {
     setIsBooting(false);
-    // On boot complete, we replace the hero with the dashboard 
-    // or keep it and add dashboard. VladBurca replaces it.
     setHistory([{ id: 'init', type: 'component', content: 'dashboard' }]);
   }, []);
 
@@ -37,52 +48,63 @@ export const useTerminal = () => {
     let response = null;
     let component = null;
 
-    switch (cmd) {
-      case '/help':
-      case 'help':
-        response = `Available commands:
-  /about       - Professional bio and expertise
-  /work        - Featured projects and case studies
-  /skills      - Technical stack and tools
-  /contact     - Contact information
-  /clear       - Clear terminal history
-  /themes      - List available color themes
-  /secrets     - ???`;
-        break;
-      case '/about':
-      case 'about':
-        component = 'about';
-        break;
-      case '/work':
-      case 'work':
-      case '/projects':
-      case 'projects':
-        component = 'work';
-        break;
-      case '/skills':
-      case 'skills':
-        component = 'skills';
-        break;
-      case '/contact':
-      case 'contact':
-        component = 'contact';
-        break;
-      case '/clear':
-      case 'clear':
-        setHistory([{ id: 'init-' + Date.now(), type: 'component', content: 'dashboard' }]);
-        return;
-      case '/secrets':
-      case 'secrets':
-        response = `ACCESS GRANTED. Experimental features found:
-  /matrix   - Wake up, Neo...
-  /coffee   - Check system energy levels
-  /konami   - ???`;
-        break;
-      case '/matrix':
-        response = "Establishing secure connection... Done. Welcome to the Matrix.";
-        break;
-      default:
-        response = `Command not found: ${cmd}. Type "/help" for assistance.`;
+    // Theme switching logic
+    if (['/dark', '/light', '/retro', '/glass'].includes(cmd)) {
+      const themeId = cmd.substring(1);
+      setTheme(themeId);
+      response = `System theme updated to: [${themeId.toUpperCase()}]`;
+    } else {
+      switch (cmd) {
+        case '/help':
+        case 'help':
+          response = `Available commands:
+    /about       - Professional bio and expertise
+    /work        - Featured projects and case studies
+    /skills      - Technical stack and tools
+    /contact     - Contact information
+    /clear       - Clear terminal history
+    /themes      - List available color themes
+    /secrets     - ???`;
+          break;
+        case '/themes':
+        case 'themes':
+          component = 'themes';
+          break;
+        case '/about':
+        case 'about':
+          component = 'about';
+          break;
+        case '/work':
+        case 'work':
+        case '/projects':
+        case 'projects':
+          component = 'work';
+          break;
+        case '/skills':
+        case 'skills':
+          component = 'skills';
+          break;
+        case '/contact':
+        case 'contact':
+          component = 'contact';
+          break;
+        case '/clear':
+        case 'clear':
+          setHistory([{ id: 'init-' + Date.now(), type: 'component', content: 'dashboard' }]);
+          return;
+        case '/secrets':
+        case 'secrets':
+          response = `ACCESS GRANTED. Experimental features found:
+    /matrix   - Wake up, Neo...
+    /coffee   - Check system energy levels
+    /konami   - ???`;
+          break;
+        case '/matrix':
+          response = "Establishing secure connection... Done. Welcome to the Matrix.";
+          break;
+        default:
+          response = `Command not found: ${cmd}. Type "/help" for assistance.`;
+      }
     }
 
     const resId = Date.now() + 1;
@@ -91,7 +113,7 @@ export const useTerminal = () => {
     } else if (component) {
       setHistory(prev => [...prev, { id: resId, type: 'component', content: component }]);
     }
-  }, []);
+  }, [setTheme]);
 
   return { 
     history, 
@@ -102,6 +124,8 @@ export const useTerminal = () => {
     executeCommand,
     commandHistory,
     historyIndex,
-    setHistoryIndex
+    setHistoryIndex,
+    currentTheme,
+    setTheme
   };
 };

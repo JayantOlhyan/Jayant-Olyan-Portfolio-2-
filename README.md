@@ -1,4 +1,4 @@
-# 🖥️ The Kernel Portfolio: A Terminal OS Experience
+# 🏛️ The Kernel Portfolio: A High-Fidelity Terminal OS
 
 [![React](https://img.shields.io/badge/React-18.x-61DAFB?logo=react&logoColor=black)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-v8.0-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
@@ -6,82 +6,98 @@
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-v11.x-FF0055?logo=framer&logoColor=white)](https://www.framer.com/motion/)
 
 > [!NOTE]
-> Welcome to a high-fidelity, developer-first terminal emulation portfolio. This isn't just a website; it's a lightweight mock-operating system designed to showcase technical mastery through a nostalgic yet cutting-edge Command Line Interface (CLI).
+> Welcome to a production-grade terminal emulation portfolio. This isn't just a landing page—it's a lightweight, interactive mock-operating system designed to showcase technical mastery through a nostalgic yet cutting-edge Command Line Interface (CLI).
 
 ---
 
-## 🌌 Project Overview
+## 🌌 System Vision
 
-Inspired by the precision and aesthetic of professional terminal interfaces (like [Vlad Burca's work](https://vladburca.com/)), this portfolio utilizes a React-driven engine to simulate a real-time boot sequence, filesystem navigation, and dynamic theme switching.
+Inspired by the precision and aesthetic of professional terminal interfaces (like **Vlad Burca's** work), this portfolio utilizes a custom React-driven engine to simulate:
+- **Instant Boot Sequence**: Real-time logic initialization.
+- **Interactive Filesystem**: Dynamic module loading via CLI.
+- **High-Fidelity Branding**: Standardized ASCII signatures and symbolist portraiture.
 
 ```text
- █████╗   █████╗   ██╗   ██╗   █████╗   ███╗   ██╗  ████████╗       ██████╗   ██╗        ██╗  ██╗  ██╗   ██╗   █████╗   ███╗   ██╗ 
- ╚══██╗  ██╔══██╗  ╚██╗ ██╔╝  ██╔══██╗  ████╗  ██║  ╚══██╔══╝      ██╔═══██╗  ██║        ██║  ██║  ╚██╗ ██╔╝  ██╔══██╗  ████╗  ██║ 
-    ██║  ███████║   ╚████╔╝   ███████║  ██╔██╗ ██║     ██║         ██║   ██║  ██║        ███████║   ╚████╔╝   ███████║  ██╔██╗ ██║ 
-██  ██║  ██╔══██║    ╚██╔╝    ██╔══██║  ██║╚██╗██║     ██║         ██║   ██║  ██║        ██╔══██║    ╚██╔╝    ██╔══██║  ██║╚██╗██║ 
-╚█████╔╝ ██║  ██║     ██║     ██║  ██║  ██║ ╚████║     ██║         ╚██████╔╝  ███████╗   ██║  ██║     ██║     ██║  ██║  ██║ ╚████║ 
- ╚════╝  ╚═╝  ╚═╝     ╚═╝     ╚═╝  ╚═╝  ╚═╝  ╚═══╝     ╚═╝          ╚═════╝   ╚══════╝   ╚═╝  ╚═╝     ╚═╝     ╚═╝  ╚═╝  ╚═╝  ╚═══╝ 
+ █████╗   █████╗   ██╗   ██╗    █████╗     ███╗   ██╗    ████████╗           ██████╗     ██╗           ██╗  ██╗    ██╗   ██╗    █████╗     ███╗   ██╗  
+ ╚══██╗  ██╔══██╗  ╚██╗ ██╔╝   ██╔══██╗    ████╗  ██║    ╚══██╔══╝          ██╔═══██╗    ██║           ██║  ██║    ╚██╗ ██╔╝   ██╔══██╗    ████╗  ██║  
+    ██║  ███████║   ╚████╔╝    ███████║    ██╔██╗ ██║       ██║             ██║   ██║    ██║           ███████║     ╚████╔╝    ███████║    ██╔██╗ ██║  
+ ██  ██║  ██╔══██║    ╚██╔╝     ██╔══██║    ██║╚██╗██║       ██║             ██║   ██║    ██║           ██╔══██║      ╚██╔╝     ██╔══██║    ██║╚██╗██║  
+ ╚█████╔╝ ██║  ██║     ██║      ██║  ██║    ██║ ╚████║       ██║             ╚██████╔╝    ███████╗      ██║  ██║       ██║      ██║  ██║    ██║ ╚████║  
+  ╚════╝  ╚═╝  ╚═╝     ╚═╝      ╚═╝  ╚═╝    ╚═╝  ╚═══╝       ╚═╝              ╚═════╝     ╚══════╝      ╚═╝  ╚═╝       ╚═╝      ╚═╝  ╚═╝    ╚═╝  ╚═══╝  
 ```
 
 ---
 
-## 🚀 Core Features
+## 🏗️ System Architecture
 
-- **⚡ Instant Boot Sequence**: A simulated BIOS boot process that initializes system modules and metadata.
-- **📟 Interactive CLI**: A fully functional command prompt supporting directory navigation, system checks, and interactive portal switches.
-- **🎨 Dynamic Themes**: Toggle between `Glassmorphism`, `Retro Terminal (Matrix)`, and `Midnight Dark` modes.
-- **🖼️ ASCII Portrait Engine**: A custom-rendered developer portrait built using technical symbols and high-contrast glow effects.
-- **📱 Responsive Shell**: A mobile-optimized layout that preserves the terminal aesthetic on all screen sizes.
+Our custom shell orchestrates the hardware-to-UI lifecycle using a high-fidelity React lifecycle pattern.
 
----
-
-## 🛠️ Tech Stack
-
-- **Framework**: React 18 (Vite)
-- **Styling**: Tailwind CSS v4.0 (for utility-first typography and custom scanline effects)
-- **Animation**: Framer Motion (orchestrating boot sequence and content transitions)
-- **Icons**: Lucide React
-- **Data Source**: Modular JS configuration for easy content updates.
-
----
-
-## 📸 Interface Showcase
-
-| Boot Sequence | Primary Dashboard | Symbolist Portrait |
-| :---: | :---: | :---: |
-| ![Boot](assets/readme/boot.png) | ![Dashboard](assets/readme/dashboard.png) | ![Portrait](assets/readme/portrait.png) |
-
----
-
-## ⚙️ Project Structure
-
-```text
-/src
-  /components
-    /sections     # Discrete OS modules (About, Projects, Skills)
-    /ui           # Atomic terminal components (Shell, Prompt, TypeWriter)
-  /data           # Single source of truth (Portfolio metadata & ASCII)
-  /hooks          # Custom OS logic (Terminal logic, Typing simulation)
-  /layouts        # The Main Shell container
+```mermaid
+graph TD
+    A[User Entry] --> B[BIOS Initialization]
+    B --> C{Boot Sequence}
+    C --> D[Kernel Shell Loaded]
+    D --> E[Command Listener]
+    E -->|/about| F[Identity Module]
+    E -->|/projects| G[Portfolio Grid]
+    E -->|/themes| H[Styles Engine]
+    E -->|/skills| I[Matrix Visualization]
+    F & G & H & I --> J[Standard Shell UI]
 ```
 
 ---
 
-## 🛠️ Local Development
+## 📟 Command Line Interface (CLI)
 
-To clone and run this terminal locally:
+The portfolio remains entirely navigable via the terminal prompt. Below is the primary command library available to the user.
 
-1. **Clone the repository**:
+| Command | Action | Visual Preview |
+| :--- | :--- | :--- |
+| `/help` | Launch System Manual | ![CLI Help](assets/readme/cli_help.png) |
+| `/themes` | Toggle Styles Engine | ![CLI Themes](assets/readme/cli_themes.png) |
+| `/about` | Initialize Identity | ![About Section](assets/readme/section_about.png) |
+
+---
+
+## 🖼️ Interface Gallery
+
+Explore the diverse modules of the "Kernel Portfolio" rendered in the signature terminal aesthetic.
+
+<table>
+  <tr>
+    <td align="center"><b>About Shell</b><br/><img src="assets/readme/section_about.png" width="400px"/></td>
+    <td align="center"><b>Skill Matrix</b><br/><img src="assets/readme/section_skills.png" width="400px"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Deployment Archives</b><br/><img src="assets/readme/section_projects.png" width="400px"/></td>
+    <td align="center"><b>Connection Protocol</b><br/><img src="assets/readme/section_contact.png" width="400px"/></td>
+  </tr>
+</table>
+
+---
+
+## 🛡️ Tech Stack & Requirements
+
+- **Engine**: React 18, Vite
+- **Styling**: Tailwind CSS v4.0 (Custom Scanline Filter)
+- **Physics**: Framer Motion (System Transitions)
+- **Typography**: Space Mono, Inter, and High-Contrast ASCII Sets
+
+---
+
+## 🛠️ Installation & Setup
+
+1. **Clone the Archives**:
    ```bash
    git clone https://github.com/JayantOlhyan/Jayant-Olyan-Portfolio-2-.git
    ```
 
-2. **Install dependencies**:
+2. **Initialize Environment**:
    ```bash
    npm install
    ```
 
-3. **Launch the environment**:
+3. **Launch Kernel**:
    ```bash
    npm run dev
    ```
@@ -91,7 +107,7 @@ To clone and run this terminal locally:
 ## 🤝 Connect
 
 > [!TIP]
-> Interested in collaboration or a project breakdown? Reach out via the terminal's `/contact` command or connect directly.
+> Visit the [live documentation](https://github.com/JayantOlhyan/Jayant-Olyan-Portfolio-2-) for the full experience or reach out directly to discuss technical narratives.
 
 - **GitHub**: [@JayantOlhyan](https://github.com/JayantOlhyan)
 - **Portfolio**: [jayant-s-portfolio.netlify.app](https://jayant-s-portfolio.netlify.app/)

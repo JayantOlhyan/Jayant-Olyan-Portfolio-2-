@@ -1,10 +1,11 @@
 <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- JO Bold Solid-Line Favicon -->
+  <!-- Refined JO Bold Final Favicon -->
   <g>
-    <!-- Bold J -->
-    <path d="M25 15V45C25 50 35 52 40 48" stroke="#00FF41" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Refined J: Top Bar + Deep Hook -->
+    <path d="M12 15H28" stroke="#00FF41" stroke-width="6" stroke-linecap="round"/>
+    <path d="M20 15V45C20 52 10 52 6 48" stroke="#00FF41" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
     
-    <!-- Bold O -->
+    <!-- Bold O: Balanced with J -->
     <path d="M45 15C55 15 55 45 45 45C35 45 35 15 45 15Z" stroke="#00FF41" stroke-width="6" stroke-linejoin="round"/>
   </g>
 </svg>

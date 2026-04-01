@@ -1,31 +1,36 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { siteMetadata, terminalBootLines, bootSequence, developerPortrait } from '../../data/portfolioData';
+import { siteMetadata, terminalBootLines, terminalBootLinesCompact, bootSequence, developerPortrait } from '../../data/portfolioData';
 
 export const Dashboard = () => {
   return (
-    <div className="flex flex-col w-full max-w-6xl mx-auto py-4 space-y-10 px-4 md:px-8">
+    <div className="flex flex-col w-full max-w-6xl mx-auto py-4 space-y-8 md:space-y-10 px-0 sm:px-4 md:px-8">
       
       {/* Header ASCII Logo */}
-      <div className="flex justify-center text-accent-bright/90 drop-shadow-[0_0_20px_rgba(57,255,20,0.4)] overflow-x-hidden py-8 border-b border-border-dark/50 mb-4">
-        <pre className="font-mono text-[8px] sm:text-[10px] md:text-[12px] leading-[1.1] md:leading-[1.2] select-none">
+      <div className="flex justify-center text-accent-bright/90 drop-shadow-[0_0_20px_rgba(57,255,20,0.4)] overflow-x-hidden pt-4 pb-6 md:py-8 border-b border-border-dark/30 mb-2 md:mb-4">
+        {/* Desktop View */}
+        <pre className="hidden md:block font-mono text-[10px] lg:text-[12px] leading-[1.2] select-none">
           {terminalBootLines.join('\n')}
+        </pre>
+        {/* Mobile View */}
+        <pre className="block md:hidden font-mono text-[7px] xs:text-[8px] leading-[1.1] select-none text-center">
+          {terminalBootLinesCompact.join('\n')}
         </pre>
       </div>
 
       {/* Main Content Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-0">
         
         {/* Left Column: Portrait & Intro */}
-        <div className="flex flex-col space-y-6 border border-dashed border-border-dark p-6 rounded-sm bg-bg-terminal/30 backdrop-blur-sm">
+        <div className="flex flex-col space-y-6 border border-dashed border-border-dark p-6 rounded-sm bg-bg-terminal/20 backdrop-blur-sm">
           <div className="flex flex-col items-center space-y-4">
-            <h3 className="text-text-primary font-bold text-center w-full border-b border-border-dark pb-2 tracking-widest uppercase text-xs opacity-70">
-              Welcome, visitor.
+            <h3 className="text-text-primary font-bold text-center w-full border-b border-border-dark pb-2 tracking-widest uppercase text-[10px] opacity-70">
+              Personal Identifier
             </h3>
             
-            {/* ASCII Portrait */}
+            {/* ASCII Portrait - Fluid Scaling */}
             <div className="select-none overflow-x-auto w-full flex justify-center custom-scrollbar">
-              <pre className="font-mono text-[2.5px] sm:text-[3.5px] md:text-[4px] lg:text-[4.5px] leading-[1.12] tracking-[0.4px] text-[#00ff41] [text-shadow:0_0_8px_#00ff41,0_0_2px_#00ff41]">
+              <pre className="font-mono text-[0.6vw] sm:text-[3px] md:text-[3.5px] lg:text-[4px] leading-[1.12] tracking-[0.4px] text-[#00ff41] [text-shadow:0_0_8px_#00ff41,0_0_2px_#00ff41]">
                 {developerPortrait.join('\n')}
               </pre>
             </div>

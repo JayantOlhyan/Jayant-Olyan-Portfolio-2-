@@ -1,12 +1,10 @@
 <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- JO 3D Wireframe Favicon -->
-  <g opacity="1">
-    <!-- Isometric J -->
-    <path d="M22 15V45L12 40V10L22 15Z" stroke="#00FF41" stroke-width="2" stroke-linejoin="round" stroke-dasharray="1 2"/>
-    <path d="M22 45C22 50 30 52 35 48" stroke="#00FF41" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 2"/>
+  <!-- JO Bold Solid-Line Favicon -->
+  <g>
+    <!-- Bold J -->
+    <path d="M25 15V45C25 50 35 52 40 48" stroke="#00FF41" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
     
-    <!-- Isometric O -->
-    <path d="M45 15C52 15 52 35 45 35C38 35 38 15 45 15Z" stroke="#00FF41" stroke-width="2" stroke-linejoin="round" stroke-dasharray="1 2"/>
-    <path d="M45 10C55 10 55 40 45 40C35 40 35 10 45 10Z" stroke="#00FF41" stroke-width="2" stroke-linejoin="round" stroke-dasharray="1 2"/>
+    <!-- Bold O -->
+    <path d="M45 15C55 15 55 45 45 45C35 45 35 15 45 15Z" stroke="#00FF41" stroke-width="6" stroke-linejoin="round"/>
   </g>
 </svg>

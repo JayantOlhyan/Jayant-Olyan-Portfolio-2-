@@ -11,8 +11,8 @@ export const useTerminal = () => {
 
   const unlock = useCallback(() => {
     setIsLocked(false);
-    setIsBooting(true);
-    setHistory([{ id: 'boot', type: 'component', content: 'hero' }]);
+    setIsBooting(false); // No boot sequence, skip directly to ready state
+    setHistory([{ id: 'init', type: 'component', content: 'dashboard' }]);
   }, []);
 
   const completeBoot = useCallback(() => {

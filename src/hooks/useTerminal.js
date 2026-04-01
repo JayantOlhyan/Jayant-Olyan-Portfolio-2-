@@ -1,12 +1,19 @@
 import { useState, useCallback } from 'react';
 
 export const useTerminal = () => {
+  const [isLocked, setIsLocked] = useState(true);
   const [history, setHistory] = useState([
-    { id: 'boot', type: 'component', content: 'hero' }
+    { id: 'lock', type: 'component', content: 'unlock' }
   ]);
   const [commandHistory, setCommandHistory] = useState([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
-  const [isBooting, setIsBooting] = useState(true);
+  const [isBooting, setIsBooting] = useState(false);
+
+  const unlock = useCallback(() => {
+    setIsLocked(false);
+    setIsBooting(true);
+    setHistory([{ id: 'boot', type: 'component', content: 'hero' }]);
+  }, []);
 
   const completeBoot = useCallback(() => {
     setIsBooting(false);
@@ -88,6 +95,8 @@ export const useTerminal = () => {
 
   return { 
     history, 
+    isLocked,
+    unlock,
     isBooting, 
     completeBoot, 
     executeCommand,

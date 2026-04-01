@@ -10,10 +10,12 @@ import { Testimonials } from '../components/sections/Testimonials';
 import { Contact } from '../components/sections/Contact';
 
 import { Dashboard } from '../components/sections/Dashboard';
+import { Unlock } from '../components/sections/Unlock';
 
-export const Home = ({ history, onBootComplete }) => {
+export const Home = ({ history, onBootComplete, onUnlock }) => {
   const renderComponent = (block) => {
     switch(block) {
+      case 'unlock': return <Unlock onUnlock={onUnlock} />;
       case 'dashboard': return <Dashboard />;
       case 'hero': return <Hero onComplete={onBootComplete} />;
       case 'about': return <About />;

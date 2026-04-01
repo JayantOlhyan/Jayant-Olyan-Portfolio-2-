@@ -9,7 +9,9 @@ function App() {
     history, 
     executeCommand, 
     isBooting, 
+    isLocked,
     completeBoot,
+    unlock,
     commandHistory,
     historyIndex,
     setHistoryIndex 
@@ -36,12 +38,12 @@ function App() {
     <BrowserRouter>
       <MainLayout 
         onCommand={executeCommand} 
-        hideInput={isBooting}
+        hideInput={isBooting || isLocked}
         onHistoryUp={handleHistoryUp}
         onHistoryDown={handleHistoryDown}
       >
          <Routes>
-           <Route path="/" element={<Home history={history} onBootComplete={completeBoot} />} />
+           <Route path="/" element={<Home history={history} onBootComplete={completeBoot} onUnlock={unlock} />} />
          </Routes>
       </MainLayout>
     </BrowserRouter>

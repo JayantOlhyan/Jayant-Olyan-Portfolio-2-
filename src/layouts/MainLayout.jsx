@@ -9,19 +9,39 @@ export const MainLayout = ({ children, onCommand, hideInput, onHistoryUp, onHist
 
   useEffect(() => {
     if (scrollRef.current) {
-      // Check if we just transitioned to the dashboard
-      const isDashboardRender = Array.isArray(children) && children.some(child => 
-        child.props?.history?.some(h => h.content === 'dashboard')
+      const childrenArray = React.Children.toArray(children);
+      const currentChildrenCount = childrenArray.length;
+      
+      // Check if we just transitioned to the dashboard (check nested props if needed)
+      const isDashboardRender = childrenArray.some(child => 
+        child.props?.history?.some(h => h.content === 'dashboard') ||
+        child.props?.currentSection === 'dashboard'
       );
 
+      // 1. Handle Initial Dashboard Render (Scroll to Top)
       if (isDashboardRender && isInitialDashboardRef.current) {
         isInitialDashboardRef.current = false;
-        scrollRef.current.scrollTop = 0; // Ensure we are at the top
+        scrollRef.current.scrollTop = 0;
+        prevChildrenLength.current = currentChildrenCount;
         return;
       }
 
-      // Standard terminal scroll to bottom for command output
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+      // 2. Smart Scroll for Command Output
+      // Only scroll to bottom if:
+      // - New items were added (history increased)
+      // - AND we are not locked
+      // - AND the user is already near the bottom (respect manual scroll-up)
+      if (currentChildrenCount > prevChildrenLength.current) {
+        const distanceFromBottom = scrollRef.current.scrollHeight - scrollRef.current.scrollTop - scrollRef.current.clientHeight;
+        
+        // If user is reading something at the top, don't snap back
+        // 150px threshold for "at the bottom"
+        if (distanceFromBottom < 150) {
+           scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+        }
+      }
+
+      prevChildrenLength.current = currentChildrenCount;
     }
   }, [children]);
 
@@ -32,7 +52,7 @@ export const MainLayout = ({ children, onCommand, hideInput, onHistoryUp, onHist
       <div className="fixed inset-0 pointer-events-none os-background-layer" />
       
       {/* Terminal Container */}
-      <div className="relative w-full max-w-6xl h-full sm:h-[90vh] flex flex-col bg-bg-primary sm:rounded-lg overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-border-dark/30 terminal-window-glass transition-all duration-300 z-20">
+      <div className="relative w-full max-w-6xl h-full sm:h-[90vh] md:h-[90dvh] flex flex-col bg-bg-primary sm:rounded-lg overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-border-dark/30 terminal-window-glass transition-all duration-300 z-20">
         
         {/* Internal CRT/Scanlines overlay */}
         <div className="absolute inset-0 scanlines pointer-events-none opacity-[0.2] md:opacity-40 z-50 mix-blend-overlay" />
@@ -54,6 +74,7 @@ export const MainLayout = ({ children, onCommand, hideInput, onHistoryUp, onHist
         {/* Scrollable Output Viewport */}
         <div 
           ref={scrollRef}
+          style={{ touchAction: 'pan-y' }}
           className="flex-1 overflow-y-auto px-2 md:px-8 py-4 md:py-6 pb-24 scroll-smooth relative z-20 custom-scrollbar overflow-x-hidden content-glow"
         >
           {children}

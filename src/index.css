@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --color-bg-primary: var(--app-bg-primary);
+  --color-bg-secondary: var(--app-bg-secondary);
+  --color-bg-terminal: var(--app-bg-terminal);
+  --color-text-primary: var(--app-text-primary);
+  --color-text-secondary: var(--app-text-secondary);
+  --color-accent-green: var(--app-accent-green);
+  --color-accent-bright: var(--app-accent-bright);
+  --color-border-dark: var(--app-border-dark);
+  --color-highlight-dark: var(--app-highlight-dark);
+}
+
+@layer base {
+  :root, .dark {
+    --app-bg-primary: #0A0A0A;
+    --app-bg-secondary: #111111;
+    --app-bg-terminal: #0D1117;
+    --app-text-primary: #E6EDF3;
+    --app-text-secondary: #8B949E;
+    --app-accent-green: #00B050;
+    --app-accent-bright: #39FF14;
+    --app-border-dark: #21262D;
+    --app-highlight-dark: #1A3A1A;
+    --os-wallpaper: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.05"><path d="M0 0h100v100H0z"/></svg>');
+  }
+  
+  .light {
+    --app-bg-primary: #F0F2F5;
+    --app-bg-secondary: #E4E7EB;
+    --app-bg-terminal: #FAFAFA;
+    --app-text-primary: #1A1A1A;
+    --app-text-secondary: #5C6A7A;
+    --app-accent-green: #0F8548;
+    --app-accent-bright: #00B050;
+    --app-border-dark: #D1D5DB;
+    --app-highlight-dark: #E6EDF3;
+    --os-wallpaper: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.05"><path fill="%23000" d="M0 0h100v100H0z"/></svg>');
+  }
+
+  .retro {
+    --app-bg-primary: #241400;
+    --app-bg-secondary: #160B00;
+    --app-bg-terminal: #2F1A00;
+    --app-text-primary: #FFB000;
+    --app-text-secondary: #CC8000;
+    --app-accent-green: #FF8C00;
+    --app-accent-bright: #FFD700;
+    --app-border-dark: #6C3900;
+    --app-highlight-dark: #452100;
+    --os-wallpaper: none;
+  }
+
+  .glass {
+    --app-bg-primary: rgba(10, 15, 30, 0.45);
+    --app-bg-secondary: transparent;
+    --app-bg-terminal: rgba(20, 25, 45, 0.3);
+    --app-text-primary: #FFFFFF;
+    --app-text-secondary: #A0B0D0;
+    --app-accent-green: #00D2FF;
+    --app-accent-bright: #3A7BD5;
+    --app-border-dark: rgba(255, 255, 255, 0.1);
+    --app-highlight-dark: rgba(255, 255, 255, 0.05);
+    /* Abstract colorful wallpaper */
+    --os-wallpaper: radial-gradient(circle at 15% 50%, rgba(58,123,213,0.4), transparent 50%), radial-gradient(circle at 85% 30%, rgba(0,210,255,0.4), transparent 50%);
+  }
+  
+  body {
+    background-color: var(--app-bg-secondary);
+    color: var(--app-text-primary);
+    font-family: var(--font-mono);
+    overflow: hidden; /* Terminal is full-screen */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+  }
+}
+
+.os-background-layer {
+  background: var(--os-wallpaper);
+  background-color: var(--app-bg-secondary);
+  background-size: cover;
+  transition: all 0.5s ease;
+}
+
+.terminal-window-glass {
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background-color: rgba(10, 10, 10, 0.7);
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0, 176, 80, 0.5);
+  }
+  .content-glow {
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+  .scanlines {
+    background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.1) 50%
+    ), linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.03),
+      rgba(0, 255, 0, 0.01),
+      rgba(0, 0, 255, 0.03)
+    );
+    background-size: 100% 3px, 3px 100%;
+    pointer-events: none;
+  }
+  
+  /* Custom Scrollbar to match Terminal */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.2);
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.1);
+  }
+}
+
+/* Animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-cursor-blink {
+  animation: blink 1s step-end infinite;
+}

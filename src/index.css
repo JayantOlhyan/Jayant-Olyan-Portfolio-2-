@@ -70,11 +70,18 @@
     --os-wallpaper: radial-gradient(circle at 15% 50%, rgba(58,123,213,0.4), transparent 50%), radial-gradient(circle at 85% 30%, rgba(0,210,255,0.4), transparent 50%);
   }
   
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    overscroll-behavior: none; /* Prevent rubber-banding on mobile */
+  }
+
   body {
     background-color: var(--app-bg-secondary);
     color: var(--app-text-primary);
     font-family: var(--font-mono);
-    overflow: hidden; /* Terminal is full-screen */
   }
 
   h1, h2, h3, h4, h5, h6 {

@@ -6,38 +6,47 @@ export const MainLayout = ({ children, onCommand, hideInput, onHistoryUp, onHist
 
   const prevChildrenLength = useRef(0);
   const isInitialDashboardRef = useRef(true);
+  const autoScrollRef = useRef(true);
+
+  // Detect user interaction to disable auto-scroll
+  const handleInteraction = () => {
+    if (autoScrollRef.current) {
+      autoScrollRef.current = false;
+    }
+  };
 
   useEffect(() => {
     if (scrollRef.current) {
       const childrenArray = React.Children.toArray(children);
       const currentChildrenCount = childrenArray.length;
       
-      // Check if we just transitioned to the dashboard (check nested props if needed)
+      // 1. Dashboard Entry Detection
       const isDashboardRender = childrenArray.some(child => 
         child.props?.history?.some(h => h.content === 'dashboard') ||
         child.props?.currentSection === 'dashboard'
       );
 
-      // 1. Handle Initial Dashboard Render (Scroll to Top)
+      // Force scroll to top on first dashboard view
       if (isDashboardRender && isInitialDashboardRef.current) {
         isInitialDashboardRef.current = false;
         scrollRef.current.scrollTop = 0;
+        autoScrollRef.current = false; // Stay at top
         prevChildrenLength.current = currentChildrenCount;
         return;
       }
 
       // 2. Smart Scroll for Command Output
-      // Only scroll to bottom if:
-      // - New items were added (history increased)
-      // - AND we are not locked
-      // - AND the user is already near the bottom (respect manual scroll-up)
+      // Only triggered if content increased AND auto-scroll hasn't been manually disabled
       if (currentChildrenCount > prevChildrenLength.current) {
         const distanceFromBottom = scrollRef.current.scrollHeight - scrollRef.current.scrollTop - scrollRef.current.clientHeight;
         
-        // If user is reading something at the top, don't snap back
-        // 150px threshold for "at the bottom"
-        if (distanceFromBottom < 150) {
-           scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+        // Re-enable auto-scroll if user is already basically at the bottom
+        if (distanceFromBottom < 50) {
+          autoScrollRef.current = true;
+        }
+
+        if (autoScrollRef.current) {
+          scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
         }
       }
 
@@ -46,7 +55,11 @@ export const MainLayout = ({ children, onCommand, hideInput, onHistoryUp, onHist
   }, [children]);
 
   return (
-    <div className="relative min-h-screen bg-bg-secondary font-mono text-text-primary flex items-center justify-center p-0 sm:p-8 transition-colors duration-300">
+    <div 
+      className="relative h-[100dvh] w-screen bg-bg-secondary font-mono text-text-primary flex items-center justify-center p-0 sm:p-8 transition-colors duration-300"
+      onWheel={handleInteraction}
+      onTouchStart={handleInteraction}
+    >
       
       {/* Dynamic Background */}
       <div className="fixed inset-0 pointer-events-none os-background-layer" />
@@ -76,6 +89,16 @@ export const MainLayout = ({ children, onCommand, hideInput, onHistoryUp, onHist
           ref={scrollRef}
           style={{ touchAction: 'pan-y' }}
           className="flex-1 overflow-y-auto px-2 md:px-8 py-4 md:py-6 pb-24 scroll-smooth relative z-20 custom-scrollbar overflow-x-hidden content-glow"
+          onScroll={(e) => {
+            const target = e.target;
+            const distanceFromBottom = target.scrollHeight - target.scrollTop - target.clientHeight;
+            // If user scrolls up manually, disable auto-scroll
+            if (distanceFromBottom > 50) {
+              autoScrollRef.current = false;
+            } else {
+              autoScrollRef.current = true;
+            }
+          }}
         >
           {children}
           

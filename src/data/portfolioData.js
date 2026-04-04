@@ -8,6 +8,7 @@ export const siteMetadata = {
   email: 'jayantolhyan@gmail.com',
   github: 'https://github.com/JayantOlhyan',
   linkedin: 'https://linkedin.com/in/jayant-olhyan-5057292a1',
+  phone: '9667344125',
   openTo: ['Internships', 'Freelance Working', 'Hackathon Collabs'],
   capabilities: [
     { area: "Design", skills: "Systems, UX/UI, Strategy" },

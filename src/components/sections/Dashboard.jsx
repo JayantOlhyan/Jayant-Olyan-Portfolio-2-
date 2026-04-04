@@ -49,9 +49,15 @@ export const Dashboard = ({ currentTheme }) => {
               </p>
               <a 
                 href={`mailto:${siteMetadata.email}`} 
-                className="text-xs text-accent-green hover:underline opacity-80"
+                className="text-xs text-accent-green hover:underline opacity-80 block"
               >
                 {siteMetadata.email}
+              </a>
+              <a 
+                href={`tel:${siteMetadata.phone}`} 
+                className="text-xs text-accent-green hover:underline opacity-80 block"
+              >
+                {siteMetadata.phone}
               </a>
             </div>
           </div>

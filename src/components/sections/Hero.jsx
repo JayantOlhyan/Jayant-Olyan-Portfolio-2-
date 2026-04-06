@@ -75,7 +75,7 @@ export const Hero = ({ onComplete }) => {
               </span>
             )}
             {msg.status && (
-              <span className={msg.statusColor || 'text-[#00B050]'}>[{msg.status}]</span>
+              <span className={msg.statusColor || 'text-accent-green'}>[{msg.status}]</span>
             )}
           </div>
         ))}

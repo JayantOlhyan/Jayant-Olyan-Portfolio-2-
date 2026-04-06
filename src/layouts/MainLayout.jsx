@@ -8,6 +8,7 @@ export const MainLayout = ({ children, onCommand, hideInput, onHistoryUp, onHist
   const prevChildrenLength = useRef(0);
   const isInitialDashboardRef = useRef(true);
   const autoScrollRef = useRef(true);
+  const prevScrollHeight = useRef(0);
 
   // Detect user interaction to disable auto-scroll
   const handleInteraction = () => {
@@ -33,25 +34,22 @@ export const MainLayout = ({ children, onCommand, hideInput, onHistoryUp, onHist
         scrollRef.current.scrollTop = 0;
         autoScrollRef.current = false; // Stay at top
         prevChildrenLength.current = currentChildrenCount;
+        prevScrollHeight.current = scrollRef.current.scrollHeight;
         return;
       }
 
       // 2. Smart Scroll for Command Output
-      // Only triggered if content increased AND auto-scroll hasn't been manually disabled
+      // Scroll to the top of the NEW content that was just added
       if (currentChildrenCount > prevChildrenLength.current) {
-        const distanceFromBottom = scrollRef.current.scrollHeight - scrollRef.current.scrollTop - scrollRef.current.clientHeight;
-        
-        // Re-enable auto-scroll if user is already basically at the bottom
-        if (distanceFromBottom < 50) {
-          autoScrollRef.current = true;
-        }
-
-        if (autoScrollRef.current) {
-          scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-        }
+        // The starting point of the new text is the previous scroll height
+        // We set scrollTop to the height BEFORE the new elements were added
+        scrollRef.current.scrollTop = prevScrollHeight.current - 20; // Slight offset for padding
+        autoScrollRef.current = false;
       }
 
+      // Update refs for next render
       prevChildrenLength.current = currentChildrenCount;
+      prevScrollHeight.current = scrollRef.current.scrollHeight;
     }
   }, [children]);
 

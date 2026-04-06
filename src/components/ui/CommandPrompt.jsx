@@ -101,7 +101,7 @@ export const CommandPrompt = ({ onCommand, onHistoryUp, onHistoryDown }) => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute bottom-full mb-4 left-0 w-full max-w-md bg-vlad-navy/90 backdrop-blur-xl border border-white/10 rounded-lg shadow-2xl overflow-hidden z-50 py-1"
+            className="absolute bottom-full mb-4 left-0 w-full max-w-md bg-vlad-navy border border-white/20 rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden z-[100] py-1"
           >
             <div className="max-h-60 overflow-y-auto custom-scrollbar">
               {filteredCmds.map((cmd, idx) => (
@@ -114,7 +114,7 @@ export const CommandPrompt = ({ onCommand, onHistoryUp, onHistoryDown }) => {
                     : 'hover:bg-white/5 opacity-70 hover:opacity-100'
                   }`}
                 >
-                  <span className={`text-vlad-orange font-bold min-w-[80px] transition-transform duration-200 ${idx === selectedIndex ? 'scale-105' : ''}`}>
+                  <span className={`text-accent-green font-bold min-w-[80px] transition-transform duration-200 ${idx === selectedIndex ? 'scale-105' : ''}`}>
                     {cmd.name}
                   </span>
                   <span className="text-vlad-slate text-sm truncate font-medium">
@@ -135,7 +135,7 @@ export const CommandPrompt = ({ onCommand, onHistoryUp, onHistoryDown }) => {
         )}
       </AnimatePresence>
 
-      <span className="text-[#00B050] font-bold select-none opacity-80 group-focus-within:opacity-100 transition-opacity">{'>'}</span>
+      <span className="text-accent-green font-bold select-none opacity-80 group-focus-within:opacity-100 transition-opacity">{'>'}</span>
       <form onSubmit={handleSubmit} className="flex-1">
         <input
           ref={inputRef}
@@ -144,7 +144,7 @@ export const CommandPrompt = ({ onCommand, onHistoryUp, onHistoryDown }) => {
           placeholder='Type a command... try "/help"'
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
-          className="w-full bg-transparent border-none outline-none text-text-primary placeholder:text-text-secondary/30 caret-[#00B050] font-mono h-full focus:ring-0 py-0"
+          className="w-full bg-transparent border-none outline-none text-text-primary placeholder:text-text-secondary/30 caret-accent-green font-mono h-full focus:ring-0 py-0"
           autoComplete="off"
           autoCorrect="off"
           spellCheck="false"

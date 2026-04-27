@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jayant-olhyan-portfolio-2.netlify.app/sitemap.xml

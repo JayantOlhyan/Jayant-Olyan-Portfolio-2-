@@ -1,27 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useTypewriter } from '../../hooks/useTypewriter';
+import { useEffect } from 'react';
 
 const TypeWriter = ({ text, delay = 60, onComplete }) => {
-  const [displayText, setDisplayText] = useState("");
-  const [isTyping, setIsTyping] = useState(true);
+  const { displayText, isTyping } = useTypewriter(text, delay);
 
   useEffect(() => {
-    let index = 0;
-    setDisplayText("");
-    setIsTyping(true);
-
-    const typingInterval = setInterval(() => {
-      if (index < text.length) {
-        setDisplayText((prev) => prev + text.charAt(index));
-        index++;
-      } else {
-        clearInterval(typingInterval);
-        setIsTyping(false);
-        if (onComplete) onComplete();
-      }
-    }, delay);
-
-    return () => clearInterval(typingInterval);
-  }, [text, delay, onComplete]);
+    if (text && displayText.length === text.length && onComplete) {
+      onComplete();
+    }
+  }, [displayText, text, onComplete]);
 
   return (
     <span>

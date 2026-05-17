@@ -29,9 +29,9 @@ export const Unlock = ({ onUnlock }) => {
       className="flex flex-col items-center justify-center min-h-[50vh] md:min-h-[60vh] text-center space-y-6 md:space-y-8 px-4"
     >
       <div className="space-y-3 md:space-y-4">
-        <h1 className="text-accent-bright font-bold text-xl md:text-2xl tracking-widest animate-pulse">
+        <div role="heading" aria-level="1" className="text-accent-bright font-bold text-xl md:text-2xl tracking-widest animate-pulse">
           SYSTEM READY
-        </h1>
+        </div>
         <div className="h-[1px] w-24 md:w-32 bg-accent-green/30 mx-auto" />
       </div>
 

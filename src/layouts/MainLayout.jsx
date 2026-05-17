@@ -99,6 +99,10 @@ export const MainLayout = ({ children, onCommand, hideInput, onHistoryUp, onHist
             }
           }}
         >
+          {/* SEO On-Page Headings */}
+          <h1 className="sr-only">Jayant Olhyan</h1>
+          <h2 className="sr-only">Data Science & AI Student at IIT Guwahati | Full Stack Developer</h2>
+          
           {children}
           
           {/* Persistent Prompt Line at the Bottom (within scroll) */}

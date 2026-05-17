@@ -1,9 +1,9 @@
 export const siteMetadata = {
-  title: 'Jayant Olhyan — Developer Portfolio',
+  title: 'Jayant Olhyan Portfolio — Data Science & AI',
   name: 'Jayant Olhyan',
-  headline: 'Full-Stack Developer, Hackathon Competitor & AI Builder',
-  subHeadline: 'B.Tech CSE — MSIT, Janakpuri, New Delhi',
-  welcomeMessage: "Welcome, visitor. I build high-performance web applications and AI-driven solutions.",
+  headline: 'IIT Guwahati AI student & BTech Computer Science MSIT | Full Stack Developer portfolio',
+  subHeadline: 'Data Science Student India & 25x Hackathon Finalist',
+  welcomeMessage: "Welcome to the official Jayant Olhyan Portfolio. Explore a collection of innovative Jayant Olhyan projects spanning deep learning, full stack web development, and space tech.",
   location: 'New Delhi, India (UTC +05:30)',
   email: 'jayantolhyan@gmail.com',
   github: 'https://github.com/JayantOlhyan',

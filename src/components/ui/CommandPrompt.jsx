@@ -91,7 +91,7 @@ export const CommandPrompt = ({ onCommand, onHistoryUp, onHistoryDown }) => {
   };
 
   return (
-    <div className="relative flex items-center gap-2.5 font-mono text-sm md:text-base group">
+    <div className="relative flex items-center gap-2.5 font-mono text-fluid-base group min-h-[48px]">
       {/* Autocomplete Menu */}
       <AnimatePresence>
         {showMenu && (
@@ -108,22 +108,22 @@ export const CommandPrompt = ({ onCommand, onHistoryUp, onHistoryDown }) => {
                 <div
                   key={cmd.name}
                   onClick={() => selectCommand(cmd)}
-                  className={`flex items-center gap-6 px-4 py-2.5 cursor-pointer transition-all duration-200 ${
+                  className={`flex items-center gap-6 px-[clamp(0.5rem,2vw,1rem)] py-3 md:py-2.5 cursor-pointer transition-all duration-200 min-h-[48px] ${
                     idx === selectedIndex 
                     ? 'bg-white/10 translate-x-1' 
                     : 'hover:bg-white/5 opacity-70 hover:opacity-100'
                   }`}
                 >
-                  <span className={`text-accent-green font-bold min-w-[80px] transition-transform duration-200 ${idx === selectedIndex ? 'scale-105' : ''}`}>
+                  <span className={`text-accent-green font-bold min-w-[80px] text-fluid-sm transition-transform duration-200 ${idx === selectedIndex ? 'scale-105' : ''}`}>
                     {cmd.name}
                   </span>
-                  <span className="text-vlad-slate text-sm truncate font-medium">
+                  <span className="text-vlad-slate text-fluid-sm truncate font-medium">
                     {cmd.desc}
                   </span>
                   {idx === selectedIndex && (
                     <motion.span 
                       layoutId="active-indicator"
-                      className="ml-auto text-[10px] text-white/20 font-bold uppercase tracking-widest"
+                      className="ml-auto text-[10px] text-white/20 font-bold uppercase tracking-widest hidden sm:block"
                     >
                       [ENTER]
                     </motion.span>
@@ -135,8 +135,8 @@ export const CommandPrompt = ({ onCommand, onHistoryUp, onHistoryDown }) => {
         )}
       </AnimatePresence>
 
-      <span className="text-accent-green font-bold select-none opacity-80 group-focus-within:opacity-100 transition-opacity">{'>'}</span>
-      <form onSubmit={handleSubmit} className="flex-1">
+      <span className="text-accent-green font-bold select-none opacity-80 group-focus-within:opacity-100 transition-opacity text-fluid-base">{'>'}</span>
+      <form onSubmit={handleSubmit} className="flex-1 flex items-center min-h-[48px]">
         <input
           ref={inputRef}
           type="text"
@@ -144,7 +144,7 @@ export const CommandPrompt = ({ onCommand, onHistoryUp, onHistoryDown }) => {
           placeholder='Type a command... try "/help"'
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
-          className="w-full bg-transparent border-none outline-none text-text-primary placeholder:text-text-secondary/30 caret-accent-green font-mono h-full focus:ring-0 py-0"
+          className="w-full bg-transparent border-none outline-none text-text-primary placeholder:text-text-secondary/30 caret-accent-green font-mono h-full focus:ring-0 py-0 text-[16px] md:text-fluid-base"
           autoComplete="off"
           autoCorrect="off"
           spellCheck="false"

@@ -16,16 +16,16 @@ export const Ecosystem = () => {
   return (
     <div className="mb-10 animate-fade-in">
       <div className="mb-8 border-b border-border-dark pb-4 flex items-center justify-between">
-         <h2 className="text-3xl font-bold font-sans text-text-primary hover-glitch transition-colors">
+         <h2 className="text-fluid-3xl font-bold font-sans text-text-primary hover-glitch transition-colors">
             /ecosystem --network
          </h2>
       </div>
 
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-[clamp(0.5rem,2vw,1rem)]">
         {ecosystems.map((eco, idx) => (
            <div 
              key={idx} 
-             className="border border-border-dark bg-bg-terminal text-text-secondary px-4 py-2 hover:border-accent-green hover:text-accent-bright hover:box-glow transition-all duration-300 font-mono text-sm shadow-sm"
+             className="border border-border-dark bg-bg-terminal text-text-secondary px-[clamp(0.75rem,2vw,1rem)] py-[clamp(0.25rem,1.5vw,0.5rem)] hover:border-accent-green hover:text-accent-bright hover:box-glow transition-all duration-300 font-mono text-fluid-sm shadow-sm flex items-center"
            >
               {eco}
            </div>

@@ -21,41 +21,41 @@ export const Dashboard = ({ currentTheme }) => {
       </div>
 
       {/* Main Content Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-0">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-[clamp(1rem,3vw,2rem)] px-4 md:px-0">
         
         {/* Left Column: Portrait & Intro */}
-        <div className="flex flex-col space-y-6 border border-dashed border-border-dark p-6 rounded-sm bg-bg-terminal/20 backdrop-blur-sm">
+        <div className="flex flex-col space-y-[clamp(1rem,3vw,1.5rem)] border border-dashed border-border-dark p-[clamp(1rem,3vw,1.5rem)] rounded-sm bg-bg-terminal/20 backdrop-blur-sm">
           <div className="flex flex-col items-center space-y-4">
-            <h3 className="text-text-primary font-bold text-center w-full border-b border-border-dark pb-2 tracking-widest uppercase text-[10px] opacity-70">
+            <h3 className="text-text-primary font-bold text-center w-full border-b border-border-dark pb-2 tracking-widest uppercase text-fluid-xs opacity-70">
               Personal Identifier
             </h3>
             
             {/* ASCII Portrait - Fluid Scaling */}
-            <div className="select-none overflow-hidden w-full flex justify-center">
+            <div className="select-none overflow-hidden w-full flex justify-center max-w-full">
               <pre 
                 style={{ color: portraitColor, textShadow: `0 0 8px ${portraitColor}, 0 0 2px ${portraitColor}` }}
-                className="font-mono text-[0.6vw] sm:text-[3px] md:text-[3.5px] lg:text-[4px] leading-[1.12] tracking-[0.4px] overflow-hidden"
+                className="font-mono text-[clamp(2px,1.2vw,4px)] leading-[1.12] tracking-[0.4px] overflow-hidden"
               >
                 {developerPortrait.join('\n')}
               </pre>
             </div>
             
             <div className="text-center space-y-2 pt-2">
-              <p className="text-sm font-medium text-text-primary tracking-tight">
+              <p className="text-fluid-sm font-medium text-text-primary tracking-tight">
                 {siteMetadata.title}
               </p>
-              <p className="text-xs text-text-secondary">
+              <p className="text-fluid-xs text-text-secondary">
                 {siteMetadata.location}
               </p>
               <a 
                 href={`mailto:${siteMetadata.email}`} 
-                className="text-xs text-accent-green hover:underline opacity-80 block"
+                className="text-fluid-xs text-accent-green hover:underline opacity-80 block min-h-[48px] flex items-center justify-center"
               >
                 {siteMetadata.email}
               </a>
               <a 
                 href={`tel:${siteMetadata.phone}`} 
-                className="text-xs text-accent-green hover:underline opacity-80 block"
+                className="text-fluid-xs text-accent-green hover:underline opacity-80 block min-h-[48px] flex items-center justify-center -mt-4"
               >
                 {siteMetadata.phone}
               </a>
@@ -64,17 +64,17 @@ export const Dashboard = ({ currentTheme }) => {
         </div>
 
         {/* Right Column: Capabilities & Navigation */}
-        <div className="flex flex-col space-y-8">
+        <div className="flex flex-col space-y-[clamp(1rem,3vw,2rem)]">
           
           {/* Capabilities */}
-          <div className="flex flex-col space-y-4 border border-dashed border-border-dark p-6 rounded-sm bg-bg-terminal/30 backdrop-blur-sm">
-            <h3 className="text-text-primary font-bold border-b border-border-dark pb-2 tracking-widest uppercase text-xs opacity-70">
+          <div className="flex flex-col space-y-[clamp(0.5rem,2vw,1rem)] border border-dashed border-border-dark p-[clamp(1rem,3vw,1.5rem)] rounded-sm bg-bg-terminal/30 backdrop-blur-sm">
+            <h3 className="text-text-primary font-bold border-b border-border-dark pb-2 tracking-widest uppercase text-fluid-xs opacity-70">
               Capabilities
             </h3>
             <div className="space-y-2 font-mono">
               {siteMetadata.capabilities.map((cap, i) => (
-                <div key={i} className="flex items-baseline text-sm md:text-base">
-                  <span className="w-20 md:w-24 font-bold text-accent-green/90 flex-shrink-0">{cap.area}</span>
+                <div key={i} className="flex flex-wrap sm:flex-nowrap items-baseline text-fluid-sm gap-1 sm:gap-2">
+                  <span className="w-full sm:w-[clamp(5rem,15vw,6rem)] font-bold text-accent-green/90 flex-shrink-0">{cap.area}</span>
                   <span className="text-text-primary/90 leading-relaxed">
                     {cap.skills}
                   </span>
@@ -84,32 +84,32 @@ export const Dashboard = ({ currentTheme }) => {
           </div>
 
           {/* Navigation Guide */}
-          <div className="flex flex-col space-y-4 border border-dashed border-border-dark p-6 rounded-sm bg-bg-terminal/30 backdrop-blur-sm">
-            <h3 className="text-text-primary font-bold border-b border-border-dark pb-2 tracking-widest uppercase text-xs opacity-70">
+          <div className="flex flex-col space-y-[clamp(0.5rem,2vw,1rem)] border border-dashed border-border-dark p-[clamp(1rem,3vw,1.5rem)] rounded-sm bg-bg-terminal/30 backdrop-blur-sm">
+            <h3 className="text-text-primary font-bold border-b border-border-dark pb-2 tracking-widest uppercase text-fluid-xs opacity-70">
               Navigation
             </h3>
-            <div className="space-y-1 font-mono text-sm md:text-base">
-              <div className="flex items-center gap-4">
-                <span className="text-accent-green w-20 md:w-24 flex-shrink-0">/about</span>
+            <div className="space-y-1 font-mono text-fluid-sm">
+              <div className="flex items-center gap-4 min-h-[32px]">
+                <span className="text-accent-green w-[clamp(4rem,15vw,6rem)] flex-shrink-0">/about</span>
                 <span className="text-text-secondary/80">Bio & Timeline</span>
               </div>
-              <div className="flex items-center gap-4">
-                <span className="text-accent-green w-20 md:w-24 flex-shrink-0">/work</span>
+              <div className="flex items-center gap-4 min-h-[32px]">
+                <span className="text-accent-green w-[clamp(4rem,15vw,6rem)] flex-shrink-0">/work</span>
                 <span className="text-text-secondary/80">Project Gallery</span>
               </div>
-              <div className="flex items-center gap-4">
-                <span className="text-accent-green w-20 md:w-24 flex-shrink-0">/clients</span>
+              <div className="flex items-center gap-4 min-h-[32px]">
+                <span className="text-accent-green w-[clamp(4rem,15vw,6rem)] flex-shrink-0">/clients</span>
                 <span className="text-text-secondary/80">Collaborations</span>
               </div>
-              <div className="flex items-center gap-4">
-                <span className="text-accent-green w-20 md:w-24 flex-shrink-0">/skills</span>
+              <div className="flex items-center gap-4 min-h-[32px]">
+                <span className="text-accent-green w-[clamp(4rem,15vw,6rem)] flex-shrink-0">/skills</span>
                 <span className="text-text-secondary/80">Tech Stack</span>
               </div>
               
-              <div className="pt-3 text-text-secondary/70 italic text-xs md:text-sm">
+              <div className="pt-3 text-text-secondary/70 italic text-fluid-xs">
                 ... /help for all commands
               </div>
-              <div className="text-text-secondary/70 italic text-xs md:text-sm">
+              <div className="text-text-secondary/70 italic text-fluid-xs">
                 Try /themes to change the vibe
               </div>
             </div>

@@ -11,26 +11,26 @@ const ProjectCard = ({ project }) => {
   return (
     <TerminalCard className="flex flex-col h-full group">
       <div className="flex justify-between items-start mb-2">
-        <h3 className="text-xl font-bold font-mono text-accent-green hover-glitch cursor-pointer">
+        <h3 className="text-fluid-xl font-bold font-mono text-accent-green hover-glitch cursor-pointer">
           {project.title}
         </h3>
-        <span className="text-xs text-text-secondary font-mono">{project.year}</span>
+        <span className="text-fluid-xs text-text-secondary font-mono pt-1">{project.year}</span>
       </div>
       
       {project.hackathon && (
-        <span className="text-xs text-accent-bright bg-highlight-dark px-2 py-1 rounded-sm w-fit mb-3 uppercase tracking-wider">
+        <span className="text-fluid-xs text-accent-bright bg-highlight-dark px-2 py-1 rounded-sm w-fit mb-3 uppercase tracking-wider">
            {project.hackathon}
         </span>
       )}
 
-      <p className="text-sm text-text-primary mb-4 leading-relaxed line-clamp-3">
+      <p className="text-fluid-sm text-text-primary mb-4 leading-relaxed line-clamp-3">
         {project.problem}
       </p>
 
       {/* Tech Stack Tags */}
       <div className="flex flex-wrap gap-2 mb-4 mt-auto">
         {project.stack.map(tech => (
-          <span key={tech} className="text-xs border border-border-dark px-2 py-1 text-text-secondary group-hover:border-accent-green/50 transition-colors">
+          <span key={tech} className="text-fluid-xs border border-border-dark px-2 py-1 text-text-secondary group-hover:border-accent-green/50 transition-colors">
             {tech}
           </span>
         ))}
@@ -42,12 +42,12 @@ const ProjectCard = ({ project }) => {
            animate={{ opacity: 1, height: 'auto' }}
            className="mt-4 pt-4 border-t border-border-dark"
         >
-           <p className="text-sm text-text-primary mb-4">
+           <p className="text-fluid-sm text-text-primary mb-4">
              <span className="text-accent-green font-bold">Solution: </span>
              {project.solution}
            </p>
            
-           <p className="text-sm text-text-secondary italic mb-4">
+           <p className="text-fluid-sm text-text-secondary italic mb-4">
              // Impact: {project.impact}
            </p>
         </motion.div>
@@ -55,21 +55,21 @@ const ProjectCard = ({ project }) => {
 
       {/* Footer Links & Expand */}
       <div className="flex justify-between items-center mt-4">
-         <div className="flex gap-4">
+         <div className="flex flex-wrap gap-[clamp(0.5rem,2vw,1rem)]">
             {project.github && (
-              <a href={project.github} target="_blank" rel="noreferrer" className="text-text-secondary hover:text-accent-green flex items-center gap-1 text-sm font-mono transition-colors">
+              <a href={project.github} target="_blank" rel="noreferrer" className="text-text-secondary hover:text-accent-green flex items-center gap-1 text-fluid-sm font-mono transition-colors min-h-[48px]">
                 <Github size={16} /> [repo]
               </a>
             )}
             {project.live && (
-              <a href={project.live} target="_blank" rel="noreferrer" className="text-text-secondary hover:text-accent-green flex items-center gap-1 text-sm font-mono transition-colors">
+              <a href={project.live} target="_blank" rel="noreferrer" className="text-text-secondary hover:text-accent-green flex items-center gap-1 text-fluid-sm font-mono transition-colors min-h-[48px]">
                 <ExternalLink size={16} /> [live]
               </a>
             )}
          </div>
          <button 
            onClick={() => setExpanded(!expanded)}
-           className="text-text-secondary hover:text-accent-bright flex items-center gap-1 text-sm font-mono transition-colors focus:outline-none"
+           className="text-text-secondary hover:text-accent-bright flex items-center gap-1 text-fluid-sm font-mono transition-colors focus:outline-none min-h-[48px]"
          >
            {expanded ? <><ChevronUp size={16} /> less</> : <><ChevronDown size={16} /> more</>}
          </button>
@@ -89,7 +89,7 @@ export const Projects = () => {
          </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-[clamp(1rem,3vw,1.5rem)]">
         {projects.map((proj) => (
            <ProjectCard key={proj.id} project={proj} />
         ))}

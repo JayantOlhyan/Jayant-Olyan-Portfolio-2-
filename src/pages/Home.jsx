@@ -12,6 +12,7 @@ import { Contact } from '../components/sections/Contact';
 import { Dashboard } from '../components/sections/Dashboard';
 import { Unlock } from '../components/sections/Unlock';
 import { ThemeSelector } from '../components/sections/ThemeSelector';
+import { SectionLoader } from '../components/ui/SectionLoader';
 
 export const Home = ({ history, onBootComplete, onUnlock, currentTheme, onThemeChange }) => {
   const renderComponent = (block) => {
@@ -48,7 +49,11 @@ export const Home = ({ history, onBootComplete, onUnlock, currentTheme, onThemeC
           )}
           {log.type === 'component' && (
             <div className="my-4">
-              {renderComponent(log.content)}
+              <SectionLoader 
+                componentName={log.content} 
+                renderComponent={renderComponent} 
+                currentTheme={currentTheme} 
+              />
             </div>
           )}
         </div>

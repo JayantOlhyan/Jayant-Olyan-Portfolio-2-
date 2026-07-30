@@ -64,11 +64,11 @@ export const Hero = ({ onComplete }) => {
   }, [isDone, onComplete]);
 
   return (
-    <div ref={containerRef} className="flex flex-col font-mono text-[12px] md:text-[13px] leading-[1.8] min-h-[400px] select-none cursor-default py-10 px-4 md:px-10 lg:px-20 max-w-5xl mx-auto">
+    <div ref={containerRef} className="flex flex-col font-mono text-fluid-xs sm:text-fluid-sm leading-[1.8] min-h-[clamp(250px,50vh,400px)] select-none cursor-default py-[clamp(1.5rem,5vw,3rem)] px-[clamp(1rem,5vw,5rem)] max-w-5xl mx-auto overflow-hidden">
       {/* Boot Messages */}
       <div className="flex flex-col">
         {visibleMessages.map((msg, i) => (
-          <div key={i} className="flex items-center gap-2 min-h-[1.8em]">
+          <div key={i} className="flex items-start sm:items-center gap-1 sm:gap-2 min-h-[1.8em] flex-wrap break-all sm:break-normal">
             {msg.text && (
               <span className={msg.color || 'text-text-secondary opacity-80'}>
                 {msg.text}
@@ -98,11 +98,11 @@ export const Hero = ({ onComplete }) => {
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="mt-12 flex flex-col items-start gap-4"
+          className="mt-[clamp(1.5rem,5vw,3rem)] flex flex-col items-start gap-4 w-full"
         >
-          <div className="flex items-center gap-2 text-text-secondary bg-white/5 px-4 py-2 rounded-sm border border-white/10 shadow-lg">
-             <span className="animate-pulse">_</span>
-             <span className="text-sm font-medium tracking-tight">System ready. Press Enter to unlock console.</span>
+          <div className="flex items-center gap-2 text-text-secondary bg-white/5 px-[clamp(0.5rem,2vw,1rem)] py-[clamp(0.25rem,1.5vw,0.5rem)] rounded-sm border border-white/10 shadow-lg min-h-[48px] max-w-full">
+             <span className="animate-pulse text-fluid-sm">_</span>
+             <span className="text-fluid-sm font-medium tracking-tight whitespace-normal break-words">System ready. Press Enter to unlock console.</span>
           </div>
         </motion.div>
       )}

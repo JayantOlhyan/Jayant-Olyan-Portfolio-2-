@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { CommandPrompt } from '../components/ui/CommandPrompt';
 import { Wallpaper } from '../components/ui/Wallpaper';
 import { MatrixRain } from '../components/ui/MatrixRain';
@@ -50,11 +51,11 @@ export const MainLayout = ({
 
   return (
     <div 
-      className="relative h-[100dvh] w-screen bg-bg-secondary font-mono text-text-primary flex items-center justify-center p-[clamp(0rem,2vw,2rem)] transition-colors duration-300 overflow-hidden select-none"
+      className="relative h-[100dvh] w-screen bg-[#0a0a0c] font-mono text-text-primary flex items-center justify-center p-[clamp(0.5rem,2vw,2rem)] transition-colors duration-300 overflow-hidden select-none"
       onWheel={handleInteraction}
       onTouchStart={handleInteraction}
     >
-      {/* Dynamic Ambient Wallpaper Background */}
+      {/* Real AI Wallpaper & Atmospheric Background Layer */}
       <Wallpaper currentTheme={currentTheme} />
 
       {/* Terminal Canvas Overlays & Modals */}
@@ -62,15 +63,18 @@ export const MainLayout = ({
       <ConfettiCanvas active={confettiActive} onClose={() => setConfettiActive(false)} />
       <CloseOverlay isOpen={closeOverlayActive} onClose={() => setCloseOverlayActive(false)} />
 
-      {/* Terminal Container */}
-      <div className={`relative w-full transition-all duration-300 z-20 flex flex-col bg-bg-primary sm:rounded-lg overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.6)] border border-border-dark/40 terminal-window-glass ${
-        isMaximized 
-          ? 'max-w-full h-full sm:h-full sm:rounded-none' 
-          : isMinimized 
-            ? 'max-w-[clamp(100%,1200px,100%)] h-[60px]' 
-            : 'max-w-[clamp(100%,1200px,100%)] h-full sm:h-[clamp(500px,90dvh,1400px)]'
-      }`}>
-        
+      {/* Smooth Framer Motion Animated Terminal Container */}
+      <motion.div 
+        layout
+        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+        className={`relative w-full z-20 flex flex-col bg-bg-primary/95 sm:rounded-lg overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.8)] border border-border-dark/40 terminal-window-glass ${
+          isMaximized 
+            ? 'max-w-full h-full sm:h-full sm:rounded-none' 
+            : isMinimized 
+              ? 'max-w-[clamp(100%,1200px,100%)] h-[52px]' 
+              : 'max-w-[clamp(100%,1200px,100%)] h-full sm:h-[clamp(500px,90dvh,1400px)]'
+        }`}
+      >
         {/* CRT/Scanlines overlay */}
         <div className="absolute inset-0 scanlines pointer-events-none opacity-[0.2] md:opacity-30 z-50 mix-blend-overlay" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-black/10 pointer-events-none z-40" />
@@ -95,53 +99,59 @@ export const MainLayout = ({
             />
           </div>
 
-          <div className="text-fluid-xs text-text-secondary tracking-[0.2em] font-semibold opacity-70 uppercase truncate px-2">
-            jayant@olhyan ~ /portfolio
+          <div className="text-fluid-xs text-text-secondary tracking-[0.2em] font-semibold opacity-80 uppercase truncate px-2">
+            jayant@olhyan ~ /portfolio {isMinimized && '(minimized)'}
           </div>
 
-          <div className="text-[10px] text-text-secondary/50 hidden sm:block">
+          <div className="text-[10px] text-text-secondary/60 hidden sm:block font-bold">
             CLI v2.0
           </div>
         </div>
 
         {/* Scrollable Output Viewport */}
-        {!isMinimized && (
-          <div 
-            ref={scrollRef}
-            style={{ touchAction: 'pan-y' }}
-            className="flex-1 overflow-y-auto px-[clamp(0.5rem,3vw,2rem)] py-[clamp(1rem,4vw,1.5rem)] pb-24 scroll-smooth relative z-20 custom-scrollbar overflow-x-hidden content-glow"
-            onScroll={(e) => {
-              const target = e.target;
-              const distanceFromBottom = target.scrollHeight - target.scrollTop - target.clientHeight;
-              if (distanceFromBottom > 50) {
-                autoScrollRef.current = false;
-              } else {
-                autoScrollRef.current = true;
-              }
-            }}
-          >
-            {/* SEO Headings */}
-            <h1 className="sr-only">Jayant Olhyan — Data Science & AI Student at IIT Guwahati</h1>
-            <h2 className="sr-only">Full Stack AI Developer Portfolio inspired by vladburca.com</h2>
+        <AnimatePresence>
+          {!isMinimized && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              ref={scrollRef}
+              style={{ touchAction: 'pan-y' }}
+              className="flex-1 overflow-y-auto px-[clamp(0.5rem,3vw,2rem)] py-[clamp(1rem,4vw,1.5rem)] pb-24 scroll-smooth relative z-20 custom-scrollbar overflow-x-hidden content-glow"
+              onScroll={(e) => {
+                const target = e.target;
+                const distanceFromBottom = target.scrollHeight - target.scrollTop - target.clientHeight;
+                if (distanceFromBottom > 50) {
+                  autoScrollRef.current = false;
+                } else {
+                  autoScrollRef.current = true;
+                }
+              }}
+            >
+              {/* SEO Headings */}
+              <h1 className="sr-only">Jayant Olhyan — Data Science & AI Student at IIT Guwahati</h1>
+              <h2 className="sr-only">Full Stack AI Developer Portfolio inspired by vladburca.com</h2>
 
-            {children}
+              {children}
 
-            {/* Persistent Prompt Line */}
-            {!hideInput && (
-              <div className="mt-8 opacity-90 transition-all duration-500">
-                <CommandPrompt 
-                  onCommand={onCommand} 
-                  onHistoryUp={onHistoryUp}
-                  onHistoryDown={onHistoryDown}
-                />
-              </div>
-            )}
-          </div>
-        )}
+              {/* Persistent Prompt Line */}
+              {!hideInput && (
+                <div className="mt-8 opacity-90 transition-all duration-500">
+                  <CommandPrompt 
+                    onCommand={onCommand} 
+                    onHistoryUp={onHistoryUp}
+                    onHistoryDown={onHistoryDown}
+                  />
+                </div>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Noise Grain */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-[110] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
-      </div>
+      </motion.div>
     </div>
   );
 };

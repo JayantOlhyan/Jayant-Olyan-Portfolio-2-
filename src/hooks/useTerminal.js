@@ -4,7 +4,6 @@ export const useTerminal = () => {
   const [isLocked, setIsLocked] = useState(false);
   const [isBooting, setIsBooting] = useState(false);
   const [history, setHistory] = useState([
-    { id: 'neofetch-init', type: 'component', content: 'neofetch' },
     { id: 'dashboard-init', type: 'component', content: 'dashboard' }
   ]);
   const [commandHistory, setCommandHistory] = useState([]);
@@ -32,7 +31,6 @@ export const useTerminal = () => {
     setIsLocked(false);
     setIsBooting(false);
     setHistory([
-      { id: 'neofetch-init', type: 'component', content: 'neofetch' },
       { id: 'dashboard-init', type: 'component', content: 'dashboard' }
     ]);
   }, []);
@@ -40,7 +38,6 @@ export const useTerminal = () => {
   const completeBoot = useCallback(() => {
     setIsBooting(false);
     setHistory([
-      { id: 'neofetch-init', type: 'component', content: 'neofetch' },
       { id: 'dashboard-init', type: 'component', content: 'dashboard' }
     ]);
   }, []);
@@ -50,7 +47,7 @@ export const useTerminal = () => {
     if (!cmd) return;
 
     const ALIASES = {
-      '/portfolio': '/neofetch',
+      '/portfolio': '/work',
       '/projects': '/work',
       '/me': '/about',
       '/who': '/about',
@@ -62,6 +59,8 @@ export const useTerminal = () => {
       '/recommendations': '/testimonials',
       '/kill': '/exit',
       '/close': '/exit',
+      '/specs': '/neofetch',
+      '/system': '/neofetch',
     };
 
     if (ALIASES[cmd]) {
@@ -91,12 +90,12 @@ export const useTerminal = () => {
         case '/help':
         case 'help':
           response = `Available commands:
-    neofetch      - Render macOS system summary & specs
-    /about        - Professional bio and expertise
+    /about        - Jayant Olhyan bio & timeline
     /work         - Featured projects and case studies
     /skills       - Technical stack, frameworks & AI models
     /social       - Social profiles & external links
     /philosophy   - Engineering & design principles
+    neofetch      - Render macOS system specs & Apple ASCII
     /testimonials - What peers and mentors say
     /articles     - Writing & technical insights
     /themes       - List & switch user wallpapers (/main, /dark, /retro, /space, /glass)
@@ -144,7 +143,7 @@ export const useTerminal = () => {
           break;
         case '/clear':
         case 'clear':
-          setHistory([{ id: 'init-' + Date.now(), type: 'component', content: 'neofetch' }]);
+          setHistory([{ id: 'init-' + Date.now(), type: 'component', content: 'dashboard' }]);
           return;
 
         case '/matrix':
@@ -166,6 +165,7 @@ export const useTerminal = () => {
         case '/secrets':
         case 'secrets':
           response = `ACCESS GRANTED. Secret commands available:
+    neofetch  - System specs
     /matrix   - Digital green rain canvas
     /confetti - Celebration particles
     /exit     - Kill terminal session`;

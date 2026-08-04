@@ -14,6 +14,7 @@ export const WelcomeBox = ({ onCommand, currentTheme }) => {
     { cmd: '/contact', label: 'Contact', desc: 'Reach out directly' },
     { cmd: '/social', label: 'Socials', desc: 'GitHub, LinkedIn, Twitter' },
     { cmd: '/themes', label: 'Themes', desc: 'Switch color modes' },
+    { cmd: 'neofetch', label: 'System Specs', desc: 'macOS neofetch info' },
     { cmd: '/matrix', label: 'Matrix', desc: 'Easter egg rain' },
     { cmd: '/help', label: 'Help', desc: 'List all commands' },
   ];
@@ -43,7 +44,7 @@ export const WelcomeBox = ({ onCommand, currentTheme }) => {
             I'm <strong className="text-text-primary">{siteMetadata.name}</strong> — a Data Science & AI student at <strong className="text-amber-400">IIT Guwahati</strong> and Computer Science student at <strong className="text-emerald-400">MSIT</strong>. 25x Hackathon Finalist and Full-Stack AI Engineer based in {siteMetadata.location}.
           </p>
 
-          {/* Full Photograph Container - Fixes photograph cut in half issue */}
+          {/* Full Photograph Container */}
           <div className="space-y-2 pt-2">
             <div className="flex items-center justify-between text-[11px] text-text-secondary/70 font-semibold uppercase tracking-wider">
               <span>Developer ASCII Portrait</span>

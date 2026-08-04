@@ -8,7 +8,11 @@ export const useTerminal = () => {
   ]);
   const [commandHistory, setCommandHistory] = useState([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
-  const [currentTheme, setCurrentTheme] = useState('dark');
+
+  // Lazy state initialization for theme
+  const [currentTheme, setCurrentTheme] = useState(() => {
+    return localStorage.getItem('portfolio-theme') || 'dark';
+  });
 
   // Modal Overlay States
   const [matrixActive, setMatrixActive] = useState(false);
@@ -21,11 +25,10 @@ export const useTerminal = () => {
     localStorage.setItem('portfolio-theme', themeId);
   }, []);
 
-  // Initialize theme from localStorage or default
+  // Update DOM class when currentTheme changes
   useEffect(() => {
-    const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
-    setTheme(savedTheme);
-  }, [setTheme]);
+    document.documentElement.className = currentTheme;
+  }, [currentTheme]);
 
   const unlock = useCallback(() => {
     setIsLocked(false);
@@ -42,7 +45,6 @@ export const useTerminal = () => {
     let cmd = cmdRaw.trim().toLowerCase();
     if (!cmd) return;
 
-    // Normalise aliases
     const ALIASES = {
       '/portfolio': '/work',
       '/projects': '/work',
@@ -62,18 +64,15 @@ export const useTerminal = () => {
       cmd = ALIASES[cmd];
     }
 
-    // Add to command history
     setCommandHistory(prev => [cmdRaw, ...prev]);
     setHistoryIndex(-1);
 
-    // Add input line
     const inputId = Date.now();
     setHistory(prev => [...prev, { id: inputId, type: 'input', content: cmdRaw }]);
 
     let response = null;
     let component = null;
 
-    // Theme switching logic
     if (['/dark', '/light', '/retro', '/glass'].includes(cmd)) {
       const themeId = cmd.substring(1);
       setTheme(themeId);

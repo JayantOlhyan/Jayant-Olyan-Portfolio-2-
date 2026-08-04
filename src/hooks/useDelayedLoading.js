@@ -5,12 +5,11 @@ export function useDelayedLoading(isLoading, delay = 200) {
 
   useEffect(() => {
     if (!isLoading) {
-      setShowSkeleton(false);
       return;
     }
     const timer = setTimeout(() => setShowSkeleton(true), delay);
     return () => clearTimeout(timer);
   }, [isLoading, delay]);
 
-  return showSkeleton;
+  return isLoading ? showSkeleton : false;
 }

@@ -7,7 +7,7 @@ export const siteMetadata = {
   location: 'New Delhi, India (UTC +05:30)',
   email: 'jayantolhyan@gmail.com',
   github: 'https://github.com/JayantOlhyan',
-  linkedin: 'https://linkedin.com/in/jayant-olhyan-5057292a1',
+  linkedin: 'https://www.linkedin.com/in/jayant-olhyan/',
   phone: '9667344125',
   openTo: ['Internships', 'Freelance Working', 'Hackathon Collabs'],
   capabilities: [
@@ -277,19 +277,19 @@ export const articles = [
     title: "Building TruthLens AI: RAG pipelines for Misinformation Detection",
     date: "April 2026",
     excerpt: "Deepfakes are getting sophisticated. Here's how we bridged Computer Vision with LLMs to cross-verify facts in real-time.",
-    link: "https://linkedin.com/in/jayant-olhyan-5057292a1"
+    link: "https://www.linkedin.com/in/jayant-olhyan/"
   },
   {
     title: "Why FastAPI + Next.js is the Ultimate Hackathon Stack",
     date: "March 2026",
     excerpt: "Speed is critical at hackathons. Migrating from Express to FastAPI for AI logic was a game changer for our backend throughput.",
-    link: "https://linkedin.com/in/jayant-olhyan-5057292a1"
+    link: "https://www.linkedin.com/in/jayant-olhyan/"
   },
   {
     title: "Deploying 3D Orbital Data on a Free Tier",
     date: "February 2026",
     excerpt: "How we crunched NASA's debris dataset and rendered it visually in Three.js without melting the browser (or our wallets).",
-    link: "https://linkedin.com/in/jayant-olhyan-5057292a1"
+    link: "https://www.linkedin.com/in/jayant-olhyan/"
   }
 ];
 

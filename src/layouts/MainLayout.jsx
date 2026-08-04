@@ -51,9 +51,22 @@ export const MainLayout = ({
     }
   }, [children]);
 
+  // Handle green dot (maximize toggle)
+  const handleMaximizeToggle = () => {
+    if (isMinimized) {
+      setIsMinimized(false);
+    }
+    setIsMaximized(!isMaximized);
+  };
+
+  // Handle yellow dot (minimize toggle)
+  const handleMinimizeToggle = () => {
+    setIsMinimized(!isMinimized);
+  };
+
   return (
     <div 
-      className="relative h-[100dvh] w-screen bg-[#0a0a0c] font-mono text-text-primary flex flex-col items-center justify-between pt-10 pb-20 px-[clamp(0.5rem,2vw,2rem)] transition-colors duration-300 overflow-hidden select-none"
+      className="relative h-[100dvh] w-screen bg-[#0a0a0c] font-mono text-text-primary flex flex-col items-center justify-between pt-9 pb-16 px-[clamp(0.5rem,2vw,2rem)] transition-colors duration-300 overflow-hidden select-none"
       onWheel={handleInteraction}
       onTouchStart={handleInteraction}
     >
@@ -63,7 +76,7 @@ export const MainLayout = ({
         onCommand={onCommand} 
       />
 
-      {/* AI Desktop Wallpaper Background Layer */}
+      {/* AI & Reference Wallpaper Background Layer */}
       <Wallpaper currentTheme={currentTheme} />
 
       {/* Terminal Canvas Overlays & Modals */}
@@ -72,58 +85,54 @@ export const MainLayout = ({
       <CloseOverlay isOpen={closeOverlayActive} onClose={() => setCloseOverlayActive(false)} />
 
       {/* Smooth Animated Terminal Window Container */}
-      <motion.div 
-        layout
-        transition={{ type: 'spring', stiffness: 280, damping: 28 }}
-        className={`relative w-full z-20 flex flex-col bg-bg-primary/95 sm:rounded-xl overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.85)] border border-white/10 terminal-window-glass my-auto ${
-          isMaximized 
-            ? 'max-w-full h-full sm:h-full sm:rounded-none my-0' 
-            : isMinimized 
-              ? 'max-w-[clamp(100%,1200px,100%)] h-[52px]' 
-              : 'max-w-[clamp(100%,1200px,100%)] h-full sm:h-[clamp(480px,82dvh,1200px)]'
-        }`}
-      >
-        {/* CRT/Scanlines overlay */}
-        <div className="absolute inset-0 scanlines pointer-events-none opacity-[0.18] md:opacity-30 z-50 mix-blend-overlay" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-black/10 pointer-events-none z-40" />
+      <AnimatePresence>
+        {!isMinimized && (
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.2, y: 300, transition: { duration: 0.25 } }}
+            transition={{ type: 'spring', stiffness: 300, damping: 28 }}
+            className={`relative w-full z-20 flex flex-col bg-bg-primary/95 sm:rounded-xl overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.85)] border border-white/10 terminal-window-glass my-auto ${
+              isMaximized 
+                ? 'max-w-full h-full sm:h-full sm:rounded-none my-0' 
+                : 'max-w-[clamp(100%,1200px,100%)] h-full sm:h-[clamp(480px,82dvh,1200px)]'
+            }`}
+          >
+            {/* CRT/Scanlines overlay */}
+            <div className="absolute inset-0 scanlines pointer-events-none opacity-[0.18] md:opacity-30 z-50 mix-blend-overlay" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-black/10 pointer-events-none z-40" />
 
-        {/* macOS Style Traffic Light Window Titlebar */}
-        <div className="flex items-center justify-between px-4 py-3 bg-[#1a1a1b] border-b border-white/10 select-none z-[100]">
-          <div className="flex items-center space-x-2.5">
-            <button 
-              onClick={() => setCloseOverlayActive(true)}
-              title="Close window (kill process)"
-              className="w-3 h-3 rounded-full bg-[#ff5f56] hover:brightness-125 transition-all cursor-pointer border border-black/30 shadow-sm"
-            />
-            <button 
-              onClick={() => setIsMinimized(!isMinimized)}
-              title="Minimize window"
-              className="w-3 h-3 rounded-full bg-[#ffbd2e] hover:brightness-125 transition-all cursor-pointer border border-black/30 shadow-sm"
-            />
-            <button 
-              onClick={() => setIsMaximized(!isMaximized)}
-              title="Maximize window"
-              className="w-3 h-3 rounded-full bg-[#27c93f] hover:brightness-125 transition-all cursor-pointer border border-black/30 shadow-sm"
-            />
-          </div>
+            {/* macOS Style Traffic Light Window Titlebar */}
+            <div className="flex items-center justify-between px-4 py-3 bg-[#1a1a1b] border-b border-white/10 select-none z-[100]">
+              <div className="flex items-center space-x-2.5">
+                <button 
+                  onClick={() => setCloseOverlayActive(true)}
+                  title="Close window (kill process)"
+                  className="w-3 h-3 rounded-full bg-[#ff5f56] hover:brightness-125 transition-all cursor-pointer border border-black/30 shadow-sm"
+                />
+                <button 
+                  onClick={handleMinimizeToggle}
+                  title="Minimize window"
+                  className="w-3 h-3 rounded-full bg-[#ffbd2e] hover:brightness-125 transition-all cursor-pointer border border-black/30 shadow-sm"
+                />
+                <button 
+                  onClick={handleMaximizeToggle}
+                  title="Maximize window"
+                  className="w-3 h-3 rounded-full bg-[#27c93f] hover:brightness-125 transition-all cursor-pointer border border-black/30 shadow-sm"
+                />
+              </div>
 
-          <div className="text-fluid-xs text-text-secondary tracking-[0.2em] font-semibold opacity-80 uppercase truncate px-2">
-            jayant@olhyan ~ /portfolio {isMinimized && '(minimized to dock)'}
-          </div>
+              <div className="text-fluid-xs text-text-secondary tracking-[0.2em] font-semibold opacity-80 uppercase truncate px-2">
+                jayant@macbook-pro ~ /portfolio
+              </div>
 
-          <div className="text-[10px] text-text-secondary/60 hidden sm:block font-bold">
-            CLI v2.0
-          </div>
-        </div>
+              <div className="text-[10px] text-text-secondary/60 hidden sm:block font-bold">
+                zsh +
+              </div>
+            </div>
 
-        {/* Scrollable Output Viewport */}
-        <AnimatePresence>
-          {!isMinimized && (
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.2 }}
+            {/* Scrollable Output Viewport */}
+            <div 
               ref={scrollRef}
               style={{ touchAction: 'pan-y' }}
               className="flex-1 overflow-y-auto px-[clamp(0.5rem,3vw,2rem)] py-[clamp(1rem,4vw,1.5rem)] pb-24 scroll-smooth relative z-20 custom-scrollbar overflow-x-hidden content-glow"
@@ -153,13 +162,13 @@ export const MainLayout = ({
                   />
                 </div>
               )}
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
 
-        {/* Noise Grain */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-[110] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
-      </motion.div>
+            {/* Noise Grain */}
+            <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-[110] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Floating macOS Dock at Bottom */}
       <MacDock 

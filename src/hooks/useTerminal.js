@@ -1,14 +1,19 @@
 import { useState, useCallback, useEffect } from 'react';
 
 export const useTerminal = () => {
-  const [isLocked, setIsLocked] = useState(true);
+  const [isLocked, setIsLocked] = useState(false);
+  const [isBooting, setIsBooting] = useState(false);
   const [history, setHistory] = useState([
-    { id: 'lock', type: 'component', content: 'unlock' }
+    { id: 'init', type: 'component', content: 'dashboard' }
   ]);
   const [commandHistory, setCommandHistory] = useState([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
-  const [isBooting, setIsBooting] = useState(false);
   const [currentTheme, setCurrentTheme] = useState('dark');
+
+  // Modal Overlay States
+  const [matrixActive, setMatrixActive] = useState(false);
+  const [confettiActive, setConfettiActive] = useState(false);
+  const [closeOverlayActive, setCloseOverlayActive] = useState(false);
 
   const setTheme = useCallback((themeId) => {
     setCurrentTheme(themeId);
@@ -24,7 +29,7 @@ export const useTerminal = () => {
 
   const unlock = useCallback(() => {
     setIsLocked(false);
-    setIsBooting(false); // No boot sequence, skip directly to ready state
+    setIsBooting(false);
     setHistory([{ id: 'init', type: 'component', content: 'dashboard' }]);
   }, []);
 
@@ -34,14 +39,34 @@ export const useTerminal = () => {
   }, []);
 
   const executeCommand = useCallback((cmdRaw) => {
-    const cmd = cmdRaw.trim().toLowerCase();
+    let cmd = cmdRaw.trim().toLowerCase();
     if (!cmd) return;
+
+    // Normalise aliases
+    const ALIASES = {
+      '/portfolio': '/work',
+      '/projects': '/work',
+      '/me': '/about',
+      '/who': '/about',
+      '/info': '/about',
+      '/expertise': '/skills',
+      '/writing': '/articles',
+      '/blog': '/articles',
+      '/reviews': '/testimonials',
+      '/recommendations': '/testimonials',
+      '/kill': '/exit',
+      '/close': '/exit',
+    };
+
+    if (ALIASES[cmd]) {
+      cmd = ALIASES[cmd];
+    }
 
     // Add to command history
     setCommandHistory(prev => [cmdRaw, ...prev]);
     setHistoryIndex(-1);
 
-    // Add input to display history
+    // Add input line
     const inputId = Date.now();
     setHistory(prev => [...prev, { id: inputId, type: 'input', content: cmdRaw }]);
 
@@ -58,14 +83,20 @@ export const useTerminal = () => {
         case '/help':
         case 'help':
           response = `Available commands:
-    /about       - Professional bio and expertise
-    /work        - Featured projects and case studies
-    /skills      - Technical stack and tools
-    /contact     - Contact information
-    /clear       - Clear terminal history
-    /themes      - List available color themes
-    /secrets     - ???`;
+    /about        - Professional bio and expertise
+    /work         - Featured projects and case studies
+    /skills       - Technical stack, frameworks & AI models
+    /social       - Social profiles & external links
+    /philosophy   - Engineering & design principles
+    /testimonials - What peers and mentors say
+    /articles     - Writing & technical insights
+    /themes       - List & switch color themes
+    /matrix       - Digital rain easter egg
+    /confetti     - Celebration particle explosion
+    /clear        - Clear terminal screen
+    /exit         - Terminate terminal session`;
           break;
+
         case '/themes':
         case 'themes':
           component = 'themes';
@@ -76,8 +107,6 @@ export const useTerminal = () => {
           break;
         case '/work':
         case 'work':
-        case '/projects':
-        case 'projects':
           component = 'work';
           break;
         case '/skills':
@@ -88,30 +117,62 @@ export const useTerminal = () => {
         case 'contact':
           component = 'contact';
           break;
+        case '/social':
+        case 'social':
+          component = 'social';
+          break;
+        case '/philosophy':
+        case 'philosophy':
+          component = 'philosophy';
+          break;
+        case '/testimonials':
+        case 'testimonials':
+          component = 'testimonials';
+          break;
+        case '/articles':
+        case 'articles':
+          component = 'articles';
+          break;
         case '/clear':
         case 'clear':
           setHistory([{ id: 'init-' + Date.now(), type: 'component', content: 'dashboard' }]);
           return;
+
+        case '/matrix':
+          setMatrixActive(true);
+          response = "Initializing Matrix digital rain protocol...";
+          break;
+
+        case '/confetti':
+          setConfettiActive(true);
+          response = "Triggering celebration confetti!";
+          break;
+
+        case '/exit':
+        case 'exit':
+          setCloseOverlayActive(true);
+          response = "Process termination requested. Invoking /exit...";
+          break;
+
         case '/secrets':
         case 'secrets':
-          response = `ACCESS GRANTED. Experimental features found:
-    /matrix   - Wake up, Neo...
-    /coffee   - Check system energy levels
-    /konami   - ???`;
+          response = `ACCESS GRANTED. Secret commands available:
+    /matrix   - Digital green rain canvas
+    /confetti - Celebration particles
+    /exit     - Kill terminal session`;
           break;
-        case '/matrix':
-          response = "Establishing secure connection... Done. Welcome to the Matrix.";
-          break;
+
         default:
-          response = `Command not found: ${cmd}. Type "/help" for assistance.`;
+          response = `Command not recognized: "${cmdRaw}". Type "/help" for all commands.`;
       }
     }
 
     const resId = Date.now() + 1;
     if (response) {
       setHistory(prev => [...prev, { id: resId, type: 'output', content: response }]);
-    } else if (component) {
-      setHistory(prev => [...prev, { id: resId, type: 'component', content: component }]);
+    }
+    if (component) {
+      setHistory(prev => [...prev, { id: resId + 1, type: 'component', content: component }]);
     }
   }, [setTheme]);
 
@@ -126,6 +187,12 @@ export const useTerminal = () => {
     historyIndex,
     setHistoryIndex,
     currentTheme,
-    setTheme
+    setTheme,
+    matrixActive,
+    setMatrixActive,
+    confettiActive,
+    setConfettiActive,
+    closeOverlayActive,
+    setCloseOverlayActive,
   };
 };

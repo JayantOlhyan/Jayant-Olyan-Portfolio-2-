@@ -22,20 +22,18 @@ const getSkeletonFor = (componentName, currentTheme) => {
 };
 
 export const SectionLoader = ({ componentName, renderComponent, currentTheme }) => {
-  // Simulate data fetching wait time for this synchronous portfolio
-  // so the skeleton spec can be visibly demonstrated.
   const [isLoading, setIsLoading] = useState(true);
-  
-  // Only show skeleton if loading takes longer than 200ms
   const showSkeleton = useDelayedLoading(isLoading, 200);
 
   useEffect(() => {
-    setIsLoading(true);
-    // Simulate a 600ms network request
+    let isMounted = true;
     const timer = setTimeout(() => {
-      setIsLoading(false);
+      if (isMounted) setIsLoading(false);
     }, 600);
-    return () => clearTimeout(timer);
+    return () => {
+      isMounted = false;
+      clearTimeout(timer);
+    };
   }, [componentName]);
 
   if (isLoading) {
@@ -47,7 +45,6 @@ export const SectionLoader = ({ componentName, renderComponent, currentTheme }) 
         </div>
       );
     }
-    // Render an empty spacer during the 200ms threshold to prevent flash of content
     return <div className="h-4"></div>;
   }
 

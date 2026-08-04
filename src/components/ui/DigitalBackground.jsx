@@ -1,5 +1,31 @@
 import React, { useEffect, useRef } from 'react';
 
+class Particle {
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.vx = (Math.random() - 0.5) * 0.5;
+    this.vy = (Math.random() - 0.5) * 0.5;
+    this.radius = Math.random() * 1.5 + 0.5;
+  }
+
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+
+    if (this.x < 0 || this.x > this.canvas.width) this.vx *= -1;
+    if (this.y < 0 || this.y > this.canvas.height) this.vy *= -1;
+  }
+
+  draw(ctx, accentColor) {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = accentColor;
+    ctx.fill();
+  }
+}
+
 export const DigitalBackground = () => {
   const canvasRef = useRef(null);
 
@@ -10,49 +36,23 @@ export const DigitalBackground = () => {
     let animationId;
     let particles = [];
     
-    // Theme-aware color retrieval
     const getAccentColor = () => {
       const rootStyle = getComputedStyle(document.documentElement);
       return rootStyle.getPropertyValue('--app-accent-green').trim() || '#00B050';
+    };
+
+    const initParticles = () => {
+      particles = [];
+      const count = Math.floor((canvas.width * canvas.height) / 15000);
+      for (let i = 0; i < Math.min(count, 100); i++) {
+        particles.push(new Particle(canvas));
+      }
     };
 
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       initParticles();
-    };
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = Math.random() * 1.5 + 0.5;
-      }
-
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = getAccentColor();
-        ctx.fill();
-      }
-    }
-
-    const initParticles = () => {
-      particles = [];
-      const count = Math.floor((canvas.width * canvas.height) / 15000);
-      for (let i = 0; i < Math.min(count, 100); i++) {
-        particles.push(new Particle());
-      }
     };
 
     const drawConnections = () => {
@@ -81,10 +81,11 @@ export const DigitalBackground = () => {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const accentColor = getAccentColor();
       
       particles.forEach(p => {
         p.update();
-        p.draw();
+        p.draw(ctx, accentColor);
       });
       
       drawConnections();

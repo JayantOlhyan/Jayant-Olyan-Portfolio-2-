@@ -295,35 +295,43 @@ export const articles = [
 
 export const themeData = [
   {
-    id: 'dark',
-    command: '/dark',
-    name: 'Default Dark Mode',
-    description: 'deep tones, easy on the eyes',
-    colors: ['#0A0A0A', '#1A1A1B', '#D69E2E', '#CBD5E0'],
+    id: 'main',
+    command: '/main',
+    name: 'Cyber Mountains (Default Reference)',
+    description: 'Green & blue electric horizon (Image 1)',
+    colors: ['#0A0A0A', '#1A1A1B', '#00ff41', '#38bdf8'],
     portraitColor: '#00ff41'
-  },
-  {
-    id: 'light',
-    command: '/light',
-    name: 'Clean, bright, and professional',
-    description: '',
-    colors: ['#FFFFFF', '#F7FAFC', '#D69E2E', '#4A5568'],
-    portraitColor: '#4A5568'
   },
   {
     id: 'retro',
     command: '/retro',
-    name: '1983 CRT phosphor glow',
-    description: 'scanlines included',
+    name: 'Retro CRT Grid',
+    description: '1983 perspective grid & matrix code rain (Image 2)',
     colors: ['#0A0D08', '#0A0D08', '#FFE600', '#FFE600'],
     portraitColor: '#FFE600'
   },
   {
+    id: 'dark',
+    command: '/dark',
+    name: 'Cyberpunk Metallic Shards',
+    description: '3D metallic glass shards & cyan traces (Image 3)',
+    colors: ['#0A0A0A', '#1A1A1B', '#38bdf8', '#CBD5E0'],
+    portraitColor: '#38bdf8'
+  },
+  {
+    id: 'space',
+    command: '/space',
+    name: 'Cosmic Galaxy Nebula',
+    description: 'Deep cosmic galaxy & constellation nodes (Image 4)',
+    colors: ['#050B14', '#0E1726', '#38bdf8', '#93c5fd'],
+    portraitColor: '#38bdf8'
+  },
+  {
     id: 'glass',
     command: '/glass',
-    name: 'Frosted glass with depth and blur',
-    description: '',
-    colors: ['#1A202C', '#2D3748', '#D69E2E', '#A3BFFA'],
-    portraitColor: '#4A89DF'
+    name: 'Glassmorphism Spheres',
+    description: 'Translucent violet panels & floating spheres (Image 5)',
+    colors: ['#1A202C', '#2D3748', '#a855f7', '#38bdf8'],
+    portraitColor: '#a855f7'
   }
 ];

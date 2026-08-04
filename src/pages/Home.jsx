@@ -10,6 +10,7 @@ import { Testimonials } from '../components/sections/Testimonials';
 import { Contact } from '../components/sections/Contact';
 import { Social } from '../components/sections/Social';
 import { Philosophy } from '../components/sections/Philosophy';
+import { NeofetchView } from '../components/sections/NeofetchView';
 
 import { Dashboard } from '../components/sections/Dashboard';
 import { Unlock } from '../components/sections/Unlock';
@@ -19,6 +20,7 @@ import { SectionLoader } from '../components/ui/SectionLoader';
 export const Home = ({ history, onBootComplete, onUnlock, currentTheme, onThemeChange, onCommand }) => {
   const renderComponent = (block) => {
     switch (block) {
+      case 'neofetch': return <NeofetchView />;
       case 'unlock': return <Unlock onUnlock={onUnlock} />;
       case 'dashboard': return <Dashboard currentTheme={currentTheme} onCommand={onCommand} />;
       case 'themes': return <ThemeSelector currentTheme={currentTheme} onThemeChange={onThemeChange} />;

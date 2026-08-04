@@ -4,17 +4,16 @@ export const useTerminal = () => {
   const [isLocked, setIsLocked] = useState(false);
   const [isBooting, setIsBooting] = useState(false);
   const [history, setHistory] = useState([
-    { id: 'init', type: 'component', content: 'dashboard' }
+    { id: 'neofetch-init', type: 'component', content: 'neofetch' },
+    { id: 'dashboard-init', type: 'component', content: 'dashboard' }
   ]);
   const [commandHistory, setCommandHistory] = useState([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
 
-  // Lazy state initialization for theme
   const [currentTheme, setCurrentTheme] = useState(() => {
-    return localStorage.getItem('portfolio-theme') || 'dark';
+    return localStorage.getItem('portfolio-theme') || 'main';
   });
 
-  // Modal Overlay States
   const [matrixActive, setMatrixActive] = useState(false);
   const [confettiActive, setConfettiActive] = useState(false);
   const [closeOverlayActive, setCloseOverlayActive] = useState(false);
@@ -25,7 +24,6 @@ export const useTerminal = () => {
     localStorage.setItem('portfolio-theme', themeId);
   }, []);
 
-  // Update DOM class when currentTheme changes
   useEffect(() => {
     document.documentElement.className = currentTheme;
   }, [currentTheme]);
@@ -33,12 +31,18 @@ export const useTerminal = () => {
   const unlock = useCallback(() => {
     setIsLocked(false);
     setIsBooting(false);
-    setHistory([{ id: 'init', type: 'component', content: 'dashboard' }]);
+    setHistory([
+      { id: 'neofetch-init', type: 'component', content: 'neofetch' },
+      { id: 'dashboard-init', type: 'component', content: 'dashboard' }
+    ]);
   }, []);
 
   const completeBoot = useCallback(() => {
     setIsBooting(false);
-    setHistory([{ id: 'init', type: 'component', content: 'dashboard' }]);
+    setHistory([
+      { id: 'neofetch-init', type: 'component', content: 'neofetch' },
+      { id: 'dashboard-init', type: 'component', content: 'dashboard' }
+    ]);
   }, []);
 
   const executeCommand = useCallback((cmdRaw) => {
@@ -46,7 +50,7 @@ export const useTerminal = () => {
     if (!cmd) return;
 
     const ALIASES = {
-      '/portfolio': '/work',
+      '/portfolio': '/neofetch',
       '/projects': '/work',
       '/me': '/about',
       '/who': '/about',
@@ -73,15 +77,21 @@ export const useTerminal = () => {
     let response = null;
     let component = null;
 
-    if (['/dark', '/light', '/retro', '/glass'].includes(cmd)) {
+    if (['/main', '/dark', '/retro', '/space', '/glass'].includes(cmd)) {
       const themeId = cmd.substring(1);
       setTheme(themeId);
-      response = `System theme updated to: [${themeId.toUpperCase()}]`;
+      response = `System theme updated to user wallpaper: [${themeId.toUpperCase()}]`;
     } else {
       switch (cmd) {
+        case 'neofetch':
+        case '/neofetch':
+          component = 'neofetch';
+          break;
+
         case '/help':
         case 'help':
           response = `Available commands:
+    neofetch      - Render macOS system summary & specs
     /about        - Professional bio and expertise
     /work         - Featured projects and case studies
     /skills       - Technical stack, frameworks & AI models
@@ -89,7 +99,7 @@ export const useTerminal = () => {
     /philosophy   - Engineering & design principles
     /testimonials - What peers and mentors say
     /articles     - Writing & technical insights
-    /themes       - List & switch color themes
+    /themes       - List & switch user wallpapers (/main, /dark, /retro, /space, /glass)
     /matrix       - Digital rain easter egg
     /confetti     - Celebration particle explosion
     /clear        - Clear terminal screen
@@ -134,7 +144,7 @@ export const useTerminal = () => {
           break;
         case '/clear':
         case 'clear':
-          setHistory([{ id: 'init-' + Date.now(), type: 'component', content: 'dashboard' }]);
+          setHistory([{ id: 'init-' + Date.now(), type: 'component', content: 'neofetch' }]);
           return;
 
         case '/matrix':

@@ -1,5 +1,5 @@
 import React from 'react';
-import { siteMetadata, terminalBootLines, terminalBootLinesCompact, themeData } from '../../data/portfolioData';
+import { terminalBootLines, terminalBootLinesCompact, themeData } from '../../data/portfolioData';
 import { WelcomeBox } from './WelcomeBox';
 
 export const Dashboard = ({ currentTheme, onCommand }) => {

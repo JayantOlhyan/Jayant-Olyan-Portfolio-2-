@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Wifi, BatteryCharging, Search, Command } from 'lucide-react';
-import { siteMetadata } from '../../data/portfolioData';
+import { Wifi, BatteryCharging, Search } from 'lucide-react';
 
-export const MacMenuBar = ({ currentTheme, onCommand, activeSection }) => {
+export const MacMenuBar = ({ onCommand }) => {
   const [time, setTime] = useState('');
 
   useEffect(() => {

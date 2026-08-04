@@ -17,8 +17,7 @@ export const MacDock = ({
   onCommand, 
   isMinimized, 
   setIsMinimized, 
-  setCloseOverlayActive,
-  currentTheme 
+  setCloseOverlayActive 
 }) => {
   const [hoveredApp, setHoveredApp] = useState(null);
 
@@ -137,13 +136,12 @@ export const MacDock = ({
         transition={{ type: 'spring', stiffness: 260, damping: 20 }}
         className="flex items-center space-x-2 px-3 py-2 bg-black/40 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
       >
-        {dockApps.map((app, index) => {
+        {dockApps.map((app) => {
           const Icon = app.icon;
           const isHovered = hoveredApp === app.id;
 
           return (
             <div key={app.id} className="relative group flex flex-col items-center">
-              {/* macOS Tooltip */}
               <AnimatePresence>
                 {isHovered && (
                   <motion.div
@@ -158,7 +156,6 @@ export const MacDock = ({
                 )}
               </AnimatePresence>
 
-              {/* App Icon */}
               <motion.button
                 whileHover={{ scale: 1.35, y: -8 }}
                 whileTap={{ scale: 0.9 }}
@@ -170,7 +167,6 @@ export const MacDock = ({
                 <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
               </motion.button>
 
-              {/* Active Indicator Dot */}
               {app.active && (
                 <span className="w-1 h-1 rounded-full bg-white/80 mt-1 shadow-[0_0_6px_rgba(255,255,255,0.8)]" />
               )}

@@ -5,6 +5,8 @@ import { Wallpaper } from '../components/ui/Wallpaper';
 import { MatrixRain } from '../components/ui/MatrixRain';
 import { ConfettiCanvas } from '../components/ui/ConfettiCanvas';
 import { CloseOverlay } from '../components/ui/CloseOverlay';
+import { MacMenuBar } from '../components/ui/MacMenuBar';
+import { MacDock } from '../components/ui/MacDock';
 
 export const MainLayout = ({ 
   children, 
@@ -51,11 +53,17 @@ export const MainLayout = ({
 
   return (
     <div 
-      className="relative h-[100dvh] w-screen bg-[#0a0a0c] font-mono text-text-primary flex items-center justify-center p-[clamp(0.5rem,2vw,2rem)] transition-colors duration-300 overflow-hidden select-none"
+      className="relative h-[100dvh] w-screen bg-[#0a0a0c] font-mono text-text-primary flex flex-col items-center justify-between pt-10 pb-20 px-[clamp(0.5rem,2vw,2rem)] transition-colors duration-300 overflow-hidden select-none"
       onWheel={handleInteraction}
       onTouchStart={handleInteraction}
     >
-      {/* Real AI Wallpaper & Atmospheric Background Layer */}
+      {/* Top macOS Menu Bar */}
+      <MacMenuBar 
+        currentTheme={currentTheme} 
+        onCommand={onCommand} 
+      />
+
+      {/* AI Desktop Wallpaper Background Layer */}
       <Wallpaper currentTheme={currentTheme} />
 
       {/* Terminal Canvas Overlays & Modals */}
@@ -63,44 +71,44 @@ export const MainLayout = ({
       <ConfettiCanvas active={confettiActive} onClose={() => setConfettiActive(false)} />
       <CloseOverlay isOpen={closeOverlayActive} onClose={() => setCloseOverlayActive(false)} />
 
-      {/* Smooth Framer Motion Animated Terminal Container */}
+      {/* Smooth Animated Terminal Window Container */}
       <motion.div 
         layout
-        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-        className={`relative w-full z-20 flex flex-col bg-bg-primary/95 sm:rounded-lg overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.8)] border border-border-dark/40 terminal-window-glass ${
+        transition={{ type: 'spring', stiffness: 280, damping: 28 }}
+        className={`relative w-full z-20 flex flex-col bg-bg-primary/95 sm:rounded-xl overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.85)] border border-white/10 terminal-window-glass my-auto ${
           isMaximized 
-            ? 'max-w-full h-full sm:h-full sm:rounded-none' 
+            ? 'max-w-full h-full sm:h-full sm:rounded-none my-0' 
             : isMinimized 
               ? 'max-w-[clamp(100%,1200px,100%)] h-[52px]' 
-              : 'max-w-[clamp(100%,1200px,100%)] h-full sm:h-[clamp(500px,90dvh,1400px)]'
+              : 'max-w-[clamp(100%,1200px,100%)] h-full sm:h-[clamp(480px,82dvh,1200px)]'
         }`}
       >
         {/* CRT/Scanlines overlay */}
-        <div className="absolute inset-0 scanlines pointer-events-none opacity-[0.2] md:opacity-30 z-50 mix-blend-overlay" />
+        <div className="absolute inset-0 scanlines pointer-events-none opacity-[0.18] md:opacity-30 z-50 mix-blend-overlay" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-black/10 pointer-events-none z-40" />
 
-        {/* macOS Style Traffic Light Header */}
-        <div className="flex items-center justify-between px-4 py-2.5 bg-[#1a1a1a] border-b border-white/5 select-none z-[100]">
+        {/* macOS Style Traffic Light Window Titlebar */}
+        <div className="flex items-center justify-between px-4 py-3 bg-[#1a1a1b] border-b border-white/10 select-none z-[100]">
           <div className="flex items-center space-x-2.5">
             <button 
               onClick={() => setCloseOverlayActive(true)}
               title="Close window (kill process)"
-              className="w-3 h-3 rounded-full bg-[#ff5f56] hover:brightness-125 transition-all cursor-pointer border border-black/20"
+              className="w-3 h-3 rounded-full bg-[#ff5f56] hover:brightness-125 transition-all cursor-pointer border border-black/30 shadow-sm"
             />
             <button 
               onClick={() => setIsMinimized(!isMinimized)}
               title="Minimize window"
-              className="w-3 h-3 rounded-full bg-[#ffbd2e] hover:brightness-125 transition-all cursor-pointer border border-black/20"
+              className="w-3 h-3 rounded-full bg-[#ffbd2e] hover:brightness-125 transition-all cursor-pointer border border-black/30 shadow-sm"
             />
             <button 
               onClick={() => setIsMaximized(!isMaximized)}
               title="Maximize window"
-              className="w-3 h-3 rounded-full bg-[#27c93f] hover:brightness-125 transition-all cursor-pointer border border-black/20"
+              className="w-3 h-3 rounded-full bg-[#27c93f] hover:brightness-125 transition-all cursor-pointer border border-black/30 shadow-sm"
             />
           </div>
 
           <div className="text-fluid-xs text-text-secondary tracking-[0.2em] font-semibold opacity-80 uppercase truncate px-2">
-            jayant@olhyan ~ /portfolio {isMinimized && '(minimized)'}
+            jayant@olhyan ~ /portfolio {isMinimized && '(minimized to dock)'}
           </div>
 
           <div className="text-[10px] text-text-secondary/60 hidden sm:block font-bold">
@@ -112,9 +120,9 @@ export const MainLayout = ({
         <AnimatePresence>
           {!isMinimized && (
             <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.2 }}
               ref={scrollRef}
               style={{ touchAction: 'pan-y' }}
@@ -131,7 +139,7 @@ export const MainLayout = ({
             >
               {/* SEO Headings */}
               <h1 className="sr-only">Jayant Olhyan — Data Science & AI Student at IIT Guwahati</h1>
-              <h2 className="sr-only">Full Stack AI Developer Portfolio inspired by vladburca.com</h2>
+              <h2 className="sr-only">Full Stack AI Developer macOS Portfolio inspired by vladburca.com</h2>
 
               {children}
 
@@ -152,6 +160,15 @@ export const MainLayout = ({
         {/* Noise Grain */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-[110] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
       </motion.div>
+
+      {/* Floating macOS Dock at Bottom */}
+      <MacDock 
+        onCommand={onCommand} 
+        isMinimized={isMinimized} 
+        setIsMinimized={setIsMinimized} 
+        setCloseOverlayActive={setCloseOverlayActive}
+        currentTheme={currentTheme}
+      />
     </div>
   );
 };

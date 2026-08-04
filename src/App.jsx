@@ -16,7 +16,13 @@ function App() {
     historyIndex,
     setHistoryIndex,
     currentTheme,
-    setTheme
+    setTheme,
+    matrixActive,
+    setMatrixActive,
+    confettiActive,
+    setConfettiActive,
+    closeOverlayActive,
+    setCloseOverlayActive
   } = useTerminal();
 
   const handleHistoryUp = () => {
@@ -43,18 +49,29 @@ function App() {
         hideInput={isBooting || isLocked}
         onHistoryUp={handleHistoryUp}
         onHistoryDown={handleHistoryDown}
+        currentTheme={currentTheme}
+        matrixActive={matrixActive}
+        setMatrixActive={setMatrixActive}
+        confettiActive={confettiActive}
+        setConfettiActive={setConfettiActive}
+        closeOverlayActive={closeOverlayActive}
+        setCloseOverlayActive={setCloseOverlayActive}
       >
-         <Routes>
-           <Route path="/" element={
-             <Home 
-               history={history} 
-               onBootComplete={completeBoot} 
-               onUnlock={unlock} 
-               currentTheme={currentTheme}
-               onThemeChange={setTheme}
-             />
-           } />
-         </Routes>
+        <Routes>
+          <Route 
+            path="*" 
+            element={
+              <Home 
+                history={history} 
+                onBootComplete={completeBoot} 
+                onUnlock={unlock} 
+                currentTheme={currentTheme}
+                onThemeChange={setTheme}
+                onCommand={executeCommand}
+              />
+            } 
+          />
+        </Routes>
       </MainLayout>
     </BrowserRouter>
   );

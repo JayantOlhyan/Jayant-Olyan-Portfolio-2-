@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { siteMetadata, developerPortrait, themeData } from '../../data/portfolioData';
 
 export const WelcomeBox = ({ onCommand, currentTheme }) => {
   const activeTheme = themeData.find((t) => t.id === currentTheme) || themeData[0];
   const portraitColor = activeTheme.portraitColor || '#00ff41';
-  const [viewFullPortrait, setViewFullPortrait] = useState(false);
 
   const menuItems = [
     { cmd: '/about', label: 'About Me', desc: 'Bio & timeline' },
@@ -27,7 +26,7 @@ export const WelcomeBox = ({ onCommand, currentTheme }) => {
       className="w-full border border-dashed border-border-dark p-4 sm:p-6 rounded-lg bg-bg-terminal/40 backdrop-blur-md font-mono space-y-6 shadow-xl"
     >
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-        {/* Left Column: Bio & Full Un-cut Photograph ASCII */}
+        {/* Left Column: Bio & Full Un-cut Photograph ASCII (Always Expanded) */}
         <div className="md:col-span-7 space-y-4">
           <div className="flex items-center space-x-2">
             <span className="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
@@ -44,21 +43,13 @@ export const WelcomeBox = ({ onCommand, currentTheme }) => {
             I'm <strong className="text-text-primary">{siteMetadata.name}</strong> — a Data Science & AI student at <strong className="text-amber-400">IIT Guwahati</strong> and Computer Science student at <strong className="text-emerald-400">MSIT</strong>. 25x Hackathon Finalist and Full-Stack AI Engineer based in {siteMetadata.location}.
           </p>
 
-          {/* Full Photograph Container */}
+          {/* Full Photograph Container - Always 100% Expanded */}
           <div className="space-y-2 pt-2">
-            <div className="flex items-center justify-between text-[11px] text-text-secondary/70 font-semibold uppercase tracking-wider">
-              <span>Developer ASCII Portrait</span>
-              <button 
-                onClick={() => setViewFullPortrait(!viewFullPortrait)}
-                className="text-emerald-400 hover:underline cursor-pointer text-[10px]"
-              >
-                {viewFullPortrait ? '[ Collapse View ]' : '[ Expand Full View ]'}
-              </button>
+            <div className="text-[11px] text-text-secondary/70 font-semibold uppercase tracking-wider">
+              Developer ASCII Portrait
             </div>
 
-            <div className={`select-none overflow-hidden rounded bg-black/40 border border-white/5 p-2 transition-all duration-500 ${
-              viewFullPortrait ? 'max-h-full' : 'max-h-[220px] overflow-y-auto custom-scrollbar'
-            }`}>
+            <div className="select-none overflow-x-auto rounded bg-black/40 border border-white/5 p-3">
               <pre
                 style={{
                   color: portraitColor,

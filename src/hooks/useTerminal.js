@@ -185,6 +185,49 @@ export const useTerminal = () => {
     }
   }, [setTheme]);
 
+  useEffect(() => {
+    const path = window.location.pathname;
+    const cleanPath = path.replace(/\/$/, '').toLowerCase();
+    const validCommands = [
+      '/about',
+      '/work',
+      '/skills',
+      '/social',
+      '/philosophy',
+      '/testimonials',
+      '/articles',
+      '/contact'
+    ];
+    if (validCommands.includes(cleanPath)) {
+      const timer = setTimeout(() => {
+        executeCommand(cleanPath);
+      }, 100);
+      return () => clearTimeout(timer);
+  }, [executeCommand]);
+
+  useEffect(() => {
+    const lastItem = history[history.length - 1];
+    if (lastItem && (lastItem.type === 'component' || lastItem.type === 'input')) {
+      const titles = {
+        'about': 'About | Jayant Olhyan | Data Science & AI',
+        'work': 'Projects & Work | Jayant Olhyan | Portfolio',
+        'skills': 'Technical Skills & Stack | Jayant Olhyan',
+        'social': 'Connect with Jayant Olhyan | Social Links',
+        'philosophy': 'Engineering & Design Philosophy | Jayant Olhyan',
+        'testimonials': 'Peer Reviews & Testimonials | Jayant Olhyan',
+        'articles': 'Articles & Engineering Insights | Jayant Olhyan',
+        'contact': 'Contact & Hire | Jayant Olhyan',
+        'neofetch': 'System Specs | Jayant Olhyan',
+        'dashboard': 'Dashboard | Jayant Olhyan | Data Science & AI'
+      };
+      
+      const content = lastItem.content.replace(/^\//, '').toLowerCase();
+      if (titles[content]) {
+        document.title = titles[content];
+      }
+    }
+  }, [history]);
+
   return { 
     history, 
     isLocked,

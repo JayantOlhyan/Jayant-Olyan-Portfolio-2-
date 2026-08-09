@@ -1,4 +1,11 @@
+# https://www.robotstxt.org/robotstxt.html
+
 User-agent: *
 Allow: /
 
+# Host
+Host: https://jayant-olhyan-portfolio-2.netlify.app
+
+# Sitemap
 Sitemap: https://jayant-olhyan-portfolio-2.netlify.app/sitemap.xml
+

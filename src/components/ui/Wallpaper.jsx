@@ -4,7 +4,7 @@ export const Wallpaper = ({ currentTheme }) => {
   const getWallpaperSrc = () => {
     switch (currentTheme) {
       case 'retro':
-        return '/assets/wallpapers/retro-wallpaper.jpg';
+        return '/assets/wallpapers/retro-wallpaper.png';
       case 'dark':
         return '/assets/wallpapers/dark-wallpaper.png';
       case 'space':
@@ -13,24 +13,25 @@ export const Wallpaper = ({ currentTheme }) => {
         return '/assets/wallpapers/glass-wallpaper.png';
       case 'main':
       default:
-        return '/assets/wallpapers/main-wallpaper.jpg';
+        return '/assets/wallpapers/main-wallpaper.png';
     }
   };
 
   const bgImage = getWallpaperSrc();
 
   return (
-    <div className="fixed inset-0 z-0 overflow-hidden select-none bg-black">
-      {/* Render User Uploaded Exact Wallpapers */}
+    <div className="fixed inset-0 z-0 overflow-hidden select-none bg-[#09090b]">
+      {/* High Performance Preloaded Wallpaper Image */}
       {bgImage && (
         <div 
-          className="absolute inset-0 bg-cover bg-center transition-all duration-700 opacity-95 scale-100 filter blur-0"
-          style={{ backgroundImage: `url(${bgImage})` }}
+          key={bgImage}
+          className="absolute inset-0 bg-cover bg-center transition-all duration-700 opacity-90 scale-100 filter brightness-95 contrast-105 animate-fade-in"
+          style={{ backgroundImage: `url('${bgImage}')` }}
         />
       )}
 
-      {/* Subtle Vignette Overlay */}
-      <div className="absolute inset-0 pointer-events-none bg-vignette opacity-40" />
+      {/* Subtle Ambient Vignette Overlay */}
+      <div className="absolute inset-0 pointer-events-none bg-radial-vignette opacity-30" />
     </div>
   );
 };

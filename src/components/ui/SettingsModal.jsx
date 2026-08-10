@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Sliders, 
   Palette, 
   Sparkles, 
-  Terminal, 
   X, 
   Check, 
   RefreshCw, 
@@ -15,14 +13,19 @@ import {
   Monitor,
   Bell,
   Lock,
-  User,
   Zap,
   Info,
-  ExternalLink,
-  Shield,
-  Layers
+  ExternalLink
 } from 'lucide-react';
 import { themeData, siteMetadata } from '../../data/portfolioData';
+
+const sidebarCategories = [
+  { id: 'general', label: 'General', icon: SettingsIcon, color: 'bg-zinc-600' },
+  { id: 'appearance', label: 'Appearance & Wallpaper', icon: Palette, color: 'bg-indigo-500' },
+  { id: 'desktop', label: 'Desktop & Dock (FX)', icon: Monitor, color: 'bg-blue-500' },
+  { id: 'notifications', label: 'Notifications & Status', icon: Bell, color: 'bg-red-500' },
+  { id: 'security', label: 'Account & Socials', icon: Lock, color: 'bg-amber-500' },
+];
 
 export const SettingsModal = ({ 
   isOpen, 
@@ -39,14 +42,6 @@ export const SettingsModal = ({
   const [searchQuery, setSearchQuery] = useState('');
 
   if (!isOpen) return null;
-
-  const sidebarCategories = [
-    { id: 'general', label: 'General', icon: SettingsIcon, color: 'bg-zinc-600' },
-    { id: 'appearance', label: 'Appearance & Wallpaper', icon: Palette, color: 'bg-indigo-500' },
-    { id: 'desktop', label: 'Desktop & Dock (FX)', icon: Monitor, color: 'bg-blue-500' },
-    { id: 'notifications', label: 'Notifications & Status', icon: Bell, color: 'bg-red-500' },
-    { id: 'security', label: 'Account & Socials', icon: Lock, color: 'bg-amber-500' },
-  ];
 
   return (
     <AnimatePresence>

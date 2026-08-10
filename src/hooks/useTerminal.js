@@ -203,6 +203,7 @@ export const useTerminal = () => {
         executeCommand(cleanPath);
       }, 100);
       return () => clearTimeout(timer);
+    }
   }, [executeCommand]);
 
   useEffect(() => {

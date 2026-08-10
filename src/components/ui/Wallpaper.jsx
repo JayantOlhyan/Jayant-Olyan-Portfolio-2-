@@ -1,19 +1,24 @@
 import React from 'react';
+import retroWallpaper from '../../assets/wallpapers/retro-wallpaper.png';
+import darkWallpaper from '../../assets/wallpapers/dark-wallpaper.png';
+import spaceWallpaper from '../../assets/wallpapers/space-wallpaper.jpg';
+import glassWallpaper from '../../assets/wallpapers/glass-wallpaper.png';
+import mainWallpaper from '../../assets/wallpapers/main-wallpaper.png';
 
 export const Wallpaper = ({ currentTheme }) => {
   const getWallpaperSrc = () => {
     switch (currentTheme) {
       case 'retro':
-        return '/assets/wallpapers/retro-wallpaper.png';
+        return retroWallpaper;
       case 'dark':
-        return '/assets/wallpapers/dark-wallpaper.png';
+        return darkWallpaper;
       case 'space':
-        return '/assets/wallpapers/space-wallpaper.jpg';
+        return spaceWallpaper;
       case 'glass':
-        return '/assets/wallpapers/glass-wallpaper.png';
+        return glassWallpaper;
       case 'main':
       default:
-        return '/assets/wallpapers/main-wallpaper.png';
+        return mainWallpaper;
     }
   };
 

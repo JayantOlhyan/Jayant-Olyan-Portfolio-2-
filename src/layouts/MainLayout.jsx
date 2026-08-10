@@ -5,6 +5,7 @@ import { Wallpaper } from '../components/ui/Wallpaper';
 import { MatrixRain } from '../components/ui/MatrixRain';
 import { ConfettiCanvas } from '../components/ui/ConfettiCanvas';
 import { CloseOverlay } from '../components/ui/CloseOverlay';
+import { SettingsModal } from '../components/ui/SettingsModal';
 import { MacMenuBar } from '../components/ui/MacMenuBar';
 import { MacDock } from '../components/ui/MacDock';
 
@@ -15,6 +16,7 @@ export const MainLayout = ({
   onHistoryUp, 
   onHistoryDown, 
   currentTheme,
+  onThemeChange,
   matrixActive,
   setMatrixActive,
   confettiActive,
@@ -25,6 +27,7 @@ export const MainLayout = ({
   const scrollRef = useRef(null);
   const [isMaximized, setIsMaximized] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   const prevChildrenLength = useRef(0);
   const autoScrollRef = useRef(true);
@@ -74,6 +77,8 @@ export const MainLayout = ({
       <MacMenuBar 
         currentTheme={currentTheme} 
         onCommand={onCommand} 
+        onOpenSettings={() => setIsSettingsOpen(true)}
+        setCloseOverlayActive={setCloseOverlayActive}
       />
 
       {/* AI & Reference Wallpaper Background Layer */}
@@ -83,6 +88,17 @@ export const MainLayout = ({
       <MatrixRain active={matrixActive} onClose={() => setMatrixActive(false)} />
       <ConfettiCanvas active={confettiActive} onClose={() => setConfettiActive(false)} />
       <CloseOverlay isOpen={closeOverlayActive} onClose={() => setCloseOverlayActive(false)} />
+      <SettingsModal 
+        isOpen={isSettingsOpen} 
+        onClose={() => setIsSettingsOpen(false)}
+        currentTheme={currentTheme}
+        onThemeChange={onThemeChange}
+        matrixActive={matrixActive}
+        setMatrixActive={setMatrixActive}
+        confettiActive={confettiActive}
+        setConfettiActive={setConfettiActive}
+        onCommand={onCommand}
+      />
 
       {/* Smooth Animated Terminal Window Container */}
       <AnimatePresence>
@@ -177,6 +193,7 @@ export const MainLayout = ({
         setIsMinimized={setIsMinimized} 
         setCloseOverlayActive={setCloseOverlayActive}
         currentTheme={currentTheme}
+        onOpenSettings={() => setIsSettingsOpen(true)}
       />
     </div>
   );

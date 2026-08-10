@@ -50,6 +50,7 @@ function App() {
         onHistoryUp={handleHistoryUp}
         onHistoryDown={handleHistoryDown}
         currentTheme={currentTheme}
+        onThemeChange={setTheme}
         matrixActive={matrixActive}
         setMatrixActive={setMatrixActive}
         confettiActive={confettiActive}

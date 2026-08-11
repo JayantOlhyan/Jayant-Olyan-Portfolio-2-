@@ -33,7 +33,7 @@ export const ThemeSelector = ({ currentTheme, onThemeChange }) => {
                 <span className="text-text-primary font-bold">{theme.command}</span>
                 <span className="text-text-primary/90">{theme.name}</span>
                 {theme.description && (
-                  <span className="text-text-secondary opacity-70">— {theme.description}</span>
+                  <span className="text-text-secondary opacity-70">: {theme.description}</span>
                 )}
               </div>
             </div>

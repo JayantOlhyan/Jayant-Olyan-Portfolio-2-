@@ -163,7 +163,7 @@ export const MainLayout = ({
               }}
             >
               {/* SEO Headings */}
-              <h1 className="sr-only">Jayant Olhyan — Data Science & AI Student at IIT Guwahati</h1>
+              <h1 className="sr-only">Jayant Olhyan | Data Science & AI Student at IIT Guwahati</h1>
               <h2 className="sr-only">Full Stack AI Developer macOS Portfolio inspired by vladburca.com</h2>
 
               {children}

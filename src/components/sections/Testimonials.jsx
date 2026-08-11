@@ -25,7 +25,7 @@ export const Testimonials = () => {
              
              <div className="flex flex-col">
                <span className="font-sans font-bold text-accent-green tracking-wide text-fluid-sm">
-                 — {test.name}
+                 {test.name}
                </span>
                <span className="font-mono text-text-secondary text-fluid-xs uppercase tracking-widest mt-1">
                  {test.role}

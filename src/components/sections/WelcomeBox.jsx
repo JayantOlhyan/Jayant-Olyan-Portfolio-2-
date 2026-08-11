@@ -40,7 +40,7 @@ export const WelcomeBox = ({ onCommand, currentTheme }) => {
           </h2>
 
           <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
-            I'm <strong className="text-text-primary">{siteMetadata.name}</strong> — a Data Science & AI student at <strong className="text-amber-400">IIT Guwahati</strong> and Computer Science student at <strong className="text-emerald-400">MSIT</strong>. 25x Hackathon Finalist and Full-Stack AI Engineer based in {siteMetadata.location}.
+            I'm <strong className="text-text-primary">{siteMetadata.name}</strong>, a Data Science & AI student at <strong className="text-amber-400">IIT Guwahati</strong> and Computer Science student at <strong className="text-emerald-400">MSIT</strong>. 25x Hackathon Finalist and Full-Stack Developer based in {siteMetadata.location}.
           </p>
 
           {/* Full Photograph Container - Always 100% Expanded */}

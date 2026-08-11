@@ -1,20 +1,20 @@
 export const siteMetadata = {
-  title: 'Jayant Olhyan Portfolio — Data Science & AI',
+  title: 'Jayant Olhyan | Data Science & AI Portfolio',
   name: 'Jayant Olhyan',
-  headline: 'IIT Guwahati AI student & BTech Computer Science MSIT | Full Stack Developer portfolio',
-  subHeadline: 'Data Science Student India & 25x Hackathon Finalist',
-  welcomeMessage: "Welcome to the official Jayant Olhyan Portfolio. Explore a collection of innovative Jayant Olhyan projects spanning deep learning, full stack web development, and space tech.",
+  headline: 'Data Science & AI at IIT Guwahati, Computer Science at MSIT, Full-Stack Developer',
+  subHeadline: '25x Hackathon Finalist based in New Delhi',
+  welcomeMessage: "Explore my work in deep learning, full-stack web applications, and space data visualization.",
   location: 'New Delhi, India (UTC +05:30)',
   email: 'jayantolhyan@gmail.com',
   github: 'https://github.com/JayantOlhyan',
   linkedin: 'https://www.linkedin.com/in/jayant-olhyan/',
   phone: '9667344125',
-  openTo: ['Internships', 'Freelance Working', 'Hackathon Collabs'],
+  openTo: ['Internships', 'Freelance Work', 'Hackathon Projects'],
   capabilities: [
-    { area: "Design", skills: "Systems, UX/UI, Strategy" },
-    { area: "Lead",   skills: "Teams, Workshops, Mentoring" },
-    { area: "Build",  skills: "Web, Mobile, Branding" },
-    { area: "Ship",   skills: "SaaS, Enterprise, Consumer" }
+    { area: "Design", skills: "Systems, UI, Interfaces" },
+    { area: "Lead",   skills: "Teams, Technical Mentoring" },
+    { area: "Build",  skills: "Web Apps, Machine Learning, APIs" },
+    { area: "Ship",   skills: "Deployments, Cloud Tools, CI/CD" }
   ]
 };
 
@@ -45,20 +45,20 @@ export const terminalBootLinesCompact = [
 
 export const developerPortrait = [
   "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*****+++++==++++******++++",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%%%%$$$$$$$**++++++++++++++***********",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%%%%%%%%%%%%%%%%%%%%%%%%%%%$$*++++++++++++++*****$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%%%%$$$$$$$**++++++++++++++***********",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%%%%%%%%%%%%%%%%%%%%%%%%%%%$$*++++++++++++++*****$$$$$$$",
   "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$$*++++++++++++++**$$$$%%%%%%",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%$%%%%%%$$$$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$**++++++++++++**$%%%%%%%%##",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%$%%%%%%$$$$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$**++++++++++++**$%%%%%%%%##",
   "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%%%%%%%%%%%%$$$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$**++++++++++++*$$%%########",
-  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%%%$$$$$%%%%%%%%%%%%%%%%%$$$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$$*++++++++++++*$%%%########",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%%%$$$$$%%%%%%%%%%%%%%%%%$$$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$$*++++++++++++*$%%%########",
   "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%$$*+++++++***$$$$$%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$$*++++++++++++*$%%#########",
   "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*=-----::----======++++***$$%%%%%%%%%%%%%%%%%%#####%%%%%%%%%%%%%$$*+++++++++++**$%%#########",
   "**$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$**+=---:::::::::::::::--------==++**$$%%#%%##############%%%%%%%%%%%$$*++++***++++**$%%#########",
   "+++++++++**************$$$$$$$$$$$$$$$$$$$$$$$$$$$$$**++--:::::    :: :::: ::::---=------====+*%################%%%%%%%%%%$$*++++****++***$%%#########",
   "------============+++++++++++++**************$$$$***+==-::::-:::   ::        :::------====-==-=+*$%############%%%%%%%%%%%$$*++++*********$%%#########",
   ":::::--====---------========================+++++++=--:::::::--:::::-::          ::::------========+$##########%%%%%%%%%$$$**++++*********$%%#########",
-  ":::::--======--------------------------------===-----::  ::::::-:::::--::         :::::::-------==---+%#######%%%$$$$$$$$$$**++++*********$%%#########",
-  "::::--==+++=======----====---------::::::----=--::::::::::::   :::::::::-::::::::::::    :::::::---===+$######%%$$$$$$$$$$$**++++********$$%%####%%%%%",
+  ":::::--======--------------------------------===-----::  ::::::-:::::--::         :::::::-------==---+%#######%%%%%%%%%$$$**++++*********$%%#########",
+  "::::--==+++=======----====---------::::::----=--::::::::::::   :::::::::-::::::::::::    :::::::---===+$######%%$$$$$$$$$$**++++********$$%%####%%%%%",
   "::::--==+++++++==-----=====---------:::::-----::::::::::--:  ::----==========+++**+===--:::::::-----===+######%%%$$$$$$%$$$***++*********$$%%%%%%%%%$$",
   ":--:--==++*+++++==---==++===--------::::--=-::::::: :::::--:-=++**$$$$$$$$$$$$$$$$$$$***++--:::-::-::---*#####%%%%$$%%%%%$$$**++**********$%%%%%%%$$$$",
   "---::--=+******++=====++++==---------:::-=-:::::       :::-=+**$$$$$%%$$$$$%%%%%%$$$$$$$$$*+=---:::::---=%####%%%%%%%%%%%$$$**************$$%%%%%%%%%%",
@@ -71,7 +71,7 @@ export const developerPortrait = [
   "========================+++++++++++++++++++++++:::-+***+++++++++==+++**$$%%%%%%%%$$***+++++******$$$$*-=-*#####%#########%%$$************$$%%#########",
   "=======------------------==+++=================-::-****++*$$$$*++++++***$$$%%%%$$$***+++***$$$*****$$$===$###############%%$$***********$$$%%#########",
   "=======--------::::::-----==+===------------------+*+$$**$%$%#$********++***$$$**$******$$**$$$$$**+*$+-=%###############%%$$************$$%%#########",
-  "=========--------:::-----==+++===-------------==-++++=+****++*$*+++**$%$+=+***++*%*$%$++***+*$%$*$*+**+=*################%%$$************$$%%#########",
+  "=========--------:::-----==+++===-------------==-++++=+****++*$*+++**$%$+=+***++*%*$%$++***+*$%$*$*+**+=*################%%$$***********$$$%%#########",
   "++========---------------==+++=======++++====+++=-+*++*++++++*%*==+$**#%+-+$%$*=*$**%$=-=+$*+$%$$$**$*=+%################%%$$***********$$$%%#########",
   "+++=======--------------===++==-===++*$$**+++***+-****$***++++**++******==*$%%$=*******+**$****$$%$*$$+*%$%##############%%$$************$$%%#########",
   "++++======---------------==+===-==++*$$$$*+++***++*********************+=+*$$%%$+*$$$$*$$$*$$$$$$$*$$$*$%$*##############%%$************$$$%%#########",
@@ -84,20 +84,20 @@ export const developerPortrait = [
   "=====+++++++++++++++++++++++++++++++++++++++++***==*******$$$*++==++********$$$$$$$$$**+*$$$$$$$$$$$*+*$%#######%%%%%####%%$$************$$%%######%#%",
   "------=+++========+==============----------====+++=+******$$$$***+===+++*******$******+++$$%$%$$$$$$**$%########%%%%####%%%$$************$$%%#####%%%%",
   "::::--=++++=====+++++==========--------------===++=+*******$$$$$$$$*****$$$$$$$$$$$$$$$$$$$$$$$$$$$$*$#########%%%%###%%%%%$*************$$%%####%%%%%",
-  ":::---=+++++++++++++++++=======--------------===+++++*******$$$$$$$$$$$$$$$$$$$$$$$%%$%%%%%%$$$$$$$*$###########%%%##%%%%%$$*************$$%%%###%%%%%",
+  ":::---=+++++++++++++++++=======--------------===+++++*******$$$$$$$$$$$$$$$$$$$%%$%%%%%%$$$$$$$*$###########%%%##%%%%%$$*************$$%%%###%%%%%",
   ":::---=+*$$$**+++******++=======------------===+++++++*******$$$$$$$$$$$$$$$$$$$%%%%%%%%%%$$$$$$$$**############%%%%%%%%%%$$*************$$%%%##%%%%%%",
   ":---==+*$%%$$***$$$$***++======------------===+++++=+++**********$$$$$$$$$%%%%%%%$$$%%$$$$$$$$$$**#############%%%%%%%%%%%$*************$$%%%%%%%%%%%",
   "---===+*$%%%%$$$$$$$***+++=====------------===+++++==+++++++**********$$%%%%%%%%%$$$$$$$$$$$$$$*+%############%%%%%%%%%%%%$**************$%%%%%%%%%%%",
   ":---===+*$%%%%%$$$$$*****++=====------------===+++++==++====++++++**++**$$$$$$$$$$$$$$$$$$$*****+*#############%%%%%%%%%%%$$**************$%%%%%%%%%%%",
   ":---===+*$%%%%%$$$$$*****++=====-------------==+++++==+++==-====+++++++++******************++++**$#############%%%%%%%%%%%$$**************$%%%%%%%%%%%",
-  ":-----=+*$%%%%%$$$$$*****++=====-------------==+++++==+**+=---==========-=========+++++++++++***$$#############%%%%%%%%%%%$$**************$%%%%%%%%%%%",
-  ":-----=+*$%%%%%$$$$$*++**++====--------------==+++++=+$++++=------======================+++***$$*$#############%%%%%%%%%%%$$**++**********$%%%%%%%%%%%",
+  ":-----=+*$%%%%%$$$$$*++**++====--------------==+++++=+$++++=------======================+++++++++++***$$#############%%%%%%%%%%%$$**************$%%%%%%%%%%%",
+  ":-----=+*$%%%%%$$$$$*++**++====--------------==+++++=+**+=---==========-=========+++++++++++***$$*$#############%%%%%%%%%%%$$**++**********$%%%%%%%%%%%",
   "------=+*$$%%%$$$$$**+++**++====----------=====++**=:$%*+++++=-------==============-===+****$$$$*%#*%##########%%%%%%%%%%%$$**++**********$%%%%%%%%%%%",
   "=====+++**$$$$*******+++**+++++++++++++++++*****$*= -%%%*+++++++====---------------==++***$$$$$$%##=-$#########%%%%%%%%%%%$$**+++*****+***$%%%%%%%%%%%",
   "********************++++++***$$$$$$$%%%%%%%%%%%*=-: +%%%%$*+****++++++============++*****$$$$$$%###*:-+$######%%%%%%%%%%%%$$**+++*****+***$%%%%%%%%%%%",
   "%%%$$********++++++++++++++**$%%%%%%%%#####%%*-:::: =%%%%##%$***********************$$$$$$$$$%#@###%:::-=*%####%%%%%%%%%%%$$**+++*****++**$$%%%%%%%%%%",
-  "%%%%$*****++++++++++++++++++*$%%#####%%$*+=-:  :::::-%%%%%####%$$$$$$$********$$$$$$$$$$$$%%#@@####$::::::--+**$$%%%%%%%%%$$**++++****++**$$%%%$$$$$$$",
-  "%%%%$$***+++++++++++++++++++**$%%$$+=-:::::::::::::::$%%#########%$$$$$$$$$$$$$$$$$$$$$%%#@@#######$::::::::::::--=+*$%%%%$$*++++++**+++***$$$$******$",
+  "%%%%$*****++++++++++++++++++*$%%#####%%$*+=-:  :::::-%%%%%####%$$$$$$$********$$$$$$$$$$$$%%#@@####$::::::--+**$$%%%%%%%%%$$**++++****++**$$$$******$",
+  "%%%%$$***+++++++++++++++++++**$%%$$+=-:::::::::::::::$%%#########%$$$$$$$$$$$$$$$$$$$$$%%#@@#######$::::::::::::--=+*$%%%%$$*++++++**+++***$$$$$$$$$",
   "%%%%$$***+++++++++++++++++++++==-::    ::::::::::::::=%%%########@##%$$$$$$$$$$$$$$$$%##@@###@@####+::::::::::::::::::-==+****++++++++++********+++***",
   "%%%%%$***++++++++++++====--::::: :::  :::::::::::::::-$%%%#########@@##%$$$$$$$$$$%%#@@######@####%-:::::::::::::::::::::::--==+++*************+++****",
   "%%%%%$$*++++++=====---:::::::   :::  :::::::::::::::::*%%%###########@@@#%%%%%%$%#@@@########@####*-::::::::::::::::::::::::::::---==++*$$$$$$$$**$$$$",
@@ -131,7 +131,7 @@ export const bootSequence = [
   { text: "Strategic thinking: engaged", delay: 200 },
   { text: "", delay: 150 },
   { text: "✦", delay: 50 },
-  { text: "jayant.olhyan v10.0 — ready.", color: "text-orange-400", delay: 80 },
+  { text: "jayant.olhyan v10.0: ready.", color: "text-orange-400", delay: 80 },
   { text: "Press Enter to continue...", type: "prompt", delay: 0 }
 ];
 
@@ -141,10 +141,10 @@ export const projects = [
     title: "TruthLens AI",
     year: "2025/26",
     hackathon: "ET Gen AI Hackathon (Economic Times)",
-    problem: "Deepfake videos, AI-generated images, and misinformation spread virally across Indian social media with no accessible tool for the average user to verify authenticity.",
-    solution: "Multi-modal detection platform combining Computer Vision (frame-level deepfake analysis), LLMs with RAG (fact-checking against trusted sources), and a proprietary Trust Score Algorithm that outputs a human-readable credibility score (0-100) for any piece of media or text.",
+    problem: "Deepfake videos and manipulated images spread quickly on social media without simple verification tools for regular users.",
+    solution: "Multi-modal detection platform combining frame-level video analysis with RAG fact-checking to compute a clear 0-100 trust score.",
     stack: ["Python", "FastAPI", "OpenCV", "PyTorch", "LLMs", "RAG", "React"],
-    impact: "ET Gen AI Hackathon submission. Multi-modal pipeline. Trust Score Algorithm proprietary IP.",
+    impact: "Built for ET Gen AI Hackathon with custom multi-modal pipeline and trust-scoring model.",
     github: "https://github.com/JayantOlhyan",
     live: null,
     featured: true
@@ -154,10 +154,10 @@ export const projects = [
     title: "Sentinel AI",
     year: "2025/26",
     hackathon: "Hack Paradox 2026",
-    problem: "Indians lose crores of rupees to digital scams via WhatsApp, UPI fraud, and phishing links every year. There was no accessible, real-time AI-powered tool to detect these threats for the average user.",
-    solution: "Next.js + FastAPI web app that detects scam patterns in messages, links, and images using LLM-based analysis. Real-time risk scoring with plain-language explanations.",
+    problem: "Scam messages, fraudulent UPI links, and WhatsApp phishing target users daily with few real-time protection tools.",
+    solution: "Web app that analyzes incoming messages, URLs, and image text with LLMs to explain security risks in plain language.",
     stack: ["Next.js", "FastAPI", "Python", "Tailwind CSS", "Netlify"],
-    impact: "Real-time scam detection. Covers SMS, WhatsApp messages, and URLs. Deployed.",
+    impact: "Real-time scam detection covering SMS, WhatsApp messages, and URLs. Live on Netlify.",
     github: "https://github.com/JayantOlhyan/sentinel-ai",
     live: "https://sentinel-ai-1.netlify.app",
     featured: true
@@ -166,12 +166,12 @@ export const projects = [
     id: "gravitas",
     title: "GRAVITAS",
     year: "2025/26",
-    hackathon: "Cyber Forge — Advitiya '26, IIT Ropar",
-    problem: "Space debris and near-Earth asteroid risks are tracked by fragmented global datasets with no unified, accessible risk dashboard for researchers, educators, and space enthusiasts.",
-    solution: "Real-time space risk platform that aggregates NASA/ESA debris data, runs risk probability models, and visualises orbital paths and collision windows on an interactive 3D globe.",
+    hackathon: "Cyber Forge at Advitiya '26, IIT Ropar",
+    problem: "Space debris and near-Earth asteroid data are scattered across technical databases without a clear visual dashboard.",
+    solution: "Interactive platform aggregating NASA and ESA orbital data to compute collision windows and display paths on a 3D globe.",
     stack: ["React 18", "Vite", "Tailwind CSS", "NASA Open APIs", "Three.js", "Netlify"],
-    impact: "IIT Ropar hackathon finalist. 3D visualisation of real orbital data.",
-    github: "https://github.com/JayantOlhyan", // Link in WRD points to root, updating in components if necessary
+    impact: "Finalist at IIT Ropar Cyber Forge. Renders live orbital trajectory data.",
+    github: "https://github.com/JayantOlhyan", 
     live: "https://gravitas-1.netlify.app",
     featured: true
   },
@@ -180,10 +180,10 @@ export const projects = [
     title: "FarmIQ",
     year: "2024/25",
     hackathon: "Elite Hack 1.0",
-    problem: "Indian farmers lacked accessible, AI-powered crop advisory tools in Hindi and English. Existing solutions were too technical or English-only, creating a massive adoption gap in rural India.",
-    solution: "Dual-mode platform: voice-first Hindi interface + standard English UI. AI-powered crop recommendation engine using Gemini API for real-time advisory, disease detection from photos, and market price predictions.",
+    problem: "Agricultural advisory tools often rely on complex English interfaces that farmers in rural India struggle to use.",
+    solution: "Dual-language app with voice-guided Hindi navigation, crop recommendations using the Gemini API, image-based plant disease checks, and market price updates.",
     stack: ["React 18", "Vite", "Tailwind CSS", "Gemini API", "Netlify"],
-    impact: "Built for 100M+ Indian farmers. Dual-language support. Deployed and publicly accessible.",
+    impact: "Built for Indian agricultural conditions with native Hindi voice control.",
     github: "https://github.com/JayantOlhyan", 
     live: "https://farm-iq.netlify.app",
     featured: false
@@ -193,10 +193,10 @@ export const projects = [
     title: "HealthKinator",
     year: "2024/25",
     hackathon: "MRIIRS International Conference",
-    problem: "Primary healthcare access in India is constrained by doctor availability. Patients with mild symptoms have no reliable, AI-guided way to assess their condition before seeking care.",
-    solution: "Akinator-style adaptive symptom checker: AI asks targeted yes/no/unsure questions, narrows down probable conditions, and recommends the appropriate type of medical consultation. Supports 4 languages. Freemium model with encrypted reports.",
+    problem: "Patients with early symptoms often lack quick guidance on whether to see a doctor or rest at home.",
+    solution: "Interactive symptom checker asking targeted follow-up questions to estimate likely conditions and suggest appropriate care types.",
     stack: ["React Native", "Node.js", "MongoDB", "FastAPI", "Docker", "OAuth"],
-    impact: "MRIIRS International Conference presentation. HIPAA-like security. Telemedicine booking.",
+    impact: "Presented at MRIIRS International Conference. Includes encrypted records and doctor scheduling.",
     github: "https://github.com/JayantOlhyan/healthkinator-1-",
     live: null,
     featured: false
@@ -205,10 +205,10 @@ export const projects = [
     id: "moneypulse",
     title: "MoneyPulse",
     year: "2024/25",
-    problem: "Personal finance apps for Indian users either lack AI intelligence or are too complex. Young Indians need a simple, privacy-first tool to track spending.",
-    solution: "AI-powered money manager that ingests bank statements, categorises transactions automatically, and generates natural-language financial insights using Gemini API. Runs locally for privacy.",
+    problem: "Most money managers require manual entry or upload sensitive data to external servers.",
+    solution: "Local financial tool that categorizes bank statements automatically and generates natural-language spending summaries.",
     stack: ["TypeScript", "React", "Vite", "Gemini API", "Python"],
-    impact: "Offline-capable AI finance tool. INR-native. Built for Indian users.",
+    impact: "Runs locally for privacy with INR formatting.",
     github: "https://github.com/JayantOlhyan/MoneyPulse-Money-Manager",
     live: null,
     featured: false
@@ -217,10 +217,10 @@ export const projects = [
     id: "edugen",
     title: "EDU.GEN",
     year: "2024/25",
-    problem: "Teachers and content creators in India spend hours creating lesson plans, quizzes, and learning materials. There is no fast, AI-powered tool tuned for the Indian curriculum.",
-    solution: "AI-powered educational content generator that creates lesson plans, MCQs, short notes, and study guides from a topic or syllabus input.",
+    problem: "Creating lesson plans, quizzes, and revision guides manually takes hours.",
+    solution: "Content generator producing lesson plans, multiple-choice questions, and summary sheets from syllabus topics.",
     stack: ["TypeScript", "React", "Vite", "Gemini API", "Netlify"],
-    impact: "Supports Indian curriculum. Instant generation. Downloadable outputs.",
+    impact: "Outputs formatted study guides tailored for Indian curricula.",
     github: "https://github.com/JayantOlhyan/EDU.GEN",
     live: null,
     featured: false
@@ -229,10 +229,10 @@ export const projects = [
     id: "msit-website",
     title: "MSIT College Website",
     year: "2024/25",
-    problem: "The official MSIT website had outdated architecture, poor mobile responsiveness, and a fragmented content structure.",
-    solution: "Fully rebuilt college website using React 18 + Vite + Tailwind CSS + React Router v6. Dynamic routing architecture powers 30+ sub-pages from a single codebase. Complete faculty directory covering 130+ faculty.",
+    problem: "The legacy college website had slow page loads and lacked clear navigation for students and faculty.",
+    solution: "Rebuilt web application with dynamic routing for 30+ department pages and a searchable directory of 130+ faculty members.",
     stack: ["React 18", "Vite", "Tailwind CSS", "React Router v6", "Netlify"],
-    impact: "30+ sub-pages. 130+ faculty directory. Fully responsive. CI/CD deployed.",
+    impact: "Powers official college navigation with 30+ pages and automated deployments.",
     github: "https://github.com/JayantOlhyan/MSIT-",
     live: "https://msit-website.netlify.app",
     featured: false
@@ -241,7 +241,7 @@ export const projects = [
 
 export const hackathons = [
   { year: "2025/26", name: "ET Gen AI Hackathon", organizer: "Economic Times", project: "TruthLens AI", status: "Submitted", emoji: "🔥" },
-  { year: "2025/26", name: "Cyber Forge - Advitiya '26", organizer: "IIT Ropar", project: "GRAVITAS", status: "Finalist", emoji: "🏆" },
+  { year: "2025/26", name: "Cyber Forge - Advitiya '26", organizer: "Advitiya '26, IIT Ropar", project: "GRAVITAS", status: "Finalist", emoji: "🏆" },
   { year: "2025/26", name: "Hack Paradox 2026", organizer: "Hack Paradox", project: "Sentinel AI", status: "Submitted", emoji: "⚡" },
   { year: "2024/25", name: "Elite Hack 1.0", organizer: "Elite Hack", project: "FarmIQ", status: "Submitted", emoji: "🌱" },
   { year: "Mar 2026", name: "MRIIRS Intl. Conference", organizer: "MRIIRS", project: "HealthKinator", status: "Presented", emoji: "🎤" },
@@ -250,25 +250,25 @@ export const hackathons = [
 export const skills = {
   Build: ["JavaScript", "TypeScript", "Python", "C", "React 18", "Next.js", "React Native", "FastAPI", "Node.js/Express", "Vite", "Tailwind CSS"],
   Store: ["MongoDB", "Firebase"],
-  Ship: ["Netlify", "GitHub Actions", "Docker (basic)", "Vercel"],
+  Ship: ["Netlify", "GitHub Actions", "Docker", "Vercel"],
   AI: ["Gemini API", "OpenAI API", "LangChain", "RAG pipelines", "Computer Vision", "Tools: Cursor, GitHub Copilot, Claude"]
 };
 
 export const testimonials = [
   {
     name: "Aryan Jha, Full-Stack Developer, NSUT",
-    role: "Teammate — ET Gen AI Hackathon, 2026",
-    quote: "Working with Jayant on TruthLens AI at the ET Gen AI Hackathon was genuinely impressive. He took on the backend architecture and RAG pipeline while I handled the frontend — and his systems just worked, first time. He thinks in full-stack terms naturally: what the API needs, what the UI expects, and how the AI model fits in between. That clarity under hackathon pressure is rare and extremely valuable."
+    role: "Teammate, ET Gen AI Hackathon 2026",
+    quote: "Working with Jayant on TruthLens AI at the ET Gen AI Hackathon was great. He handled the backend architecture and RAG pipeline while I focused on the frontend, and his APIs worked seamlessly from day one. He understands both sides of full-stack engineering, which makes collaborating under tight hackathon deadlines smooth."
   },
   {
     name: "Dr. Pooja Khurana, Faculty Mentor",
-    role: "MSIT — HealthKinator Project, 2026",
-    quote: "Jayant has a sharp instinct for identifying real problems and building solutions that actually work. His work on HealthKinator demonstrated not just technical capability — the multilingual support, the encrypted health records, the adaptive AI questioning — but also a genuine understanding of the healthcare access challenges facing underserved communities in India. He presents his work with clarity and confidence. A builder worth watching."
+    role: "MSIT Faculty Mentor",
+    quote: "Jayant focuses on building practical solutions to real problems. His work on HealthKinator showed strong technical execution in multilingual voice input, encrypted health records, and symptom decision trees, alongside a genuine care for healthcare accessibility."
   },
   {
     name: "Hack Paradox 2026 Peer Reviewer",
     role: "Hackathon Peer",
-    quote: "Jayant's Sentinel AI submission stood out not just technically, but in how he explained it. He could go from 'here's the FastAPI endpoint' to 'here's why an Indian grandmother would trust this result' in the same breath. That ability to bridge the technical and the human is exactly what separates good projects from great ones."
+    quote: "Sentinel AI stood out because Jayant explained complex FastAPI endpoints and security risks in everyday language. He connects technical code with real user needs."
   }
 ];
 
@@ -276,13 +276,13 @@ export const articles = [
   {
     title: "Building TruthLens AI: RAG pipelines for Misinformation Detection",
     date: "April 2026",
-    excerpt: "Deepfakes are getting sophisticated. Here's how we bridged Computer Vision with LLMs to cross-verify facts in real-time.",
+    excerpt: "How we integrated computer vision with LLMs to detect deepfakes and verify claims in real time.",
     link: "https://www.linkedin.com/in/jayant-olhyan/"
   },
   {
     title: "Why FastAPI + Next.js is the Ultimate Hackathon Stack",
     date: "March 2026",
-    excerpt: "Speed is critical at hackathons. Migrating from Express to FastAPI for AI logic was a game changer for our backend throughput.",
+    excerpt: "Why switching from Express to FastAPI sped up our AI inference loops during hackathons.",
     link: "https://www.linkedin.com/in/jayant-olhyan/"
   },
   {

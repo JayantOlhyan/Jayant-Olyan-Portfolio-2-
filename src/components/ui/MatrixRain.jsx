@@ -60,7 +60,7 @@ export const MatrixRain = ({ active, onClose }) => {
     <div className="fixed inset-0 z-[999] pointer-events-auto bg-black/80 flex flex-col justify-between p-4">
       <canvas ref={canvasRef} className="absolute inset-0 z-0" />
       <div className="relative z-10 flex justify-between items-center bg-black/60 backdrop-blur-md px-6 py-3 rounded-md border border-green-500/30 text-green-400 font-mono text-xs">
-        <span>MATRIX RAIN ACTIVE — ESC OR CLICK TO EXIT</span>
+        <span>MATRIX RAIN ACTIVE | PRESS ESC OR CLICK TO EXIT</span>
         <button 
           onClick={onClose}
           className="px-3 py-1 bg-green-500/20 border border-green-500/50 hover:bg-green-500/40 rounded text-green-300 transition-all cursor-pointer"

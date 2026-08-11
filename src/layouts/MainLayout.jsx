@@ -8,6 +8,7 @@ import { CloseOverlay } from '../components/ui/CloseOverlay';
 import { SettingsModal } from '../components/ui/SettingsModal';
 import { MacMenuBar } from '../components/ui/MacMenuBar';
 import { MacDock } from '../components/ui/MacDock';
+import { OfflineIndicator } from '../components/OfflineIndicator';
 
 export const MainLayout = ({ 
   children, 
@@ -195,6 +196,9 @@ export const MainLayout = ({
         currentTheme={currentTheme}
         onOpenSettings={() => setIsSettingsOpen(true)}
       />
+
+      {/* Non-intrusive connection status toast indicator */}
+      <OfflineIndicator />
     </div>
   );
 };

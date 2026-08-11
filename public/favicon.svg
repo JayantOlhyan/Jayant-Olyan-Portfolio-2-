@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <!-- Background Container -->
+  <rect width="100" height="100" rx="22" fill="#0A0A0A" stroke="#21262D" stroke-width="3"/>
+  
+  <!-- Outer Glow Arc -->
+  <path d="M 22 26 A 40 40 0 1 1 82 82" fill="none" stroke="#39FF14" stroke-width="3.5" stroke-linecap="round" opacity="0.9"/>
+  <rect x="18" y="22" width="6" height="6" fill="#39FF14"/>
+  <rect x="80" y="80" width="6" height="6" fill="#39FF14"/>
+
+  <!-- Terminal Prompt Symbol > -->
+  <path d="M 24 30 L 32 35 L 24 40" fill="none" stroke="#39FF14" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Cursor _ -->
+  <line x1="36" y1="40" x2="43" y2="40" stroke="#39FF14" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Stylized JO Text -->
+  <g fill="#39FF14">
+    <!-- J -->
+    <path d="M 38 45 H 52 V 68 C 52 74 46 78 40 78 H 36 V 69 H 40 C 42 69 44 68 44 65 V 53 H 38 V 45 Z"/>
+    <!-- O -->
+    <path d="M 57 45 H 74 C 79 45 83 49 83 54 V 69 C 83 74 79 78 74 78 H 57 C 52 78 48 74 48 69 V 54 C 48 49 52 45 57 45 Z M 57 53 V 70 H 74 V 53 H 57 Z"/>
+  </g>
+</svg>

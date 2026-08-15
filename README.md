@@ -1,229 +1,181 @@
 <div align="center">
 
-<img src="public/logo.png" width="130" alt="Jayant Olhyan Neon JO Logo" style="border-radius: 28px; box-shadow: 0 0 35px rgba(0, 255, 65, 0.4);" />
+<img src="public/logo.png" width="130" alt="Jayant Olhyan Neon JO Logo" style="border-radius: 28px; box-shadow: 0 0 45px rgba(0, 255, 65, 0.45);" />
 
-# 🖥️ Jayant Olhyan | Portfolio OS v10.0
+# 🖥️ Jayant Olhyan | macOS Portfolio OS v10.0
 
-### *A Web-Based macOS Sequoia Desktop & Zsh Terminal Operating System*
+### *Interactive Web-Based macOS Sequoia Desktop & Zsh Terminal Operating System*
 
 [![Live Demo](https://img.shields.io/badge/🚀_LIVE_PORTAL-jayant--olhyan--portfolio--2.netlify.app-00FF41?style=for-the-badge&logo=netlify&logoColor=black)](https://jayant-olhyan-portfolio-2.netlify.app/)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
-[![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![React 19](https://img.shields.io/badge/React-v19.2-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![Vite 8](https://img.shields.io/badge/Vite-v8.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4.2-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-v12-FF0055?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
+[![PWA Ready](https://img.shields.io/badge/PWA-Offline_Ready-4CAF50?style=for-the-badge&logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 
 <br/>
 
 <a href="https://jayant-olhyan-portfolio-2.netlify.app/">
-  <img src="public/og-image.png" alt="Jayant Olhyan Portfolio OS Live Desktop Preview" width="100%" style="border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 20px 50px rgba(0,0,0,0.7);" />
+  <img src="public/og-image.png" alt="Jayant Olhyan Portfolio OS Live Desktop Preview" width="100%" style="border-radius: 16px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 25px 60px rgba(0,0,0,0.85);" />
 </a>
 
 <p align="center">
-  <b>Data Science & AI @ IIT Guwahati</b> • <b>B.Tech CSE @ MSIT</b> • <b>25x Hackathon Finalist</b>
+  <b>🎓 Data Science & AI @ IIT Guwahati</b> • <b>🎓 B.Tech CSE @ MSIT (GGSIPU)</b> • <b>🏆 25x Hackathon Finalist & Winner</b>
 </p>
 
-[🌐 Visit Live Website](https://jayant-olhyan-portfolio-2.netlify.app/) • [📸 Screenshots & Previews](#-visual-tour--feature-showcase) • [🛠️ How It Works](#-how-it-works-under-the-hood) • [📘 Developer Blueprint](#-build-your-own-macos-portfolio-os-step-by-step) • [🚀 Deploy Guide](#-deployment--seo-setup)
+[🌐 Live Website](https://jayant-olhyan-portfolio-2.netlify.app/) • [✨ Core Features](#-core-features) • [⚡ Command Matrix](#-interactive-terminal-commands) • [🛠️ Tech Stack](#-architecture--tech-stack) • [🚀 Quickstart Guide](#-quickstart--local-setup) • [👤 About Jayant](#-about-the-developer)
 
 </div>
 
 ---
 
-## 🌟 Executive Overview
+## 🌟 Executive Summary
 
-**Portfolio OS** is a modern, interactive web application engineered to showcase technical projects, hackathon achievements, and software engineering capabilities. Rather than a standard scrolling webpage, Portfolio OS presents a **macOS Sequoia desktop operating system** complete with an Apple top menu bar, interactive Control Center, 120 FPS spring-physics dock, system settings control panel, and a **zsh terminal CLI engine**.
+**Portfolio OS** is a bleeding-edge developer portfolio built as an interactive **macOS Sequoia desktop operating system**. Designed for speed, utility, and immersive aesthetics, it replaces traditional static portfolios with:
 
----
-
-## 📸 Visual Tour & Feature Showcase
-
-<details open>
-<summary><b>📺 Expand / Collapse Interactive Screenshots & System Modules</b></summary>
-
-<br/>
-
-### 1. Main Terminal OS Dashboard (`/`)
-Featuring a live system status ping, glowing developer ASCII portrait, interactive command prompt, and squircle glass dock.
-<img src="public/og-image.png" alt="Main Terminal OS Dashboard" width="100%" />
-
-### 2. Selected Projects & Hackathon Showcase (`/work`)
-Renders interactive project cards for deepfake detectors, orbital space debris monitors, and AI crop advisory tools with live demo and source code links.
-<img src="public/projects-preview.png" alt="Projects Showcase" width="100%" />
-
-### 3. macOS Sequoia System Settings (`/settings`)
-Interactive system preference window allowing visitors to change wallpapers, adjust animation effects, toggle matrix rain, and view hardware specs.
-<img src="public/settings-preview.png" alt="System Settings Modal" width="100%" />
-
-### 4. Twitter / Social Media Card (`twitter-card.png`)
-High-resolution 1200x600 preview banner optimized for social media links on Twitter/X, LinkedIn, Discord, and WhatsApp.
-<img src="public/twitter-card.png" alt="Twitter Card Preview" width="100%" />
-
-</details>
+- 🖥️ **Full macOS Window Management**: Draggable, resizable, minimizable, and maximizable terminal windows with genuine macOS traffic light controls.
+- ⚡ **Interactive Zsh CLI Terminal Engine**: Autocomplete suggestions, circular command history (`↑` / `↓`), tab completion, and instant route dispatching.
+- 🧲 **120 FPS Spring-Physics Dock**: Proximity magnification physics using Framer Motion (`useSpring`, `useTransform`) without layout reflows.
+- 💡 **Dynamic 3D Cursor Spotlight Cards**: Real-time CSS coordinate tracking with radial neon glow overlays.
+- 🎨 **Wallpaper & Theme Engine**: Instant switcher between 5 visual modes (*Cyber Mountains*, *1983 Retro CRT*, *Metallic Shards*, *Cosmic Space*, and *Frosted Glass*).
+- 🏷️ **Comprehensive Brand SVG Sprite**: 36 crisp vector badges across AI models, cloud databases, frameworks, academia, and socials.
+- 📱 **PWA & Offline First**: Service worker (v2) caching with instant offline app-shell fallback.
+- 🔍 **SEO & Google Rich Graph**: Complete Schema.org JSON-LD structured data graph for `Person`, `WebSite`, and `ItemList`.
 
 ---
 
-## ⚙️ Technologies Used
+## ✨ Core Features
 
-| Technology Layer | Tool / Library | Version | Purpose |
-| :--- | :--- | :--- | :--- |
-| **Core Framework** | `React` | `v18.3.x` | Component-based UI rendering and virtual DOM state management |
-| **Build Engine** | `Vite` | `v8.0.x` | Lightning-fast development server with instant Hot Module Replacement (HMR) |
-| **Styling & Design** | `Tailwind CSS` | `v4.0.x` | Utility-first CSS styling, Glassmorphism backdrops, and responsive layouts |
-| **Motion & Physics** | `Framer Motion` | `v11.x` | Production-ready spring physics (`useSpring`, `useTransform`), smooth modal transitions |
-| **Icons & Media** | `Lucide React` | `v0.4x` | Modern macOS UI icon set |
-| **Routing & SEO** | `React Router v6` | `v6.x` | SPA client-side routing & deep linking |
-| **Hosting & Edge** | `Netlify Edge` | Global CDN | Ultra-fast global static deployment with automatic HTTPS |
+| Feature | Description |
+| :--- | :--- |
+| **🍎 macOS Sequoia Shell** | Authentic Apple top menu bar with live clock, battery status, Control Center modal, system preferences, and quick links. |
+| **💻 Interactive CLI** | Command executor supporting 16+ commands (`/work`, `/skills`, `/hackathons`, `/about`, `/social`, `/contact`, `/neofetch`, etc.). |
+| **🖱️ 3D Spotlight Cards** | Mouse-following radial emerald glow (`rgba(0, 255, 65, 0.08)`) with smooth hover micro-animations. |
+| **📋 1-Click Clipboard Utilities** | Single-click instant copy with checkmark tooltip notifications for email, phone, and project links. |
+| **🏆 25x Hackathon Showcase** | Interactive record of national hackathons, IIT podiums, and peer-reviewed research papers (MRIIRS 2026). |
+| **📱 Responsive Fluid Typography** | Dynamic `clamp()` typography and CSS grid matrices scaling seamlessly across 320px mobile to 4K ultra-wide displays. |
+| **🎉 Interactive Easter Eggs** | Matrix digital rain canvas (`/matrix`), celebration particle streams (`/confetti`), and system diagnostics (`neofetch`). |
 
 ---
 
-## 🛠️ How It Works (Under the Hood)
+## ⚡ Interactive Terminal Commands
 
-### 1. The Terminal State Machine (`useTerminal.js`)
-The core terminal operates as an interactive command processor state machine.
+Visitors can explore the portfolio by typing commands in the terminal prompt or clicking dock and menu bar items:
+
+| Command | Category | Description |
+| :--- | :--- | :--- |
+| **`/about`** | Bio & Education | Jayant Olhyan's background, IIT Guwahati & MSIT credentials, and verified status. |
+| **`/work`** | Projects | 8+ featured AI and full-stack projects with live demos, tech stack pills, and GitHub source code. |
+| **`/skills`** | Tech Stack | 4-quadrant interactive grid (Full-Stack, AI/CV, Databases, DevOps) with authentic brand logos. |
+| **`/hackathons`** | Track Record | Chronological table of 25x hackathon wins, organizers, and awards. |
+| **`/social`** | Connections | Direct links to LinkedIn, GitHub, X (Twitter), Discord, and phone. |
+| **`/contact`** | Direct Hire | Fast-response contact channels with 1-click email and phone copying. |
+| **`/ecosystem`** | Partner Network | Academic & organizational badges (IIT Guwahati, MSIT, Economic Times, NASA, ESA, Gemini). |
+| **`/articles`** | Technical Writing | Research articles, RAG architectures, and AI deployment guides on LinkedIn. |
+| **`/testimonials`** | Endorsements | Peer reviews, teammate recommendations, and mentor feedback. |
+| **`/philosophy`** | Engineering | Core design and performance principles (*Ship Utility First, Zero Bloat*). |
+| **`/themes`** | Appearance | Switch between 5 high-resolution wallpapers and terminal accent colors. |
+| **`neofetch`** | System Specs | macOS system configuration, Apple ASCII art, and hardware telemetry. |
+| **`/matrix`** | Easter Egg | Full-screen falling green Matrix digital code stream. |
+| **`/confetti`** | Easter Egg | Multi-colored celebration particle physics explosion. |
+| **`/clear`** | Buffer | Clear terminal screen and reset history buffer. |
+| **`/exit`** | Session | Lock terminal session and display macOS restart overlay. |
+| **`/help`** | Documentation | Display all available commands and shortcuts. |
+
+---
+
+## 🛠️ Architecture & Tech Stack
+
 ```
-  [User Keyboard Input] ──> [Command Parser] ──> [Command Registry]
-                                                       │
-         ┌─────────────────────────────────────────────┴─────────────────────────────┐
-         ▼                                             ▼                             ▼
-  /about, /work, /skills                       /themes, /matrix                     neofetch, /clear
-  (Appends output buffer)                      (Triggers UI state)               (Executes system utility)
+jayant-portfolio-2/
+├── public/                     # Static assets & PWA files
+│   ├── icons.svg               # Vector SVG brand sprite (36 tech & social symbols)
+│   ├── jayant_professional_photo.png # High-res profile photograph
+│   ├── sw.js                   # Service Worker v2 (App Shell & offline cache)
+│   ├── sitemap.xml             # XML sitemap with all section routes
+│   └── manifest.webmanifest    # Progressive Web App manifest
+├── src/
+│   ├── components/
+│   │   ├── sections/           # Interactive terminal views
+│   │   │   ├── About.jsx       # Bio, education pills & verified avatar
+│   │   │   ├── Projects.jsx    # Projects showcase with SVG badges & copy link
+│   │   │   ├── Skills.jsx      # 4-quadrant tech & AI model matrix
+│   │   │   ├── Hackathons.jsx  # Staggered motion table of 25x wins
+│   │   │   ├── Social.jsx      # Social profiles with 1-click copy
+│   │   │   ├── Contact.jsx     # Direct email CTA & contact details
+│   │   │   ├── Ecosystem.jsx   # Institutional partner network
+│   │   │   ├── Articles.jsx    # Technical articles & reading time
+│   │   │   ├── Testimonials.jsx# Peer reviews & quote cards
+│   │   │   ├── Philosophy.jsx  # Engineering principles
+│   │   │   └── WelcomeBox.jsx  # ASCII developer portrait & menu
+│   │   ├── ui/                 # Reusable UI primitives
+│   │   │   ├── TerminalCard.jsx# 3D mouse coordinate spotlight card
+│   │   │   ├── Icon.jsx        # Dynamic SVG sprite icon component
+│   │   │   ├── MacMenuBar.jsx  # Apple top menu bar & control center
+│   │   │   ├── MacDock.jsx     # 120 FPS spring magnification dock
+│   │   │   └── MatrixRain.jsx  # HTML5 Canvas green rain animation
+│   ├── data/
+│   │   ├── portfolioData.js    # Centralized portfolio data (Projects, Skills, Hackathons)
+│   │   └── commands.js         # Autocomplete command registry
+│   ├── hooks/
+│   │   ├── useTerminal.js      # Terminal state machine & routing
+│   │   └── useOnlineStatus.js  # Network connectivity detector
+│   └── layouts/
+│       └── MainLayout.jsx      # Root desktop layout & wallpaper renderer
+├── index.html                  # HTML entry point with Schema.org JSON-LD & preloads
+└── vite.config.js              # Vite 8 config with Rolldown vendor chunk splitting
 ```
-- **Parsing**: Intercepts slash commands (`/about`, `/work`, `/themes`) and standard commands (`neofetch`, `help`, `clear`).
-- **Autocomplete Engine**: Monitors input string on input change (`/`) and filters available system protocols in real time, permitting `Tab` or `Enter` completion and `ArrowUp`/`ArrowDown` navigation.
-- **Command History**: Stores executed commands in a circular array, retrievable via `ArrowUp` and `ArrowDown` keys.
-
-### 2. macOS Dock 120 FPS Spring Magnification Physics
-The dock items dynamically enlarge based on proximity to the cursor position without triggering DOM layout reflows:
-```javascript
-// Calculate cursor distance relative to icon center
-const distance = useTransform(mouseX, (val) => {
-  if (!ref.current) return 1000;
-  const bounds = ref.current.getBoundingClientRect();
-  return val - bounds.x - bounds.width / 2;
-});
-
-// Map distance [-140px, 0px, +140px] to icon width [44px, 72px, 44px]
-const widthSync = useTransform(distance, [-140, 0, 140], [44, 72, 44]);
-
-// Apply high-stiffness, ultra-low-mass spring physics for instant 120fps magnification
-const width = useSpring(widthSync, { mass: 0.05, stiffness: 400, damping: 25 });
-```
-
-### 3. Dynamic Theme & Wallpaper Engine
-Wallpapers and theme tokens are bound to root CSS variables and background image layers:
-- **`main`**: Cyber Mountains (Electric green & blue horizon)
-- **`retro`**: 1983 Retro CRT Grid (Yellow perspective grid & matrix code rain)
-- **`dark`**: Cyberpunk Metallic Shards (3D metallic glass & cyan traces)
-- **`space`**: Cosmic Galaxy Nebula (Deep space & constellation nodes)
-- **`glass`**: Glassmorphism Spheres (Translucent violet frosted panels)
 
 ---
 
-## 📘 Build Your Own macOS Portfolio OS (Step-by-Step)
+## 🚀 Quickstart & Local Setup
 
-Want to build or customize a similar Portfolio OS for your own developer profile? Follow this complete step-by-step guide!
+Clone and run the portfolio locally in under 60 seconds:
 
-### Step 1: Clone & Setup Local Environment
+### Prerequisites
+- Node.js `v18.0.0` or higher
+- npm or yarn
+
 ```bash
 # 1. Clone the repository
 git clone https://github.com/JayantOlhyan/Jayant-Olyan-Portfolio-2-.git
 
-# 2. Enter project directory
-cd "Jayant-Olyan-Portfolio-2-"
+# 2. Navigate to project root
+cd Jayant-Olyan-Portfolio-2-
 
 # 3. Install dependencies
 npm install
 
-# 4. Start local development server
+# 4. Start local development server (with HMR)
 npm run dev
 ```
 
-### Step 2: Customize Your Developer Data (`src/data/portfolioData.js`)
-All content on the site is modularly driven by `src/data/portfolioData.js`. Simply open this file and update the exported objects:
+Open `http://localhost:5173/` in your browser.
 
-```javascript
-// 1. Update Personal Metadata
-export const siteMetadata = {
-  title: 'Your Name | Developer Portfolio',
-  name: 'Your Name',
-  headline: 'Computer Science Student & Full Stack Engineer',
-  subHeadline: 'Building AI & Web Applications',
-  location: 'Your City, Country',
-  email: 'your.email@example.com',
-  github: 'https://github.com/yourusername',
-  linkedin: 'https://linkedin.com/in/yourusername',
-  openTo: ['Full-time Jobs', 'Internships', 'Open Source']
-};
+### Production Build & Linting
 
-// 2. Add Your Projects
-export const projects = [
-  {
-    id: "my-first-app",
-    title: "Awesome AI App",
-    year: "2026",
-    problem: "Brief description of the problem solved.",
-    solution: "How your application solves it using AI/Web tech.",
-    stack: ["React", "FastAPI", "Python", "Tailwind CSS"],
-    impact: "Key metric or hackathon achievement.",
-    github: "https://github.com/yourusername/app",
-    live: "https://myapp.netlify.app",
-    featured: true
-  }
-];
+```bash
+# Run ESLint validation
+npm run lint
+
+# Build optimized production bundle
+npm run build
+
+# Preview production build locally
+npm run preview
 ```
-
-### Step 3: Customize Favicons & Logos
-Replace the image files in the `public/` directory with your own branding icons:
-- `public/apple-touch-icon.png` (180x180 px)
-- `public/favicon-32x32.png` (32x32 px)
-- `public/favicon-16x16.png` (16x16 px)
-- `public/favicon.png` (512x512 px)
-- `public/logo.png` (512x512 px)
 
 ---
 
-## ⚡ Interactive Terminal Commands Reference
+## 🌟 Featured Project Highlights
 
-| Command | Shortcut / Action | Description |
-| :--- | :--- | :--- |
-| **`/about`** | Click **About** | Bio, academic background, and technical journey. |
-| **`/work`** | Click **Projects** | View case studies & hackathon project cards (*TruthLens AI*, *Sentinel AI*, *GRAVITAS*, *FarmIQ*). |
-| **`/skills`** | Click **Skills** | Technical skill matrix (Build, Store, Ship, AI/ML tools). |
-| **`/contact`** | Click **Contact** | Direct contact channels & email form. |
-| **`/social`** | Click **Socials** | Quick links to GitHub, LinkedIn, Twitter, Devpost. |
-| **`/themes`** | Click **Themes** | Open visual wallpaper and theme switcher modal. |
-| **`neofetch`** | System Specs | Print macOS system information and hardware specs. |
-| **`/matrix`** | Easter Egg | Activate full-screen green Matrix code rain overlay. |
-| **`/clear`** | Clear Screen | Reset terminal logs and wipe screen buffer. |
-| **`/help`** | Command List | List all active system commands. |
-
----
-
-## 🚀 Deployment & SEO Setup
-
-### Deploying to Netlify (Recommended)
-1. Push your repository to GitHub.
-2. Log into [Netlify](https://www.netlify.com/) and click **Add New Site** > **Import an existing project**.
-3. Select your GitHub repository.
-4. Set Build Settings:
-   - **Build Command**: `npm run build`
-   - **Publish Directory**: `dist`
-5. Click **Deploy Site**.
-
-### SEO & Social Preview Configuration (`index.html`)
-The portfolio includes complete OpenGraph and Twitter card meta tags for crisp sharing previews:
-
-```html
-<!-- Open Graph / Facebook / LinkedIn / Discord -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://jayant-olhyan-portfolio-2.netlify.app/">
-<meta property="og:title" content="Jayant Olhyan | Data Science & AI | Portfolio">
-<meta property="og:description" content="Explore the macOS-themed portfolio of Jayant Olhyan.">
-<meta property="og:image" content="https://jayant-olhyan-portfolio-2.netlify.app/og-image.png">
-
-<!-- Twitter / X -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:image" content="https://jayant-olhyan-portfolio-2.netlify.app/twitter-card.png">
-```
+| Project | Stack | Description | Links |
+| :--- | :--- | :--- | :--- |
+| **TruthLens AI** | `React` `FastAPI` `PyTorch` `RAG` | Multi-modal deepfake detection platform combining frame-level artifact analysis with RAG fact-checking. | [Live Demo](https://truthlensai.netlify.app/) • [Source](https://github.com/JayantOlhyan/TruthLens-AI) |
+| **Sentinel AI** | `React 18` `Python` `Gemini API` | Real-time scam and phishing detection engine explaining risks in plain language with LLMs. | [Live Demo](https://sentinel-ai-scanner.netlify.app/) • [Source](https://github.com/JayantOlhyan/sentinel-ai) |
+| **GRAVITAS** | `Three.js` `NASA API` `FastAPI` | Interactive 3D orbital space debris and asteroid collision risk visualization platform using NASA & ESA telemetry. | [Live Demo](https://gravitas-space.netlify.app/) • [Source](https://github.com/JayantOlhyan/gravitas-space-debris) |
+| **FarmIQ** | `React Native` `FastAPI` `Gemini` | Multimodal crop disease detection and voice-assisted agricultural advisory platform for Indian farmers. | [Live Demo](https://farmiq-app.netlify.app/) • [Source](https://github.com/JayantOlhyan/FarmIQ) |
 
 ---
 
@@ -231,19 +183,24 @@ The portfolio includes complete OpenGraph and Twitter card meta tags for crisp s
 
 <p align="left">
   <b>Jayant Olhyan</b><br/>
-  🎓 <b>Data Science & AI</b> — Indian Institute of Technology (IIT) Guwahati<br/>
-  🎓 <b>B.Tech Computer Science</b> — Maharaja Surajmal Institute of Technology (MSIT)<br/>
-  🏆 <b>25x Hackathon Finalist & Winner</b><br/>
+  🎓 <b>Data Science & AI Specialization</b> — Indian Institute of Technology (IIT) Guwahati<br/>
+  🎓 <b>B.Tech in Computer Science & Engineering</b> — Maharaja Surajmal Institute of Technology (MSIT)<br/>
+  🏆 <b>25x Hackathon Finalist & Winner</b> across IITs, National Conferences & Global AI Hackathons<br/>
   📍 New Delhi, India (UTC +05:30)
 </p>
 
-- **Live Portfolio**: [jayant-olhyan-portfolio-2.netlify.app](https://jayant-olhyan-portfolio-2.netlify.app/)
-- **GitHub**: [@JayantOlhyan](https://github.com/JayantOlhyan)
-- **LinkedIn**: [linkedin.com/in/jayant-olhyan](https://www.linkedin.com/in/jayant-olhyan/)
-- **Email**: [jayantolhyan@gmail.com](mailto:jayantolhyan@gmail.com)
+- 🌐 **Portfolio Website**: [jayant-olhyan-portfolio-2.netlify.app](https://jayant-olhyan-portfolio-2.netlify.app/)
+- 💻 **GitHub**: [@JayantOlhyan](https://github.com/JayantOlhyan)
+- 💼 **LinkedIn**: [linkedin.com/in/jayant-olhyan](https://www.linkedin.com/in/jayant-olhyan/)
+- ✉️ **Direct Email**: [jayantolhyan@gmail.com](mailto:jayantolhyan@gmail.com)
+- 📞 **Phone / WhatsApp**: `+91 9667344125`
 
 ---
 
+## 📜 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
 <div align="center">
-  <sub>Built with ❤️ by Jayant Olhyan. Designed for performance, engineered for excellence.</sub>
+  <sub>Designed & engineered with ❤️ by <b>Jayant Olhyan</b>. Built for speed, clarity, and real-world impact.</sub>
 </div>

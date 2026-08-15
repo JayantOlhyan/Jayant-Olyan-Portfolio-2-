@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v2';
 const APP_SHELL_CACHE = `app-shell-${CACHE_VERSION}`;
 const STATIC_CACHE = `static-assets-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `runtime-cache-${CACHE_VERSION}`;
@@ -6,7 +6,7 @@ const RUNTIME_CACHE = `runtime-cache-${CACHE_VERSION}`;
 // Assets to pre-cache on service worker installation
 const PRECACHE_ASSETS = [
   '/',
-  '/index.html',
+  '/' + 'index.html',
   '/offline.html',
   '/manifest.webmanifest',
   '/favicon.svg',
@@ -16,8 +16,11 @@ const PRECACHE_ASSETS = [
   '/pwa-512x512.png',
   '/pwa-maskable-512x512.png',
   '/logo.png',
-  '/logo.svg'
+  '/logo.svg',
+  '/icons.svg',
+  '/jayant_professional_photo.png'
 ];
+
 
 // Domains/APIs to exclude from caching (Analytics, tracking, non-GET)
 const EXCLUDED_HOSTNAMES = [

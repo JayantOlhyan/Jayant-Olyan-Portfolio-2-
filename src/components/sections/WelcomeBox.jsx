@@ -10,13 +10,17 @@ export const WelcomeBox = ({ onCommand, currentTheme }) => {
     { cmd: '/about', label: 'About Me', desc: 'Bio & timeline' },
     { cmd: '/work', label: 'Projects', desc: '8+ Case Studies' },
     { cmd: '/skills', label: 'Skills', desc: 'Tech stack & AI tools' },
+    { cmd: '/hackathons', label: 'Hackathons', desc: '25x Finalist & Wins' },
     { cmd: '/contact', label: 'Contact', desc: 'Reach out directly' },
-    { cmd: '/social', label: 'Socials', desc: 'GitHub, LinkedIn, Twitter' },
+    { cmd: '/social', label: 'Socials', desc: 'GitHub, LinkedIn, X' },
+    { cmd: '/ecosystem', label: 'Network', desc: 'Academic & Partner Ecosystem' },
+    { cmd: '/articles', label: 'Articles', desc: 'Deep learning insights' },
     { cmd: '/themes', label: 'Themes', desc: 'Switch color modes' },
     { cmd: 'neofetch', label: 'System Specs', desc: 'macOS neofetch info' },
     { cmd: '/matrix', label: 'Matrix', desc: 'Easter egg rain' },
     { cmd: '/help', label: 'Help', desc: 'List all commands' },
   ];
+
 
   return (
     <motion.div 

@@ -11,22 +11,33 @@
     gtag('config', 'G-Y3DX4J0C0W');
   </script>
   <meta charset="UTF-8" />
+  
+  <!-- Preconnect & Preload Critical Resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="/icons.svg" as="image" type="image/svg+xml" />
+  
+  <!-- Favicons & App Icons -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="shortcut icon" href="/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="canonical" href="https://jayant-olhyan-portfolio-2.netlify.app/" />
+  
+  <!-- Mobile & PWA Settings -->
   <meta name="theme-color" content="#0A0A0A" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Jayant OS" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <!-- Primary Meta Tags -->
-  <title>Jayant Olhyan | Data Science & AI | Portfolio</title>
-  <meta name="title" content="Jayant Olhyan | Data Science & AI | Portfolio">
-  <meta name="description" content="Official portfolio of Jayant Olhyan, Data Science & AI student at IIT Guwahati and Computer Science student at MSIT. 25x Hackathon Finalist and Full Stack AI Engineer.">
-  <meta name="keywords" content="Jayant Olhyan, Jayant Olhyan portfolio, IIT Guwahati Data Science, MSIT CSE, Hackathon finalist, Jayant developer, Indian tech student portfolio, Full Stack AI Engineer">
+  <title>Jayant Olhyan | Data Science & AI Portfolio | IIT Guwahati & MSIT</title>
+  <meta name="title" content="Jayant Olhyan | Data Science & AI Portfolio | IIT Guwahati & MSIT">
+  <meta name="description" content="Official macOS-themed portfolio OS of Jayant Olhyan. Data Science & AI student at IIT Guwahati and Computer Science student at MSIT. 25x Hackathon Finalist and Full Stack AI Engineer.">
+  <meta name="keywords" content="Jayant Olhyan, Jayant Olhyan portfolio, IIT Guwahati Data Science, MSIT CSE, 25x Hackathon finalist, Jayant developer, Full Stack AI Engineer, TruthLens AI, Sentinel AI, GRAVITAS space debris">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Jayant Olhyan">
   <meta name="google-site-verification" content="-a0wyjaTybF3gldEtwwHLwq_ChLau7TLls8Q1KFF7lE" />
@@ -36,7 +47,7 @@
   <meta property="og:url" content="https://jayant-olhyan-portfolio-2.netlify.app/">
   <meta property="og:site_name" content="Jayant Olhyan Portfolio OS">
   <meta property="og:title" content="Jayant Olhyan | Data Science & AI | Portfolio">
-  <meta property="og:description" content="Explore the macOS-themed portfolio and 25x hackathon-winning projects of Jayant Olhyan, Data Science student at IIT Guwahati & MSIT.">
+  <meta property="og:description" content="Explore the macOS-themed portfolio OS and 25x hackathon-winning AI projects of Jayant Olhyan, Data Science student at IIT Guwahati & MSIT.">
   <meta property="og:image" content="https://jayant-olhyan-portfolio-2.netlify.app/og-image.png">
   <meta property="og:image:secure_url" content="https://jayant-olhyan-portfolio-2.netlify.app/og-image.png">
   <meta property="og:image:type" content="image/png">
@@ -49,42 +60,93 @@
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://jayant-olhyan-portfolio-2.netlify.app/">
   <meta property="twitter:title" content="Jayant Olhyan | Data Science & AI | Portfolio">
-  <meta property="twitter:description" content="Explore the macOS-themed portfolio and 25x hackathon-winning projects of Jayant Olhyan, Data Science student at IIT Guwahati & MSIT.">
+  <meta property="twitter:description" content="Explore the macOS-themed portfolio OS and 25x hackathon-winning AI projects of Jayant Olhyan, Data Science student at IIT Guwahati & MSIT.">
   <meta property="twitter:image" content="https://jayant-olhyan-portfolio-2.netlify.app/twitter-card.png">
   <meta property="twitter:image:alt" content="Jayant Olhyan — Live macOS Portfolio OS Real Screenshot Banner">
 
-  <!-- JSON-LD Structured Data for Rich Search Results -->
+  <!-- JSON-LD Structured Data Schema Graph for Rich Google Search Results -->
   <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Jayant Olhyan",
-        "url": "https://jayant-olhyan-portfolio-2.netlify.app/",
-        "jobTitle": "Data Scientist & AI Specialist",
-        "alumniOf": [
-          {
-            "@type": "CollegeOrUniversity",
-            "name": "IIT Guwahati"
-          },
-          {
-            "@type": "CollegeOrUniversity",
-            "name": "Maharaja Surajmal Institute of Technology (MSIT)"
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://jayant-olhyan-portfolio-2.netlify.app/#person",
+          "name": "Jayant Olhyan",
+          "url": "https://jayant-olhyan-portfolio-2.netlify.app/",
+          "image": "https://jayant-olhyan-portfolio-2.netlify.app/jayant_professional_photo.png",
+          "jobTitle": "Data Scientist & AI Full-Stack Engineer",
+          "description": "Data Science & AI student at IIT Guwahati and Computer Science engineer at MSIT. 25x Hackathon Finalist.",
+          "alumniOf": [
+            {
+              "@type": "CollegeOrUniversity",
+              "name": "IIT Guwahati"
+            },
+            {
+              "@type": "CollegeOrUniversity",
+              "name": "Maharaja Surajmal Institute of Technology (MSIT)"
+            }
+          ],
+          "knowsAbout": [
+            "Data Science",
+            "Artificial Intelligence",
+            "Machine Learning",
+            "Computer Vision",
+            "RAG Pipelines",
+            "Full Stack Development",
+            "FastAPI",
+            "React 18",
+            "Next.js",
+            "Python",
+            "Three.js"
+          ],
+          "sameAs": [
+            "https://github.com/JayantOlhyan",
+            "https://www.linkedin.com/in/jayant-olhyan/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://jayant-olhyan-portfolio-2.netlify.app/#website",
+          "url": "https://jayant-olhyan-portfolio-2.netlify.app/",
+          "name": "Jayant Olhyan Portfolio OS",
+          "description": "Interactive macOS terminal portfolio for Jayant Olhyan showcasing AI and full stack projects.",
+          "publisher": {
+            "@id": "https://jayant-olhyan-portfolio-2.netlify.app/#person"
           }
-        ],
-        "knowsAbout": [
-          "Data Science",
-          "Artificial Intelligence",
-          "Full Stack Development",
-          "Machine Learning",
-          "Software Engineering"
-        ],
-        "sameAs": [
-          "https://github.com/JayantOlhyan",
-          "https://linkedin.com/in/jayantolhyan"
-        ]
-      }
-    </script>
+        },
+        {
+          "@type": "ItemList",
+          "name": "Featured AI & Full Stack Projects",
+          "itemListElement": [
+            {
+              "@type": "SoftwareApplication",
+              "position": 1,
+              "name": "TruthLens AI",
+              "applicationCategory": "AI Application",
+              "description": "Multi-modal deepfake detection platform combining frame-level video analysis with RAG fact-checking."
+            },
+            {
+              "@type": "SoftwareApplication",
+              "position": 2,
+              "name": "Sentinel AI",
+              "applicationCategory": "Security Application",
+              "description": "Real-time scam and phishing detection web application explaining risks in plain language with LLMs."
+            },
+            {
+              "@type": "SoftwareApplication",
+              "position": 3,
+              "name": "GRAVITAS",
+              "applicationCategory": "Data Visualization",
+              "description": "Interactive 3D orbital space debris and asteroid collision risk visualization platform using NASA & ESA data."
+            }
+          ]
+        }
+      ]
+    }
+  </script>
 </head>
+
 
 <body class="bg-[#0f0f0f]">
   <div id="root">

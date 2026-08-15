@@ -148,6 +148,12 @@ export const MacMenuBar = ({ onCommand, onOpenSettings, setCloseOverlayActive })
           Skills
         </button>
         <button 
+          onClick={() => onCommand('/hackathons')}
+          className="px-2 py-0.5 rounded hover:bg-white/10 transition-colors text-white/80 hover:text-white cursor-pointer hidden md:inline"
+        >
+          Hackathons
+        </button>
+        <button 
           onClick={() => onCommand('/social')}
           className="px-2 py-0.5 rounded hover:bg-white/10 transition-colors text-white/80 hover:text-white cursor-pointer hidden sm:inline"
         >

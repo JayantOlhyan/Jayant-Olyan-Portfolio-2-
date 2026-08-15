@@ -90,10 +90,13 @@ export const useTerminal = () => {
         case '/help':
         case 'help':
           response = `Available commands:
-    /about        - Jayant Olhyan bio & timeline
-    /work         - Featured projects and case studies
+    /about        - Jayant Olhyan bio, background & education
+    /work         - Featured projects, deep learning & web3 apps
     /skills       - Technical stack, frameworks & AI models
-    /social       - Social profiles & external links
+    /hackathons   - 25x Hackathon track record & conference papers
+    /social       - Social profiles & external connections
+    /contact      - Email, phone, location & direct hire
+    /ecosystem    - Institutional & hackathon partners
     /philosophy   - Engineering & design principles
     neofetch      - Render macOS system specs & Apple ASCII
     /testimonials - What peers and mentors say
@@ -101,7 +104,7 @@ export const useTerminal = () => {
     /themes       - List & switch user wallpapers (/main, /dark, /retro, /space, /glass)
     /matrix       - Digital rain easter egg
     /confetti     - Celebration particle explosion
-    /clear        - Clear terminal screen
+    /clear        - Clear terminal screen buffer
     /exit         - Terminate terminal session`;
           break;
 
@@ -116,6 +119,14 @@ export const useTerminal = () => {
         case '/work':
         case 'work':
           component = 'work';
+          break;
+        case '/hackathons':
+        case 'hackathons':
+          component = 'hackathons';
+          break;
+        case '/ecosystem':
+        case 'ecosystem':
+          component = 'ecosystem';
           break;
         case '/skills':
         case 'skills':
@@ -192,6 +203,8 @@ export const useTerminal = () => {
       '/about',
       '/work',
       '/skills',
+      '/hackathons',
+      '/ecosystem',
       '/social',
       '/philosophy',
       '/testimonials',
@@ -213,6 +226,8 @@ export const useTerminal = () => {
         'about': 'About | Jayant Olhyan | Data Science & AI',
         'work': 'Projects & Work | Jayant Olhyan | Portfolio',
         'skills': 'Technical Skills & Stack | Jayant Olhyan',
+        'hackathons': 'Hackathons & Research | Jayant Olhyan',
+        'ecosystem': 'Ecosystem & Network | Jayant Olhyan',
         'social': 'Connect with Jayant Olhyan | Social Links',
         'philosophy': 'Engineering & Design Philosophy | Jayant Olhyan',
         'testimonials': 'Peer Reviews & Testimonials | Jayant Olhyan',

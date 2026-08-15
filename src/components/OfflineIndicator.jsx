@@ -1,24 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { useOnlineStatus } from '../hooks/useOnlineStatus';
 
 export function OfflineIndicator() {
-  const isOnline = useOnlineStatus();
+  const [isOnline, setIsOnline] = useState(
+    typeof navigator !== 'undefined' ? navigator.onLine : true
+  );
   const [showRestored, setShowRestored] = useState(false);
-  const [wasOffline, setWasOffline] = useState(false);
 
   useEffect(() => {
-    if (!isOnline) {
-      setWasOffline(true);
-      setShowRestored(false);
-    } else if (wasOffline) {
+    let timer;
+    const handleOnline = () => {
+      setIsOnline(true);
       setShowRestored(true);
-      const timer = setTimeout(() => {
+      timer = setTimeout(() => {
         setShowRestored(false);
-        setWasOffline(false);
       }, 3500);
-      return () => clearTimeout(timer);
-    }
-  }, [isOnline, wasOffline]);
+    };
+
+    const handleOffline = () => {
+      setIsOnline(false);
+      setShowRestored(false);
+    };
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+      if (timer) clearTimeout(timer);
+    };
+  }, []);
+
 
   if (isOnline && !showRestored) {
     return null;

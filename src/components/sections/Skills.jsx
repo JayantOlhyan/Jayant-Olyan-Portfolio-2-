@@ -1,62 +1,166 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { skills } from '../../data/portfolioData';
+import { TerminalCard } from '../ui/TerminalCard';
+import { Icon } from '../ui/Icon';
+import { Code, Cpu, Database, Rocket, Sparkles } from 'lucide-react';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' } },
+};
+
+const skillCategories = [
+  {
+    id: 'build',
+    title: 'Full-Stack & Languages',
+    subtitle: 'Core Languages, Frameworks & Web Platforms',
+    icon: Code,
+    color: 'text-emerald-400',
+    borderColor: 'border-emerald-500/30',
+    tags: [
+      { name: 'Python', role: 'Core Backend / AI' },
+      { name: 'JavaScript', role: 'ES6+ / Web' },
+      { name: 'TypeScript', role: 'Type-Safe App Dev' },
+      { name: 'C', role: 'Systems / Algorithms' },
+      { name: 'React', role: 'UI Components' },
+      { name: 'Next.js', role: 'SSR & Full-Stack' },
+      { name: 'FastAPI', role: 'High-Perf Python APIs' },
+      { name: 'Node.js', role: 'Express & Microservices' },
+      { name: 'Tailwind CSS', role: 'Utility-First Styling' },
+      { name: 'Three.js', role: '3D Orbital Visualizations' },
+    ],
+  },
+  {
+    id: 'ai',
+    title: 'AI, LLMs & Computer Vision',
+    subtitle: 'Generative AI, RAG & Neural Networks',
+    icon: Cpu,
+    color: 'text-sky-400',
+    borderColor: 'border-sky-500/30',
+    tags: [
+      { name: 'Google Gemini', role: 'Multimodal Inference' },
+      { name: 'OpenAI', role: 'GPT-4o & Embeddings' },
+      { name: 'LangChain', role: 'RAG & Vector Pipelines' },
+      { name: 'PyTorch', role: 'Deep Learning & Tensors' },
+      { name: 'OpenCV', role: 'Frame Analysis & CV' },
+      { name: 'Claude', role: 'Anthropic LLMs' },
+      { name: 'Cursor', role: 'AI-Native IDE' },
+      { name: 'GitHub Copilot', role: 'Pair Programming' },
+    ],
+  },
+  {
+    id: 'store',
+    title: 'Databases & State',
+    subtitle: 'Relational, Document & Real-time Stores',
+    icon: Database,
+    color: 'text-amber-400',
+    borderColor: 'border-amber-500/30',
+    tags: [
+      { name: 'MongoDB', role: 'NoSQL Document Store' },
+      { name: 'Firebase', role: 'Firestore & Auth' },
+    ],
+  },
+  {
+    id: 'ship',
+    title: 'DevOps & Deployments',
+    subtitle: 'CI/CD Pipelines, Containers & Edge Cloud',
+    icon: Rocket,
+    color: 'text-purple-400',
+    borderColor: 'border-purple-500/30',
+    tags: [
+      { name: 'Netlify', role: 'Continuous Deployments' },
+      { name: 'Vercel', role: 'Next.js Edge Runtime' },
+      { name: 'Docker', role: 'Containerization' },
+      { name: 'GitHub Actions', role: 'Automated CI/CD' },
+    ],
+  },
+];
 
 export const Skills = () => {
   return (
     <div className="mb-10 animate-fade-in">
-      <div className="mb-8">
-         <h2 className="text-fluid-3xl font-bold font-sans text-text-primary hover-glitch transition-colors">
-            /skills --capabilities
-         </h2>
-      </div>
-
-      <div className="bg-bg-terminal border items-start border-border-dark p-[clamp(1rem,3vw,1.5rem)] rounded-md font-mono text-fluid-sm md:text-fluid-base grid grid-cols-1 sm:grid-cols-[100px_1fr] md:grid-cols-[120px_1fr] gap-x-[clamp(1rem,3vw,2rem)] gap-y-[clamp(1rem,3vw,1.5rem)]">
-        
-        {/* Build */}
-        <div className="text-text-secondary font-bold">Build</div>
-        <div className="text-text-primary">
-          <ul className="list-none space-y-1">
-            <li className="text-accent-green">{skills.Build.slice(0, 4).join(', ')}</li>
-            <li>{skills.Build.slice(4).join(', ')}</li>
-          </ul>
-        </div>
-
-        {/* Store */}
-        <div className="text-text-secondary font-bold pt-2 sm:pt-0">Store</div>
-        <div className="text-text-primary">
-          {skills.Store.join(', ')}
-        </div>
-
-        {/* Ship */}
-        <div className="text-text-secondary font-bold pt-2 sm:pt-0">Ship</div>
-        <div className="text-text-primary">
-          {skills.Ship.join(', ')}
-        </div>
-
-        {/* AI */}
-        <div className="text-text-secondary font-bold pt-2 sm:pt-0">AI</div>
-        <div className="text-text-primary">
-          <ul className="list-none space-y-1">
-             <li className="text-accent-bright">{skills.AI.slice(0, -1).join(', ')}</li>
-             <li className="text-text-secondary">{skills.AI.slice(-1)[0]}</li>
-          </ul>
-        </div>
-      </div>
-      
-      {/* Visual Glitched Cloud Demo */}
-      <div className="mt-[clamp(1.5rem,4vw,2rem)] flex flex-wrap gap-[clamp(0.5rem,2vw,1rem)]">
-        {skills.Build.map(tag => (
-          <span key={tag} className="text-fluid-xs bg-bg-secondary text-text-secondary border border-border-dark px-[clamp(0.5rem,2vw,1rem)] py-[clamp(0.25rem,1.5vw,0.5rem)] rounded-full hover:border-accent-green hover:text-accent-bright transition-all cursor-default box-glow hover:box-glow-strong">
-            {tag}
+      <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between border-b border-border-dark pb-4 gap-2">
+        <div>
+          <span className="text-accent-green font-mono tracking-widest text-xs uppercase block mb-1">
+            // CAPABILITIES & TECH STACK
           </span>
-        ))}
-        {skills.AI.map(tag => (
-           <span key={tag} className="text-fluid-xs bg-bg-secondary text-accent-green border border-border-dark px-[clamp(0.5rem,2vw,1rem)] py-[clamp(0.25rem,1.5vw,0.5rem)] rounded-full hover:border-accent-bright transition-all cursor-default box-glow-strong">
-             {tag}
-           </span>
-        ))}
+          <h2 className="text-2xl sm:text-3xl font-bold font-sans text-text-primary">
+            /skills --capabilities
+          </h2>
+        </div>
+        <div className="text-xs text-text-secondary font-mono flex items-center gap-1">
+          <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+          <span>Interactive Brand Icons</span>
+        </div>
       </div>
+
+      {/* Main Categories Grid */}
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="grid grid-cols-1 md:grid-cols-2 gap-[clamp(1rem,3vw,1.5rem)]"
+      >
+        {skillCategories.map((cat) => {
+          const CategoryIcon = cat.icon;
+          return (
+            <motion.div key={cat.id} variants={itemVariants} className="h-full">
+              <TerminalCard className="flex flex-col h-full bg-bg-terminal/70" spotlight glowing>
+                {/* Category Header */}
+                <div className="flex items-center gap-3 mb-4 pb-3 border-b border-white/5">
+                  <div className={`p-2 rounded-lg bg-white/5 border ${cat.borderColor} ${cat.color}`}>
+                    <CategoryIcon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-fluid-base font-bold font-sans text-text-primary">
+                      {cat.title}
+                    </h3>
+                    <p className="text-[11px] text-text-secondary font-mono">
+                      {cat.subtitle}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Tech Pills Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 mt-auto">
+                  {cat.tags.map((item) => (
+                    <div
+                      key={item.name}
+                      className="group/pill flex items-center space-x-2.5 p-2 rounded-lg bg-white/5 border border-white/5 hover:border-emerald-500/40 hover:bg-emerald-500/10 transition-all cursor-default select-none"
+                    >
+                      <Icon 
+                        name={item.name} 
+                        size={18} 
+                        className="text-text-secondary group-hover/pill:text-emerald-400 group-hover/pill:scale-115 transition-all" 
+                      />
+                      <div className="min-w-0 flex-1">
+                        <div className="text-fluid-xs font-semibold text-text-primary group-hover/pill:text-emerald-300 truncate">
+                          {item.name}
+                        </div>
+                        <div className="text-[10px] text-text-secondary/70 truncate font-mono">
+                          {item.role}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </TerminalCard>
+            </motion.div>
+          );
+        })}
+      </motion.div>
     </div>
   );
 };
+

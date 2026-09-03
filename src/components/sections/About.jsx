@@ -84,7 +84,8 @@ export const About = () => {
                 src="/jayant_professional_photo.png" 
                 alt="Jayant Olhyan - Data Scientist & AI Engineer" 
                 onError={(e) => { 
-                  e.target.src = "https://ui-avatars.com/api/?name=Jayant+Olhyan&background=0D1117&color=00B050&size=256"; 
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256' width='256' height='256'%3E%3Crect width='256' height='256' fill='%230D1117'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='84' font-weight='bold' fill='%2300B050'%3EJO%3C/text%3E%3C/svg%3E"; 
                 }}
                 className="w-full h-full object-cover grayscale contrast-105 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
               />

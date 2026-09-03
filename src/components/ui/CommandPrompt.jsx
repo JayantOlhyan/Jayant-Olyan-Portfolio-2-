@@ -15,7 +15,6 @@ export const CommandPrompt = ({ onCommand, onHistoryUp, onHistoryDown }) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
         setShowMenu(false);
       }
-      inputRef.current?.focus();
     };
     document.addEventListener('click', handleClick);
     return () => document.removeEventListener('click', handleClick);
@@ -37,22 +36,24 @@ export const CommandPrompt = ({ onCommand, onHistoryUp, onHistoryDown }) => {
     }
   };
 
-  const selectCommand = (cmd) => {
-    setInput(cmd.name);
-    setShowMenu(false);
-    // Keep focus on input for immediate submission if needed
-    setTimeout(() => inputRef.current?.focus(), 0);
+  const selectCommand = (cmd, executeImmediately = false) => {
+    if (executeImmediately) {
+      onCommand(cmd.name);
+      setInput('');
+      setShowMenu(false);
+    } else {
+      setInput(cmd.name);
+      setShowMenu(false);
+      setTimeout(() => inputRef.current?.focus(), 0);
+    }
   };
 
   const handleSubmit = (e) => {
     e?.preventDefault();
     
-    // If menu is open and a command is selected, we just fill the input
-    // The user has to press enter again to submit, or we can submit directly.
-    // Standard terminal behavior often just fills the input.
     if (showMenu && filteredCmds[selectedIndex]) {
-      selectCommand(filteredCmds[selectedIndex]);
-    } else {
+      selectCommand(filteredCmds[selectedIndex], true);
+    } else if (input.trim()) {
       onCommand(input);
       setInput('');
       setShowMenu(false);
@@ -107,7 +108,7 @@ export const CommandPrompt = ({ onCommand, onHistoryUp, onHistoryDown }) => {
               {filteredCmds.map((cmd, idx) => (
                 <div
                   key={cmd.name}
-                  onClick={() => selectCommand(cmd)}
+                  onClick={() => selectCommand(cmd, true)}
                   className={`flex items-center gap-6 px-[clamp(0.5rem,2vw,1rem)] py-3 md:py-2.5 cursor-pointer transition-all duration-200 min-h-[48px] ${
                     idx === selectedIndex 
                     ? 'bg-white/10 translate-x-1' 

@@ -30,31 +30,6 @@ export const MainLayout = ({
   const [isMinimized, setIsMinimized] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
-  const prevChildrenLength = useRef(0);
-  const autoScrollRef = useRef(true);
-  const prevScrollHeight = useRef(0);
-
-  const handleInteraction = () => {
-    if (autoScrollRef.current) {
-      autoScrollRef.current = false;
-    }
-  };
-
-  useEffect(() => {
-    if (scrollRef.current) {
-      const childrenArray = React.Children.toArray(children);
-      const currentChildrenCount = childrenArray.length;
-
-      if (currentChildrenCount > prevChildrenLength.current) {
-        scrollRef.current.scrollTop = prevScrollHeight.current - 20;
-        autoScrollRef.current = false;
-      }
-
-      prevChildrenLength.current = currentChildrenCount;
-      prevScrollHeight.current = scrollRef.current.scrollHeight;
-    }
-  }, [children]);
-
   // Handle green dot (maximize toggle)
   const handleMaximizeToggle = () => {
     if (isMinimized) {
@@ -71,8 +46,6 @@ export const MainLayout = ({
   return (
     <div 
       className="relative h-[100dvh] w-screen bg-[#0a0a0c] font-mono text-text-primary flex flex-col items-center justify-between pt-9 pb-16 px-[clamp(0.5rem,2vw,2rem)] transition-colors duration-300 overflow-hidden select-none"
-      onWheel={handleInteraction}
-      onTouchStart={handleInteraction}
     >
       {/* Top macOS Menu Bar */}
       <MacMenuBar 
@@ -153,19 +126,10 @@ export const MainLayout = ({
               ref={scrollRef}
               style={{ touchAction: 'pan-y' }}
               className="flex-1 overflow-y-auto px-[clamp(0.5rem,3vw,2rem)] py-[clamp(1rem,4vw,1.5rem)] pb-24 scroll-smooth relative z-20 custom-scrollbar overflow-x-hidden content-glow"
-              onScroll={(e) => {
-                const target = e.target;
-                const distanceFromBottom = target.scrollHeight - target.scrollTop - target.clientHeight;
-                if (distanceFromBottom > 50) {
-                  autoScrollRef.current = false;
-                } else {
-                  autoScrollRef.current = true;
-                }
-              }}
             >
               {/* SEO Headings */}
               <h1 className="sr-only">Jayant Olhyan | Data Science & AI Student at IIT Guwahati</h1>
-              <h2 className="sr-only">Full Stack AI Developer macOS Portfolio inspired by vladburca.com</h2>
+              <h2 className="sr-only">Full Stack AI Developer Interactive macOS Portfolio</h2>
 
               {children}
 
@@ -182,7 +146,7 @@ export const MainLayout = ({
             </div>
 
             {/* Noise Grain */}
-            <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-[110] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
+            <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-[110] bg-[url('data:image/svg+xml,%3Csvg%20viewBox=%270%200%20200%20200%27%20xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter%20id=%27noiseFilter%27%3E%3CfeTurbulence%20type=%27fractalNoise%27%20baseFrequency=%270.8%27%20numOctaves=%273%27%20stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect%20width=%27100%25%27%20height=%27100%25%27%20filter=%27url(%23noiseFilter)%27/%3E%3C/svg%3E')] bg-repeat" />
           </motion.div>
         )}
       </AnimatePresence>

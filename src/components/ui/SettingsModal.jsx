@@ -18,6 +18,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { themeData, siteMetadata } from '../../data/portfolioData';
+import { useOnlineStatus } from '../../hooks/useOnlineStatus';
 
 const sidebarCategories = [
   { id: 'general', label: 'General', icon: SettingsIcon, color: 'bg-zinc-600' },
@@ -40,6 +41,7 @@ export const SettingsModal = ({
 }) => {
   const [activeTab, setActiveTab] = useState('general');
   const [searchQuery, setSearchQuery] = useState('');
+  const isOnline = useOnlineStatus();
 
   if (!isOpen) return null;
 
@@ -344,7 +346,13 @@ export const SettingsModal = ({
                   <div className="bg-[#28282b] rounded-xl border border-white/10 p-4 space-y-3">
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-white/80 font-mono">Network Status</span>
-                      <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded">ONLINE</span>
+                      <span className={`text-xs font-bold px-2 py-0.5 rounded border ${
+                        isOnline 
+                          ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30' 
+                          : 'text-amber-400 bg-amber-500/10 border-amber-500/30'
+                      }`}>
+                        {isOnline ? 'ONLINE' : 'OFFLINE'}
+                      </span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-white/80 font-mono">Location</span>

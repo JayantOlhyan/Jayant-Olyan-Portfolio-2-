@@ -170,7 +170,7 @@ export const MacDock = ({
     {
       id: 'matrix',
       name: 'Matrix Rain',
-      icon: BookOpen,
+      icon: Terminal,
       color: 'bg-gradient-to-b from-[#15381d] to-[#0a2110] text-green-400 border-green-500/50 shadow-[0_4px_16px_rgba(34,197,94,0.35)] hover:border-green-400',
       action: () => onCommand('/matrix'),
       active: false,
@@ -194,14 +194,14 @@ export const MacDock = ({
   ];
 
   return (
-    <div className="fixed bottom-3 left-1/2 -translate-x-1/2 z-[800] select-none">
+    <div className="fixed bottom-2.5 left-1/2 -translate-x-1/2 z-[800] select-none max-w-[96vw]">
       <motion.div 
         onMouseMove={(e) => mouseX.set(e.clientX)}
         onMouseLeave={() => mouseX.set(Infinity)}
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-        className="flex items-end space-x-2.5 px-3.5 pb-2 pt-2 bg-black/45 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] h-20"
+        className="flex items-end space-x-1.5 sm:space-x-2.5 px-2.5 sm:px-3.5 pb-2 pt-2 bg-black/50 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] h-20 overflow-x-auto max-w-full custom-scrollbar"
       >
         {dockApps.map((app) => (
           <DockItem

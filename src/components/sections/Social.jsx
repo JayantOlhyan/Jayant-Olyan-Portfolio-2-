@@ -88,16 +88,18 @@ export const Social = () => {
         {socialLinks.map((s) => {
           const isCopied = copiedKey === s.name;
           return (
-            <motion.a
+            <motion.div
               key={s.name}
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
               className={`flex items-start justify-between p-4 bg-white/5 border border-white/10 rounded-xl transition-all duration-200 group ${s.color}`}
             >
-              <div className="flex items-start space-x-3.5 min-w-0 flex-1">
+              <a
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start space-x-3.5 min-w-0 flex-1"
+              >
                 <div className="p-2.5 rounded-lg bg-black/40 border border-white/10 shrink-0 group-hover:border-white/20 transition-colors">
                   <Icon name={s.slug} size={22} className={s.iconColor} />
                 </div>
@@ -110,10 +112,11 @@ export const Social = () => {
                     {s.desc}
                   </div>
                 </div>
-              </div>
+              </a>
 
               {s.copyText && (
                 <button
+                  type="button"
                   onClick={(e) => handleCopy(e, s.name, s.copyText)}
                   title={`Copy ${s.name}`}
                   className="p-1.5 rounded-md hover:bg-white/10 text-white/50 hover:text-white transition-colors shrink-0 ml-2 cursor-pointer"
@@ -121,7 +124,7 @@ export const Social = () => {
                   {isCopied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                 </button>
               )}
-            </motion.a>
+            </motion.div>
           );
         })}
       </div>

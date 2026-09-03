@@ -48,18 +48,32 @@ export const MatrixRain = ({ active, onClose }) => {
 
     render();
 
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose?.();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [active]);
+  }, [active, onClose]);
 
   if (!active) return null;
 
   return (
-    <div className="fixed inset-0 z-[999] pointer-events-auto bg-black/80 flex flex-col justify-between p-4">
+    <div 
+      onClick={onClose}
+      className="fixed inset-0 z-[999] pointer-events-auto bg-black/80 flex flex-col justify-between p-4 cursor-pointer"
+    >
       <canvas ref={canvasRef} className="absolute inset-0 z-0" />
-      <div className="relative z-10 flex justify-between items-center bg-black/60 backdrop-blur-md px-6 py-3 rounded-md border border-green-500/30 text-green-400 font-mono text-xs">
+      <div 
+        onClick={(e) => e.stopPropagation()}
+        className="relative z-10 flex justify-between items-center bg-black/60 backdrop-blur-md px-6 py-3 rounded-md border border-green-500/30 text-green-400 font-mono text-xs cursor-default"
+      >
         <span>MATRIX RAIN ACTIVE | PRESS ESC OR CLICK TO EXIT</span>
         <button 
           onClick={onClose}

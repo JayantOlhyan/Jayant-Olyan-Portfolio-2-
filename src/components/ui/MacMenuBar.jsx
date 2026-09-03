@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Wifi, BatteryCharging, Search, SlidersHorizontal, Info, Settings, Palette, RefreshCw, Lock } from 'lucide-react';
+import { Wifi, WifiOff, BatteryCharging, Search, SlidersHorizontal, Info, Settings, Palette, RefreshCw, Lock } from 'lucide-react';
+import { useOnlineStatus } from '../../hooks/useOnlineStatus';
 
 export const MacMenuBar = ({ onCommand, onOpenSettings, setCloseOverlayActive }) => {
+  const isOnline = useOnlineStatus();
   const [timeStr, setTimeStr] = useState('');
   const [dateStr, setDateStr] = useState('');
   const [isAppleMenuOpen, setIsAppleMenuOpen] = useState(false);
@@ -176,9 +178,13 @@ export const MacMenuBar = ({ onCommand, onOpenSettings, setCloseOverlayActive })
       {/* Right System Status & Control Center Indicators */}
       <div className="flex items-center space-x-3 text-[11px] font-mono text-gray-300">
         {/* Status Pill */}
-        <span className="hidden lg:inline-flex items-center space-x-1 bg-white/10 px-2 py-0.5 rounded text-[10px] text-emerald-400 font-semibold border border-white/10">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping mr-1" />
-          <span>STATUS: ONLINE</span>
+        <span className={`hidden lg:inline-flex items-center space-x-1 bg-white/10 px-2 py-0.5 rounded text-[10px] font-semibold border ${
+          isOnline ? 'text-emerald-400 border-emerald-500/20' : 'text-amber-400 border-amber-500/20'
+        }`}>
+          <span className={`w-1.5 h-1.5 rounded-full mr-1 ${
+            isOnline ? 'bg-emerald-400 animate-ping' : 'bg-amber-400'
+          }`} />
+          <span>STATUS: {isOnline ? 'ONLINE' : 'OFFLINE'}</span>
         </span>
 
         {/* Spotlight Search Icon */}
@@ -199,8 +205,12 @@ export const MacMenuBar = ({ onCommand, onOpenSettings, setCloseOverlayActive })
           <SlidersHorizontal className="w-3.5 h-3.5" />
         </button>
 
-        {/* Network & Battery */}
-        <Wifi className="w-3.5 h-3.5 text-emerald-400" />
+        {/* Network */}
+        {isOnline ? (
+          <Wifi className="w-3.5 h-3.5 text-emerald-400" />
+        ) : (
+          <WifiOff className="w-3.5 h-3.5 text-amber-400" />
+        )}
         <div className="flex items-center space-x-1 text-white/80">
           <BatteryCharging className="w-4 h-4 text-emerald-400" />
           <span className="text-[10px] hidden sm:inline font-sans">100%</span>

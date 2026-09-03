@@ -19,7 +19,7 @@ const itemVariants = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.3, ease: 'easeOut' } },
 };
 
-export const Hackathons = () => {
+export const Hackathons = ({ onCommand }) => {
   return (
     <div className="mb-10 animate-fade-in space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-border-dark pb-4 gap-2">
@@ -100,7 +100,12 @@ export const Hackathons = () => {
         {/* Footer Collaboration Callout */}
         <div className="px-6 py-3 bg-white/[0.01] border-t border-white/5 flex flex-wrap justify-between items-center text-xs text-text-secondary font-mono">
           <div>// Total Hackathon Podiums: <span className="text-emerald-400 font-bold">25x Finalist & Winner</span></div>
-          <div className="text-emerald-400 hover:text-emerald-300 font-semibold cursor-pointer">Run /contact to team up &gt;</div>
+          <div 
+            onClick={() => onCommand && onCommand('/contact')}
+            className="text-emerald-400 hover:text-emerald-300 font-semibold cursor-pointer select-none"
+          >
+            Run /contact to team up &gt;
+          </div>
         </div>
       </TerminalCard>
     </div>

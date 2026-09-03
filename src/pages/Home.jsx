@@ -36,7 +36,7 @@ export const Home = ({ history, onBootComplete, onUnlock, currentTheme, onThemeC
       case 'hero': return <Hero onComplete={onBootComplete} />;
       case 'about': return <About />;
       case 'work': return <Projects />;
-      case 'hackathons': return <Hackathons />;
+      case 'hackathons': return <Hackathons onCommand={onCommand} />;
       case 'skills': return <Skills />;
       case 'social': return <Social />;
       case 'philosophy': return <Philosophy />;

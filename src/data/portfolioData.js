@@ -121,8 +121,8 @@ export const bootSequence = [
   { type: "progress", duration: 600 },
   { text: "done", type: "status", color: "text-accent-green", delay: 50 },
   { text: "", delay: 150 },
-  { text: "Resolving 12 case studies...", delay: 100 },
-  { text: "Connecting to Product Rocket core...", delay: 120 },
+  { text: "Resolving case studies...", delay: 100 },
+  { text: "Initializing AI inference core...", delay: 120 },
   { text: "ok", type: "status", color: "text-accent-green", delay: 50 },
   { text: "", delay: 150 },
   { text: "Design systems: operational", delay: 60 },
@@ -297,8 +297,8 @@ export const themeData = [
   {
     id: 'main',
     command: '/main',
-    name: 'Cyber Mountains (Default Reference)',
-    description: 'Green & blue electric horizon (Image 1)',
+    name: 'Cyber Mountains',
+    description: 'Green & cyan synthwave horizon with digital grid',
     colors: ['#0A0A0A', '#1A1A1B', '#00ff41', '#38bdf8'],
     portraitColor: '#00ff41'
   },
@@ -306,31 +306,31 @@ export const themeData = [
     id: 'retro',
     command: '/retro',
     name: 'Retro CRT Grid',
-    description: '1983 perspective grid & matrix code rain (Image 2)',
+    description: 'Amber perspective wireframe & vintage matrix glow',
     colors: ['#0A0D08', '#0A0D08', '#FFE600', '#FFE600'],
     portraitColor: '#FFE600'
   },
   {
     id: 'dark',
     command: '/dark',
-    name: 'Cyberpunk Metallic Shards',
-    description: '3D metallic glass shards & cyan traces (Image 3)',
+    name: 'Cyberpunk Shards',
+    description: '3D metallic glass shards & deep obsidian traces',
     colors: ['#0A0A0A', '#1A1A1B', '#38bdf8', '#CBD5E0'],
     portraitColor: '#38bdf8'
   },
   {
     id: 'space',
     command: '/space',
-    name: 'Cosmic Galaxy Nebula',
-    description: 'Deep cosmic galaxy & constellation nodes (Image 4)',
+    name: 'Cosmic Nebula',
+    description: 'Deep space galaxy & orbital constellation nodes',
     colors: ['#050B14', '#0E1726', '#38bdf8', '#93c5fd'],
     portraitColor: '#38bdf8'
   },
   {
     id: 'glass',
     command: '/glass',
-    name: 'Glassmorphism Spheres',
-    description: 'Translucent violet panels & floating spheres (Image 5)',
+    name: 'Glassmorphism',
+    description: 'Translucent violet glass panels & gradient spheres',
     colors: ['#1A202C', '#2D3748', '#a855f7', '#38bdf8'],
     portraitColor: '#a855f7'
   }

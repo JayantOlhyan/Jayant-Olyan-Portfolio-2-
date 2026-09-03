@@ -91,7 +91,7 @@ export const useTerminal = () => {
         case 'help':
           response = `Available commands:
     /about        - Jayant Olhyan bio, background & education
-    /work         - Featured projects, deep learning & web3 apps
+    /work         - Featured projects, deep learning & full-stack apps
     /skills       - Technical stack, frameworks & AI models
     /hackathons   - 25x Hackathon track record & conference papers
     /social       - Social profiles & external connections

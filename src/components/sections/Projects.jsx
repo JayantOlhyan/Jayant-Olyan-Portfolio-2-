@@ -164,7 +164,7 @@ export const Projects = () => {
           </h2>
         </div>
         <div className="text-xs text-text-secondary font-mono">
-          Full-Stack • Deep Learning • Web3 & Space APIs
+          Full-Stack • Deep Learning • Space & Cloud APIs
         </div>
       </div>
 

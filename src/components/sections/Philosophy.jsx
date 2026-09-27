@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { TerminalCard } from '../ui/TerminalCard';
 import { motion } from 'framer-motion';

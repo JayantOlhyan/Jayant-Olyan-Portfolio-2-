@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { TerminalCard } from '../ui/TerminalCard';
 import { motion } from 'framer-motion';
@@ -27,7 +29,7 @@ export const About = () => {
         {/* Left Bio Column (8 cols) */}
         <div className="md:col-span-8 space-y-4 text-text-secondary text-fluid-sm sm:text-fluid-base leading-relaxed">
           <p>
-            <strong className="text-text-primary font-semibold">Jayant Olhyan</strong> is an <strong className="text-amber-400 font-semibold">IIT Guwahati</strong> Data Science & AI student and a <strong className="text-emerald-400 font-semibold">MSIT</strong> Computer Science engineer, active as an elite <strong className="text-sky-400 font-semibold">25x Hackathon Finalist</strong> and full-stack AI developer.
+            <strong className="text-text-primary font-semibold">Jayant Olhyan</strong> is pursuing a <strong className="text-amber-400 font-semibold">BSc (Hons) in Data Science and Artificial Intelligence from IIT Guwahati (Batch 25-29)</strong> and is a <strong className="text-emerald-400 font-semibold">MSIT</strong> Computer Science engineer, active as an elite <strong className="text-sky-400 font-semibold">25x Hackathon Finalist</strong> and full-stack AI developer.
           </p>
           <p>
             He builds production-ready systems bridging multi-modal deep learning (computer vision, RAG fact-checking, speech recognition) with reactive full-stack interfaces (React 18, Next.js, FastAPI, Three.js). He has presented peer-reviewed research at the <strong className="text-text-primary">MRIIRS International Conference (2026)</strong> on encrypted healthcare decision engines and built tools deployed for Indian farmers and orbital space risk visualization.

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CommandPrompt } from '../components/ui/CommandPrompt';
@@ -9,22 +11,24 @@ import { SettingsModal } from '../components/ui/SettingsModal';
 import { MacMenuBar } from '../components/ui/MacMenuBar';
 import { MacDock } from '../components/ui/MacDock';
 import { OfflineIndicator } from '../components/OfflineIndicator';
+import { useTerminal } from '../context/TerminalContext';
 
-export const MainLayout = ({ 
-  children, 
-  onCommand, 
-  hideInput, 
-  onHistoryUp, 
-  onHistoryDown, 
-  currentTheme,
-  onThemeChange,
-  matrixActive,
-  setMatrixActive,
-  confettiActive,
-  setConfettiActive,
-  closeOverlayActive,
-  setCloseOverlayActive
-}) => {
+export const MainLayout = (props) => {
+  const terminal = useTerminal();
+
+  const onCommand = props.onCommand ?? terminal.executeCommand;
+  const hideInput = props.hideInput ?? (terminal.isBooting || terminal.isLocked);
+  const onHistoryUp = props.onHistoryUp ?? terminal.handleHistoryUp;
+  const onHistoryDown = props.onHistoryDown ?? terminal.handleHistoryDown;
+  const currentTheme = props.currentTheme ?? terminal.currentTheme;
+  const onThemeChange = props.onThemeChange ?? terminal.setTheme;
+  const matrixActive = props.matrixActive ?? terminal.matrixActive;
+  const setMatrixActive = props.setMatrixActive ?? terminal.setMatrixActive;
+  const confettiActive = props.confettiActive ?? terminal.confettiActive;
+  const setConfettiActive = props.setConfettiActive ?? terminal.setConfettiActive;
+  const closeOverlayActive = props.closeOverlayActive ?? terminal.closeOverlayActive;
+  const setCloseOverlayActive = props.setCloseOverlayActive ?? terminal.setCloseOverlayActive;
+  const children = props.children;
   const scrollRef = useRef(null);
   const [isMaximized, setIsMaximized] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);

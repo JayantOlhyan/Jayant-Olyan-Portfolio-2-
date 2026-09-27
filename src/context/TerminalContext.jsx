@@ -61,7 +61,7 @@ export function TerminalProvider({ children, initialRoute = '/' }) {
     document.documentElement.className = themeId;
     try {
       localStorage.setItem('portfolio-theme', themeId);
-    } catch (e) {
+    } catch {
       // storage quota or restricted
     }
   }, []);

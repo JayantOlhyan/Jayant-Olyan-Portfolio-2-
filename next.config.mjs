@@ -6,6 +6,7 @@ const nextConfig = {
     unoptimized: true,
   },
   reactStrictMode: true,
+  agentRules: false,
 };
 
 export default nextConfig;

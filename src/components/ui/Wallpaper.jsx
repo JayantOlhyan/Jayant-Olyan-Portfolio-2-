@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import retroWallpaper from '../../assets/wallpapers/retro-wallpaper.png';
 import darkWallpaper from '../../assets/wallpapers/dark-wallpaper.png';
@@ -22,7 +24,8 @@ export const Wallpaper = ({ currentTheme }) => {
     }
   };
 
-  const bgImage = getWallpaperSrc();
+  const rawImage = getWallpaperSrc();
+  const bgImage = typeof rawImage === 'object' && rawImage?.src ? rawImage.src : rawImage;
 
   return (
     <div className="fixed inset-0 z-0 overflow-hidden select-none bg-[#09090b]">

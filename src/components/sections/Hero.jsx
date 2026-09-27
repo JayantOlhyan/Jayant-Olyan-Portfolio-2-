@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
 import { terminalBootLines, bootSequence } from '../../data/portfolioData';
 import { BlinkingCursor } from '../ui/BlinkingCursor';

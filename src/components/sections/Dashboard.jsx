@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { terminalBootLines, terminalBootLinesCompact, themeData } from '../../data/portfolioData';
 import { WelcomeBox } from './WelcomeBox';

@@ -31,11 +31,11 @@ export const ThemeSelector = ({ currentTheme, onThemeChange }) => {
               </div>
               
               {/* Command and Info */}
-              <div className="flex items-baseline space-x-2 font-mono text-sm">
+              <div className="flex flex-wrap items-baseline gap-x-2 font-mono text-xs sm:text-sm">
                 <span className="text-text-primary font-bold">{theme.command}</span>
-                <span className="text-text-primary/90">{theme.name}</span>
+                <span className="text-text-primary/90 font-medium">{theme.name}</span>
                 {theme.description && (
-                  <span className="text-text-secondary opacity-70">: {theme.description}</span>
+                  <span className="text-text-secondary opacity-70 hidden sm:inline">: {theme.description}</span>
                 )}
               </div>
             </div>

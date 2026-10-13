@@ -89,7 +89,7 @@ export const MainLayout = (props) => {
             className={`relative w-full z-20 flex flex-col bg-bg-primary/95 sm:rounded-xl overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.85)] border border-white/10 terminal-window-glass my-auto ${
               isMaximized 
                 ? 'max-w-full h-full sm:h-full sm:rounded-none my-0' 
-                : 'max-w-[clamp(100%,1200px,100%)] h-full sm:h-[clamp(480px,82dvh,1200px)]'
+                : 'max-w-[1240px] h-full sm:h-[clamp(520px,86dvh,960px)]'
             }`}
           >
             {/* CRT/Scanlines overlay */}

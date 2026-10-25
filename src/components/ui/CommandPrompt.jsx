@@ -151,7 +151,6 @@ export const CommandPrompt = ({ onCommand, onHistoryUp, onHistoryDown }) => {
           autoComplete="off"
           autoCorrect="off"
           spellCheck="false"
-          autoFocus
         />
       </form>
     </div>
